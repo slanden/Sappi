@@ -1,0 +1,21 @@
+﻿<Window x:Class="Sappi.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sappi"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+    <Grid Loaded="Window_Loaded">
+        <!--New App button--><!--
+        <Button x:Name="newAppButton" MouseUp="NewAppButton_MouseUp" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75">
+            <TextBlock TextWrapping="Wrap" TextAlignment="Center">New Application</TextBlock>
+        </Button>
+        --><!--View database button--><!--
+        <Button x:Name="dbButton" MouseUp="DatabaseButton_MouseUp" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top" Width="75">
+            <TextBlock TextWrapping="Wrap" TextAlignment="Center">View Database</TextBlock>
+        </Button>-->
+        
+        <ContentControl Name="ContentArea"/>
+    </Grid>
+</Window>
