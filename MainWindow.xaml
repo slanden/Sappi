@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Sappi"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
-    <Grid Loaded="Window_Loaded">
+    <Grid Loaded="Window_Loaded" Background="DimGray" >
         <!--New App button--><!--
         <Button x:Name="newAppButton" MouseUp="NewAppButton_MouseUp" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75">
             <TextBlock TextWrapping="Wrap" TextAlignment="Center">New Application</TextBlock>

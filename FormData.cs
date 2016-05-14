@@ -14,27 +14,28 @@ namespace Sappi
 
         public FormData()
         {
-            ////path to the bin folder
-            //string path = Path.GetFullPath(Path.Combine(AppDomain.
-            //              CurrentDomain.BaseDirectory, "..\\"));
-            //path += "strings.txt";
+            //path to the bin folder
+            string path = Path.GetFullPath(Path.Combine(AppDomain.
+                          CurrentDomain.BaseDirectory, "..\\"));
+            path += "strings.txt";
 
-            ////read strings from file and put them
-            //// into lists and create groups
-            //int count = 0;
-            //foreach (string s in File.ReadLines(path))
-            //{
-            //    if (!string.IsNullOrWhiteSpace(s))
-            //    {
-            //        //check if string should be a group
-            //        if (s.StartsWith("#"))
-            //            groups.Add(s.Substring(1).ToLower(), count);
+            Console.WriteLine(path);
+            //read strings from file and put them
+            // into lists and create groups
+            int count = 0;
+            foreach (string s in File.ReadLines(path))
+            {
+                if (!string.IsNullOrWhiteSpace(s))
+                {
+                    //check if string should be a group
+                    if (s.StartsWith("#"))
+                        groups.Add(s.Substring(1).ToLower(), count);
 
-            //        //add the string to the master list of strings
-            //        masterList.Add(count, s);
-            //        count++;
-            //    }
-            //}
+                    //add the string to the master list of strings
+                    masterList.Add(count, s);
+                    count++;
+                }
+            }
         }
     }
 }

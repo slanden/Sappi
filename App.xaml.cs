@@ -13,13 +13,13 @@ namespace Sappi
     /// </summary>
     public partial class App : Application
     {
-        public List<StudentApplication> db;
-        public FormData formInfo;
+        public static Database db;
+        public static FormData formData;
 
         public App()
         {
-            db = new List<StudentApplication>();
-            formInfo = new FormData();
+            db = new Database();
+            formData = new FormData();
         }
     }
 }

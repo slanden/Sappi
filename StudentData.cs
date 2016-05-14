@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sappi
 {
-    public class StudentApplication
+    public class StudentData
     {
         public int[] groupBoxes;
         public string name;
@@ -22,7 +22,7 @@ namespace Sappi
         public bool newsletterSub;
         public char[] initials;
 
-        public StudentApplication(int numGroups)
+        public StudentData(int numGroups)
         {
             groupBoxes = new int[numGroups];
         }

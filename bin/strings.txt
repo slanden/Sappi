@@ -1,0 +1,55 @@
+#Campuses
+
+Seattle Campus (WA)
+Lafayette Campus (LA)
+
+#Programs
+
+Game Art & Animation - Advanced Diploma of Professional Game Development
+Game Programming - Advanced Diploma of Professional Game Development
+Game Design & Production - Advanced Diploma of Professional Game Development
+3D Animation & Visual FX for Film - Advanced Diploma of Screen & Media
+
+#States
+
+Louisiana
+Washington
+
+#Countries
+
+United States
+
+#ContactMethods
+
+Contact by text (ensure your mobile number is recorded)
+Contact by email
+
+#EducationLevel
+
+GED
+Some College
+Associate's Degree
+Bachelor's Degree
+Master's Degree
+
+#Ethnicities
+
+Hispanic or Latino
+Non-Hispanic or Latino
+
+#Races
+
+American Indian or Alaska Native
+Black or African American
+Asain
+White
+Native Hawaiian & Other Pacific Islander
+
+#References
+
+Student
+Internet
+
+#ProvideInfoBy
+
+Submit via mail to campus postal address

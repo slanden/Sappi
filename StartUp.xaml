@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Sappi"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Background="DarkSlateGray">
+    <Grid >
         <!--New App button-->
         <Button Name="newAppButton" Click="newAppButton_Click"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75">
             <TextBlock TextWrapping="Wrap" TextAlignment="Center">New Application</TextBlock>
