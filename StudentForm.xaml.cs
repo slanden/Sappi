@@ -83,7 +83,10 @@ namespace Sappi
                 else
                     sd.groupBoxes[i] = vals.IndexOf(groupBoxes[i].SelectedItem.ToString());
             }
-            //App.db.items.Add(sd);
+            App.db.items.Add(sd);
+
+            //back to home
+            MainWindow.Main.ContentArea.Content = new StartUp();
         }
     }
 }

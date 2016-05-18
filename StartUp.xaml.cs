@@ -32,7 +32,9 @@ namespace Sappi
 
         private void DatabaseButton_Click(object sender, RoutedEventArgs e)
         {
-
+            //for (int i = 0; i < App.db.items.Count; ++i)
+            //    Console.WriteLine(App.db.items[i].name);
+            MainWindow.Main.ContentArea.Content = new DatabaseView();
         }
     }
 }
