@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -31,7 +32,30 @@ namespace Sappi
                 Console.WriteLine("items NULL");
             else
                 Console.WriteLine(App.db.items.Count);
-            dataGrid.ItemsSource = App.db.items;
+
+            dg.ItemsSource = App.db.items;
+            PopulateDatagrid(dg);
+
+            Console.WriteLine("Column count: " + dg.Columns.Count);
+            Console.WriteLine("Display index: ");
+        }
+
+        private void PopulateDatagrid(DataGrid grid)
+        {
+            dg.Columns.Add(new DataGridTextColumn() {Header = "Name", Binding = new Binding("name")});
+            dg.Columns.Add(new DataGridTextColumn() { Header = "Campus", Binding = new Binding("masterList") });
+            dg.Columns.Add(new DataGridTextColumn() { Header = "Program", Binding = new Binding("masterList") });
+
+            //for (int i = 0; i < App.formData.groups.Count; ++i)
+            //{
+            //    DataGridColumn c;
+            //    c.Header = 
+            //    dg.Columns.Add(c);
+            //    for (int j = 0; j < App.db.items.Count; ++j)
+            //    {
+
+            //    }
+            //}
         }
     }
 }

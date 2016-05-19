@@ -8,7 +8,7 @@
              d:DesignHeight="600" d:DesignWidth="800">
     <Grid Loaded="DatabaseView_Loaded">
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="10,90,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="244,90,0,0" VerticalAlignment="Top" Width="546" Height="413" />
+        <DataGrid x:Name="dg" HorizontalAlignment="Left" Margin="244,90,0,0" VerticalAlignment="Top" Width="546" Height="413" AutoGenerateColumns="False"/>
 
 
     </Grid>

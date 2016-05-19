@@ -9,7 +9,7 @@ namespace Sappi
     public class StudentData
     {
         public int[] groupBoxes;
-        public string name;
+        public string name { get; set; }
         public string residentialAddress;
         public string email;
         public string cellPhoneNum;
