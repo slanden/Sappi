@@ -33,6 +33,19 @@ namespace Sappi
             else
                 Console.WriteLine(App.db.items.Count);
 
+            //default form vals for testing
+            StudentData sd = new StudentData(App.formData.groups.Count);
+            sd.name = "John Marston";
+            sd.groupBoxes[0] = 2;
+            sd.groupBoxes[1] = 6;
+
+            StudentData sd2 = new StudentData(App.formData.groups.Count);
+            sd2.name = "Jim Jammers";
+            sd2.groupBoxes[0] = 3;
+            sd2.groupBoxes[1] = 8;
+            App.db.items.Add(sd);
+            App.db.items.Add(sd2);
+
             dg.ItemsSource = App.db.items;
             PopulateDatagrid(dg);
 
@@ -43,9 +56,8 @@ namespace Sappi
         private void PopulateDatagrid(DataGrid grid)
         {
             dg.Columns.Add(new DataGridTextColumn() {Header = "Name", Binding = new Binding("name")});
-            dg.Columns.Add(new DataGridTextColumn() { Header = "Campus", Binding = new Binding("masterList") });
-            dg.Columns.Add(new DataGridTextColumn() { Header = "Program", Binding = new Binding("masterList") });
-
+            dg.Columns.Add(new DataGridTextColumn() { Header = "Campus", Binding = new Binding("groupBoxes[0].Value") });
+            dg.Columns.Add(new DataGridTextColumn() { Header = "Program", Binding = new Binding("groupBoxes[1]") });
             //for (int i = 0; i < App.formData.groups.Count; ++i)
             //{
             //    DataGridColumn c;
