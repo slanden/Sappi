@@ -52,6 +52,7 @@ namespace Sappi
             return groupBoxes;
         }
 
+        //a duplicate of this function exists elsewhere
         private void Textbox_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox tb = (TextBox)sender;

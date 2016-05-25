@@ -8,8 +8,8 @@ namespace Sappi
 {
     public class StudentData
     {
-        public int[] groupBoxes;
         public string name { get; set; }
+        public int[] groupBoxes { get; set; }
         public string residentialAddress;
         public string email;
         public string cellPhoneNum;

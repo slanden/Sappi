@@ -9,11 +9,12 @@ namespace Sappi
 {
     public class FormData
     {
-        public Dictionary<int, string> masterList = new Dictionary<int, string>();
+        public Dictionary<int, string> masterList { get; set; }
         public Dictionary<string, int> groups = new Dictionary<string, int>();
 
         public FormData()
         {
+            masterList = new Dictionary<int, string>();
             //path to the bin folder
             string path = Path.GetFullPath(Path.Combine(AppDomain.
                           CurrentDomain.BaseDirectory, "..\\"));
