@@ -75,6 +75,7 @@
     <Compile Include="DatabaseView.xaml.cs">
       <DependentUpon>DatabaseView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataGridHelper.cs" />
     <Compile Include="FormData.cs" />
     <Compile Include="IntToKeyConverter.cs" />
     <Compile Include="StartUp.xaml.cs">

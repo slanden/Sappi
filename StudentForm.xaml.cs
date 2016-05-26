@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Sappi
 {
@@ -22,33 +12,71 @@ namespace Sappi
     {
         public List<ComboBox> groupBoxes = new List<ComboBox>();
 
-        public StudentForm()
+        public StudentForm(StudentData sd = null)
         {
             InitializeComponent();
-            groupBoxes = FillForm(App.formData);
+            groupBoxes = FillForm(App.formData, sd);
         }
 
-        List<ComboBox> FillForm(FormData fData)
+        List<ComboBox> FillForm(FormData fData, StudentData sd)
         {
-            for (int i = 0; i < fData.groups.Count; ++i)
+            if (sd == null)
             {
-                groupBoxes.Add(FindName(fData.groups.ElementAt(i).Key + "Box") as ComboBox);
-
-                int groupStart = fData.groups.ElementAt(i).Value + 1;
-                int nextGroup;
-
-
-                if (i == fData.groups.Count - 1)
-                    nextGroup = fData.masterList.Count;
-                else
-                    nextGroup = fData.groups.ElementAt(i + 1).Value;
-
-                for (int j = 0; j < nextGroup - groupStart; ++j)
+                for (int i = 0; i < fData.groups.Count; ++i)
                 {
-                    int num = groupStart + j;
-                    groupBoxes[i].Items.Add(fData.masterList[num]);
+                    groupBoxes.Add(FindName(fData.groups.ElementAt(i).Key + "Box") as ComboBox);
+
+                    int groupStart = fData.groups.ElementAt(i).Value + 1;
+                    int nextGroup;
+
+
+                    if (i == fData.groups.Count - 1)
+                        nextGroup = fData.masterList.Count;
+                    else
+                        nextGroup = fData.groups.ElementAt(i + 1).Value;
+
+                    for (int j = 0; j < nextGroup - groupStart; ++j)
+                    {
+                        int num = groupStart + j;
+                        groupBoxes[i].Items.Add(fData.masterList[num]);
+                    }
                 }
             }
+            else
+            {
+                string[] name;
+
+                name = sd.name.Split(' ');
+                nameBox1.Text = name[0];
+                nameBox2.Text = name[1];
+
+                for (int i = 0; i < fData.groups.Count; ++i)
+                {
+                    #region same as null version
+                    groupBoxes.Add(FindName(fData.groups.ElementAt(i).Key + "Box") as ComboBox);
+
+                    int groupStart = fData.groups.ElementAt(i).Value + 1;
+                    int nextGroup;
+
+
+                    if (i == fData.groups.Count - 1)
+                        nextGroup = fData.masterList.Count;
+                    else
+                        nextGroup = fData.groups.ElementAt(i + 1).Value;
+
+                    for (int j = 0; j < nextGroup - groupStart; ++j)
+                    {
+                        int num = groupStart + j;
+                        groupBoxes[i].Items.Add(fData.masterList[num]);
+                    }
+                    #endregion
+
+                    //select values to represent the StudentData
+                    groupBoxes[i].SelectedItem = fData.masterList[sd.groupBoxes[i]];
+                }
+
+            }
+
             return groupBoxes;
         }
 
@@ -65,7 +93,8 @@ namespace Sappi
             StudentData sd = new StudentData(App.formData.groups.Count);
 
             //name is used for searching so name fields must be filled in
-            if (nameBox1.Text == "" || nameBox2.Text == "")
+            if (nameBox1.Text == "" || nameBox2.Text == "" ||
+                nameBox1.Text[0] == '(' || nameBox2.Text[0] == '(')
             {
                 MessageBox.Show("Must enter full name.");
                 return;
@@ -86,8 +115,12 @@ namespace Sappi
             }
             App.db.items.Add(sd);
 
-            //back to home
-            MainWindow.Main.ContentArea.Content = new StartUp();
+            //back to database
+            MainWindow.Main.ContentArea.Content = new DatabaseView();
+        }
+        private void Cancel(object a_Sender, RoutedEventArgs a_E)
+        {
+            MainWindow.Main.ContentArea.Content = new DatabaseView();
         }
     }
 }

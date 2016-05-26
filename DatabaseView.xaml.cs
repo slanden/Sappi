@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Sappi
 {
@@ -28,11 +17,6 @@ namespace Sappi
 
         private void DatabaseView_Loaded(object sender, RoutedEventArgs e)
         {
-            if (App.db.items == null)
-                Console.WriteLine("items NULL");
-            else
-                Console.WriteLine(App.db.items.Count);
-
             //default form vals for testing
             StudentData sd = new StudentData(App.formData.groups.Count);
             sd.name = "John Marston";
@@ -65,11 +49,19 @@ namespace Sappi
 
         private void PopulateDatagrid(DataGrid grid)
         {
-            dg.Columns.Add(new DataGridTextColumn() { Header = "Name", Binding = new Binding("name")});
-            dg.Columns.Add(new DataGridTextColumn() { Header = "Campus", Binding = new Binding("groupBoxes[0]")
-                                                    { Converter = new IntToKeyConverter() }});
-            dg.Columns.Add(new DataGridTextColumn() { Header = "Program", Binding = new Binding("groupBoxes[1]")
-                                                    { Converter = new IntToKeyConverter() } });
+            dg.Columns.Add(new DataGridTextColumn() { Header = "Name", Binding = new Binding("name") });
+            dg.Columns.Add(new DataGridTextColumn()
+            {
+                Header = "Campus",
+                Binding = new Binding("groupBoxes[0]")
+                { Converter = new IntToKeyConverter() }
+            });
+            dg.Columns.Add(new DataGridTextColumn()
+            {
+                Header = "Program",
+                Binding = new Binding("groupBoxes[1]")
+                { Converter = new IntToKeyConverter() }
+            });
             //for (int i = 0; i < App.formData.groups.Count; ++i)
             //{
             //    DataGridColumn c;
@@ -88,17 +80,20 @@ namespace Sappi
                 return;
 
             int inputLength = searchBar.Text.Length;
-            Console.WriteLine("length: " + inputLength);
+
             for (int i = 0; i < dg.Items.Count; ++i)
             {
-                Console.WriteLine("item: " + dg.SelectAllCells());
-                
-                //if (dg.Items[i].ToString() .Substring(0, inputLength)
-                //    == searchBar.Text)
-                //{
-                //    Console.WriteLine("dg selected string: " + dg.Items[i].ToString().Substring(0, inputLength));
-                //    dg.SelectedItem = dg.Items[i];
-                //}
+                DataGridCell cell = DataGridHelper.GetCell(dg, i, 0);
+
+                if (cell != null)
+                {
+                    //get text content
+                    var cellContent = (TextBlock)cell.Content;
+                    string cellVal = cellContent.Text;
+
+                    if (searchBar.Text == cellVal.Substring(0, inputLength))
+                        dg.SelectedItem = dg.Items[i];
+                }
             }
         }
 
@@ -108,6 +103,11 @@ namespace Sappi
             tb.Text = string.Empty;
             tb.GotFocus -= Textbox_GotFocus;
             tb.TextChanged += Search;
+        }
+
+        private void EditStudentData(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow.Main.ContentArea.Content = new StudentForm(dg.SelectedItem as StudentData);
         }
     }
 }
