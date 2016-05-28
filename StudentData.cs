@@ -5,16 +5,17 @@ namespace Sappi
     {
         public string name { get; set; }
         public int[] groupBoxes { get; set; }
-        public string residentialAddress;
-        public string email;
-        public string cellPhoneNum;
-        public string homePhoneNum;
-        public string schoolName;
-        public bool separateMailAddress;
+        public int status { get; set; }
+        public string[] addresses { get; set; }
+        public string email { get; set; }
+        public string cellPhoneNum { get; set; }
+        public string homePhoneNum { get; set; }
+        public string schoolName { get; set; }
+        public bool separateMailAddress { get; set; }
+        public bool gender { get; set; }
+        public bool supportRequired { get; set; }
+        public bool newsletterSub { get; set; }
         public bool willProvideThisInfo;
-        public bool gender;
-        public bool supportRequired;
-        public bool newsletterSub;
         public char[] initials;
 
         public StudentData(int numGroups)
