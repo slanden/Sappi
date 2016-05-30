@@ -21,6 +21,7 @@ namespace Sappi
         public StudentData(int numGroups)
         {
             groupBoxes = new int[numGroups];
+            addresses = new string[6];
         }
     }
 }

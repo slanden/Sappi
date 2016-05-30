@@ -8,6 +8,7 @@ namespace Sappi
     {
         public Dictionary<int, string> masterList { get; set; }
         public Dictionary<string, int> groups = new Dictionary<string, int>();
+        public Dictionary<int, string> status = new Dictionary<int, string>();
 
         public FormData()
         {
@@ -34,6 +35,14 @@ namespace Sappi
                     count++;
                 }
             }
+
+            //status strings
+            status.Add(0, "lost");
+            status.Add(1, "offered");
+            status.Add(2, "applied");
+            status.Add(3, "interviewed");
+            status.Add(4, "accepted");
+            status.Add(5, "enrolled");
         }
     }
 }

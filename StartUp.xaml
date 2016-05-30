@@ -5,17 +5,22 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Sappi"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="600" d:DesignWidth="800">
+    <UserControl.Resources>
+        <BitmapImage x:Key="img_newItem" UriSource="./bin/add.png"/>
+        <BitmapImage x:Key="img_fileCabinet" UriSource="./bin/file-cabinet.png"/>
+    </UserControl.Resources>
     <Grid >
         <!--New App button-->
-        <Button Name="newAppButton" Click="newAppButton_Click"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75">
-            <TextBlock TextWrapping="Wrap" TextAlignment="Center">New Application</TextBlock>
+        <Button Name="newAppButton" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Click="newAppButton_Click"  HorizontalAlignment="Left" Margin="200,422,0,0" VerticalAlignment="Top" ToolTip="New Application">
+            <Image Source="{StaticResource img_newItem}" Height="64" Width="64"/>
         </Button>
         
         <!--View database button-->
-        <Button Name="dbButton" Click="DatabaseButton_Click" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top" Width="75">
-            <TextBlock TextWrapping="Wrap" TextAlignment="Center">View Database</TextBlock>
+        <Button Name="dbButton" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Click="DatabaseButton_Click" HorizontalAlignment="Left" Margin="469,422,0,0" VerticalAlignment="Top" ToolTip="View Database">
+            <Image Source="{StaticResource img_fileCabinet}" Height="64" Width="64"/>
         </Button>
         
+
     </Grid>
 </UserControl>
