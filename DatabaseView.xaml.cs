@@ -32,11 +32,19 @@ namespace Sappi
             sd.groupBoxes[8] = 32;
             sd.groupBoxes[9] = 35;
             sd.separateMailAddress = false;
+            sd.gender = true;
+            sd.supportRequired = false;
+            sd.newsletterSub = false;
+            sd.willProvideThisInfo = true;
             sd.addresses[0] = "122 Smaller Hill";
             sd.addresses[1] = "Big Hill, LA 70508";
             sd.email = "j.marston@gmail.com";
             sd.cellPhoneNum = "111-112-1122";
             sd.homePhoneNum = "N/A";
+            sd.schoolName = "DTHS";
+            sd.initials = new char[2];
+            sd.initials[0] = 'J';
+            sd.initials[1] = 'M';
 
             StudentData sd2 = new StudentData(App.formData.groups.Count);
             sd2.name = "Jim Jammers";
@@ -52,12 +60,19 @@ namespace Sappi
             sd2.groupBoxes[8] = 32;
             sd2.groupBoxes[9] = 35;
             sd2.separateMailAddress = false;
+            sd2.supportRequired = true;
+            sd2.newsletterSub = false;
+            sd2.gender = true;
+            sd2.willProvideThisInfo = true;
             sd2.addresses[0] = "101 NotBooked Ave.";
             sd2.addresses[1] = "Seattle, WA 98105";
             sd2.email = "jammers_on_my_jimmy@hotmail.com";
             sd2.cellPhoneNum = "112-122-1222";
             sd2.homePhoneNum = "N/A";
-
+            sd2.schoolName = "DTHS";
+            sd2.initials = new char[2];
+            sd2.initials[0] = 'J';
+            sd2.initials[1] = 'J';
 
             StudentData sd3 = new StudentData(App.formData.groups.Count);
             sd3.name = "Dana Disappears";
@@ -73,11 +88,19 @@ namespace Sappi
             sd3.groupBoxes[8] = 33;
             sd3.groupBoxes[9] = 35;
             sd3.separateMailAddress = false;
+            sd3.gender = false;
+            sd3.supportRequired = false;
+            sd3.newsletterSub = true;
+            sd3.willProvideThisInfo = true;
             sd3.addresses[0] = "34 BrokenDoor Dr.";
             sd3.addresses[1] = "Mini China, LA 70803";
             sd3.email = "dananas@yahooligans.com";
             sd3.cellPhoneNum = "122-222-2223";
             sd3.homePhoneNum = "N/A";
+            sd3.schoolName = "DTHS";
+            sd3.initials = new char[2];
+            sd3.initials[0] = 'D';
+            sd3.initials[1] = 'D';
 
             StudentData sd4 = new StudentData(App.formData.groups.Count);
             sd4.name = "Zachary Powers";
@@ -93,6 +116,10 @@ namespace Sappi
             sd4.groupBoxes[8] = 32;
             sd4.groupBoxes[9] = 35;
             sd4.separateMailAddress = true;
+            sd4.gender = true;
+            sd4.supportRequired = true;
+            sd4.newsletterSub = true;
+            sd4.willProvideThisInfo = true;
             sd4.addresses[0] = "150 Shmifty Rd.";
             sd4.addresses[1] = "Abb Villain, LA 70588";
             sd4.addresses[3] = "157 Hans Shmifty Seven Rd.";
@@ -100,6 +127,10 @@ namespace Sappi
             sd4.email = "i_am_zpowers@youtube-mail.com";
             sd4.cellPhoneNum = "223-233-2333";
             sd4.homePhoneNum = "N/A";
+            sd4.schoolName = "DTHS";
+            sd4.initials = new char[2];
+            sd4.initials[0] = 'Z';
+            sd4.initials[1] = 'P';
 
             App.db.items.Add(sd);
             App.db.items.Add(sd2);

@@ -52,6 +52,8 @@ namespace Sappi
                 name = sd.name.Split(' ');
                 nameBox1.Text = name[0];
                 nameBox2.Text = name[1];
+                //status.selected = sd.status;
+                //possibly redundant check. Research optimization
                 separatemailingaddressBox.SelectedIndex = 
                     sd.separateMailAddress ? 1 : 0;
                 resaddressBox1.Text = sd.addresses[0];
@@ -66,6 +68,12 @@ namespace Sappi
                 emailBox.Text = sd.email;
                 cellphoneBox.Text = sd.cellPhoneNum;
                 homephoneBox.Text = sd.homePhoneNum;
+                schoolnameBox.Text = sd.schoolName;
+                genderBox.SelectedIndex = sd.gender ? 1 : 0;
+                supportrequiredBox.SelectedIndex = sd.supportRequired ? 1 : 0;
+                newsletterBox.SelectedIndex = sd.newsletterSub ? 1 : 0;
+                willprovideinfoBox.SelectedIndex = sd.willProvideThisInfo ? 1 : 0;
+                initialsBox.Text = sd.initials[0].ToString() + sd.initials[1];
 
                 for (int i = 0; i < fData.groups.Count; ++i)
                 {
@@ -118,6 +126,7 @@ namespace Sappi
                 return;
             }
             sd.name = nameBox1.Text + " " + nameBox2.Text;
+            //possibly redundant check. Research optimization
             sd.separateMailAddress = (separatemailingaddressBox.SelectedIndex == 1) ? true : false;
             sd.addresses[0] = resaddressBox1.Text;
             sd.addresses[1] = resaddressBox2.Text;
@@ -131,6 +140,12 @@ namespace Sappi
             sd.email = emailBox.Text;
             sd.cellPhoneNum = cellphoneBox.Text;
             sd.homePhoneNum = homephoneBox.Text;
+            sd.schoolName = schoolnameBox.Text;
+            sd.gender = (genderBox.SelectedIndex == 1) ? true : false;
+            sd.supportRequired = (supportrequiredBox.SelectedIndex == 1) ? true : false;
+            sd.newsletterSub = (newsletterBox.SelectedIndex == 1) ? true : false;
+            sd.willProvideThisInfo = (willprovideinfoBox.SelectedIndex == 1) ? true : false;            
+            sd.initials = initialsBox.Text.ToCharArray();
 
             //convert masterList(dictionary) to a list to access the string's index
             List<string> vals = App.formData.masterList.Values.ToList();
@@ -152,6 +167,22 @@ namespace Sappi
         private void Cancel(object a_Sender, RoutedEventArgs a_E)
         {
             MainWindow.Main.ContentArea.Content = new DatabaseView();
+        }
+
+        private void DisableMailingAddress(object sender, RoutedEventArgs e)
+        {
+            mailAddressTextBlock.Visibility = Visibility.Hidden;
+            //mailaddressBox1.Visibility = Visibility.Hidden;
+            //mailaddressBox2.Visibility = Visibility.Hidden;
+            //mailaddressBox3.Visibility = Visibility.Hidden;
+        }
+
+        private void EnableMailingAddress(object sender, RoutedEventArgs e)
+        {
+            mailAddressTextBlock.Visibility = Visibility.Visible;
+            //mailaddressBox1.Visibility = Visibility.Visible;
+            //mailaddressBox2.Visibility = Visibility.Visible;
+            //mailaddressBox3.Visibility = Visibility.Visible;
         }
     }
 }
