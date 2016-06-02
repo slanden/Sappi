@@ -29,7 +29,7 @@ namespace Sappi
                     groupBoxes.Add(FindName(fData.groups.ElementAt(i).Key + "Box") as ComboBox);
 
                     int groupStart = fData.groups.ElementAt(i).Value + 1;
-                    int nextGroup;
+                    int nextGroup = 0;
 
                     if (i == fData.groups.Count - 1)
                         nextGroup = fData.masterList.Count;
@@ -48,7 +48,8 @@ namespace Sappi
             }
             else
             {
-                string[] name;
+                //for compiler
+                string[] name = new string[0];
 
                 name = sd.name.Split(' ');
                 nameBox1.Text = name[0];
@@ -82,7 +83,7 @@ namespace Sappi
                     groupBoxes.Add(FindName(fData.groups.ElementAt(i).Key + "Box") as ComboBox);
 
                     int groupStart = fData.groups.ElementAt(i).Value + 1;
-                    int nextGroup;
+                    int nextGroup = 0;
 
 
                     if (i == fData.groups.Count - 1)

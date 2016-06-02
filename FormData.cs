@@ -16,7 +16,7 @@ namespace Sappi
             //path to the bin folder
             //string path = Path.GetFullPath(Path.Combine(AppDomain.
             //              CurrentDomain.BaseDirectory, "..\\"));
-            string path = "strings.txt";
+            string path = "..\\strings.txt";
 
             Console.WriteLine(path);
             //read strings from file and put them

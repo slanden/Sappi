@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Sappi"
              mc:Ignorable="d" 
-             d:DesignHeight="1300" d:DesignWidth="600"
+             d:DesignHeight="1300" d:DesignWidth="800"
              Background="White">
     <UserControl.Resources>
         <BitmapImage x:Key="img_aieLogo" UriSource="./bin/aie-logo.png"/>
@@ -13,7 +13,7 @@
 
     <ScrollViewer HorizontalAlignment="Right">
         <ScrollViewer.Background>
-            <ImageBrush ImageSource="{StaticResource img_aieLogo}" Stretch="None" Opacity="0.25"/>
+            <ImageBrush ImageSource="{StaticResource img_aieLogo}" Stretch="None" Opacity="0.15"/>
         </ScrollViewer.Background>
 
         <Grid HorizontalAlignment="Right" Margin="10,0">
