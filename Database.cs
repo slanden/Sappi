@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace Sappi
 {
+    [XmlRoot("studentDb")]
     public class Database
     {
+        [XmlArray]
         List<StudentData> _db;
         public List<StudentData> items
         {

@@ -18,6 +18,8 @@ namespace Sappi
         public bool willProvideThisInfo;
         public char[] initials;
 
+        //parameterless constructor needed for xmlSerializer
+        public StudentData(){}
         public StudentData(int numGroups)
         {
             groupBoxes = new int[numGroups];

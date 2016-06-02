@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.CodeDom;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -161,6 +162,8 @@ namespace Sappi
 
 
             App.db.items.Add(sd);
+            //serialize data
+            XmlSerial.Write(App.db.items, "students.xml");
             //back to database
             MainWindow.Main.ContentArea.Content = new DatabaseView();
         }

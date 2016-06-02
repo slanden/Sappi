@@ -21,8 +21,9 @@ United States
 
 #ContactMethods
 
-Contact by text (ensure your mobile number is recorded)
-Contact by email
+Via Text (ensure your mobile number is recorded)
+Via Phone
+Via Email
 
 #EducationLevel
 
@@ -47,9 +48,13 @@ Native Hawaiian & Other Pacific Islander
 
 #References
 
-Student
-Internet
+Web Search
+Advertisement
+Careers Event
+Other:
 
 #ProvideInfoBy
 
 Submit via mail to campus postal address
+Online Submission
+Drop off at campus

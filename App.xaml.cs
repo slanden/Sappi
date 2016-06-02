@@ -20,6 +20,9 @@ namespace Sappi
         {
             db = new Database();
             formData = new FormData();
+
+            //read in student info from database file
+            db.items = XmlSerial.Read<StudentData>("students.xml");
         }
     }
 }

@@ -7,9 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
     <Grid Loaded="DatabaseView_Loaded">
-        <TextBox x:Name="searchBar" HorizontalAlignment="Left" Height="23" Margin="10,90,0,0" TextWrapping="Wrap" Text="(search)" VerticalAlignment="Top" Width="200" GotFocus="Textbox_GotFocus"/>
-        <DataGrid x:Name="dg" HorizontalAlignment="Left" Margin="244,90,0,0" VerticalAlignment="Top" Width="546" Height="413" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="EditStudentData"/>
-
+        <TextBox x:Name="searchBar" HorizontalAlignment="Left" Height="23" Margin="240,62,0,0" TextWrapping="Wrap" Text="(search)" VerticalAlignment="Top" Width="200" GotFocus="Textbox_GotFocus"/>
+        <DataGrid x:Name="dg" HorizontalAlignment="Left" Margin="240,90,0,0" VerticalAlignment="Top" Width="546" Height="413" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="EditStudentData"/>
+        <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Margin="42,468,0,0" VerticalAlignment="Top" Width="75" Click="GoBack"/>
 
     </Grid>
 </UserControl>

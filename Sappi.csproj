@@ -85,6 +85,7 @@
     <Compile Include="StudentForm.xaml.cs">
       <DependentUpon>StudentForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="XmlSerial.cs" />
     <Page Include="DatabaseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
