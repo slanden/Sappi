@@ -7,7 +7,7 @@ namespace Sappi
     public class Database
     {
         [XmlArray]
-        List<StudentData> _db;// = new List<StudentData>();
+        List<StudentData> _db;
         public List<StudentData> items
         {
             get { return _db; }
