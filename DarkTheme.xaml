@@ -2,11 +2,15 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Sappi">
 
+    
+    <SolidColorBrush x:Key="baseColor" Color="#282829"/>
+
     <!-- Background -->
     <LinearGradientBrush x:Key="DarkBackground" StartPoint="0.5,0" EndPoint="0.5,1">
         <GradientStop Color="#282829" Offset="0.65"/>
         <GradientStop Color="#FFB8B8B8" Offset="4.65"/>
     </LinearGradientBrush>
+    
 
     <!-- GLOW EFFECT -->
     <!-- not my code -->
@@ -41,7 +45,7 @@
 
     <!-- GLOW ANIMATION -->
     <!-- not my code -->
-    <Storyboard x:Key="GlowOut">
+    <!--<Storyboard x:Key="GlowOut">
         <DoubleAnimation x:Name="AnimGlowOut" BeginTime="00:00:00" 
                    Storyboard.TargetName="GlowRectangle"
                    Duration="00:00:00.250" 
@@ -52,12 +56,24 @@
     <Storyboard x:Key="GlowIn">
         <DoubleAnimation x:Name="AnimGlow" 
                    BeginTime="00:00:00" 
-                   Storyboard.TargetName="GlowRectangle"
+                   Storyboard.TargetName="Pressed"
                    Duration="00:00:00.250" 
                    From="0" To="1" 
                    Storyboard.TargetProperty="Opacity">
         </DoubleAnimation>
-    </Storyboard>
+    </Storyboard>-->
+
+    <!-- GLASS EFFECT -->
+    <!-- not my code -->
+    <LinearGradientBrush x:Key="GlassFX" StartPoint=".5,0" EndPoint=".5,.5">
+        <GradientStop Offset="1" Color="#33DDDDDD"></GradientStop>
+        <GradientStop Offset="1" Color="#33000000"></GradientStop>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="GlassFXDisabled" StartPoint=".5,0" EndPoint=".5,.5">
+        <GradientStop Offset="1" Color="#33BBBBBB"></GradientStop>
+        <GradientStop Offset="1" Color="#11000000"></GradientStop>
+    </LinearGradientBrush>
+    
 
     <!-- Round Button -->
     <Style x:Key="RndBtn" TargetType="{x:Type Button}">
@@ -76,21 +92,45 @@
                                           VerticalAlignment="center">
                         </ContentPresenter>
                     </Grid>
-                    
+                    <!--<ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="Button.MouseLeave">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard Storyboard="{StaticResource GlowOut}">
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard Storyboard="{StaticResource GlowIn}">
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Button.LostFocus">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard Storyboard="{StaticResource GlowOut}">
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Button.GotFocus">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard Storyboard="{StaticResource GlowIn}">
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>-->
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+    
+    <!-- Datagrid -->
+    <Style TargetType="DataGrid">
+        <Setter Property="Background" Value="{StaticResource baseColor}"/>
+        <Setter Property="RowBackground" Value="{StaticResource GlassFX}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Foreground" Value="#FFC4C4C4" />
+    </Style>
 
-    <!-- GLASS EFFECT -->
-    <!-- not my code -->
-    <LinearGradientBrush x:Key="GlassFX" StartPoint=".5,0" EndPoint=".5,.5">
-        <GradientStop Offset="1" Color="#33DDDDDD"></GradientStop>
-        <GradientStop Offset="1" Color="#33000000"></GradientStop>
-    </LinearGradientBrush>
-    <LinearGradientBrush x:Key="GlassFXDisabled" StartPoint=".5,0" EndPoint=".5,.5">
-        <GradientStop Offset="1" Color="#33BBBBBB"></GradientStop>
-        <GradientStop Offset="1" Color="#11000000"></GradientStop>
-    </LinearGradientBrush>
+    
 
 </ResourceDictionary>

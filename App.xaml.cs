@@ -10,14 +10,16 @@ namespace Sappi
     {
         public static Database db;
         public static FormData formData;
-         
+        public static string pathToDatabase = "..\\students.xml";
+
+
         public App()
         {
             db = new Database();
             formData = new FormData();
 
             //read in student info from database file
-            db.items = XmlSerial.Read<StudentData>("..\\students.xml");
+            db.items = XmlSerial.Read<StudentData>(pathToDatabase);
         }
 
         private void App_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)

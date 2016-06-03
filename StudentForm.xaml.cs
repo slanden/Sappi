@@ -118,7 +118,13 @@ namespace Sappi
 
         private void Save(object sender, RoutedEventArgs e)
         {
-            StudentData sd = new StudentData(App.formData.groups.Count);
+            StudentData sd;
+            if (App.db.items.Find(s => s.name == nameBox1.Text + " " + nameBox2.Text) != null)
+            {
+                sd = App.db.items.Find(s => s.name == nameBox1.Text + " " + nameBox2.Text);
+            }
+            else
+                sd = new StudentData(App.formData.groups.Count);
 
             //name is used for searching so name fields must be filled in
             if (nameBox1.Text == "" || nameBox2.Text == "" ||
@@ -164,7 +170,7 @@ namespace Sappi
 
             App.db.items.Add(sd);
             //serialize data
-            XmlSerial.Write(App.db.items, "students.xml");
+            XmlSerial.Write(App.db.items, App.pathToDatabase);
             //back to database
             MainWindow.Main.ContentArea.Content = new DatabaseView();
         }
