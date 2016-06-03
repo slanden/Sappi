@@ -12,7 +12,7 @@
     </UserControl.Resources>
     <Grid >
         <!--New App button-->
-        <Button Name="newAppButton" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Click="newAppButton_Click"  HorizontalAlignment="Left" Margin="200,422,0,0" VerticalAlignment="Top" ToolTip="New Application">
+        <Button Name="newAppButton" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Click="newAppButton_Click"  HorizontalAlignment="Left" Margin="175,422,0,0" VerticalAlignment="Top" ToolTip="New Application">
             <Image Source="{StaticResource img_newItem}" Height="64" Width="64"/>
         </Button>
         
@@ -20,7 +20,11 @@
         <Button Name="dbButton" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Click="DatabaseButton_Click" HorizontalAlignment="Left" Margin="469,422,0,0" VerticalAlignment="Top" ToolTip="View Database">
             <Image Source="{StaticResource img_fileCabinet}" Height="64" Width="64"/>
         </Button>
-        
+        <Button x:Name="button2" Style="{StaticResource RndBtn}" HorizontalAlignment="Left" Margin="469,166,0,0" VerticalAlignment="Top" Width="75">
+            <Image Source="{StaticResource img_fileCabinet}" Height="64" Width="64"/>
+        </Button>
+
+
 
     </Grid>
 </UserControl>

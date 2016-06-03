@@ -5,8 +5,59 @@
     <!-- Background -->
     <LinearGradientBrush x:Key="DarkBackground" StartPoint="0.5,0" EndPoint="0.5,1">
         <GradientStop Color="#282829" Offset="0.65"/>
-        <GradientStop Color="#FFB8B8B8" Offset="1.75"/>
+        <GradientStop Color="#FFB8B8B8" Offset="4.65"/>
     </LinearGradientBrush>
+
+    <!-- GLOW EFFECT -->
+    <!-- not my code -->
+    <RadialGradientBrush x:Key="GlowFX" GradientOrigin=".5,1" Center=".5,1">
+        <GradientStop Offset="0" Color="#990000FF"></GradientStop>
+        <GradientStop Offset=".5" Color="#660000DD"></GradientStop>
+        <GradientStop Offset="1" Color="#33000000"></GradientStop>
+    </RadialGradientBrush>
+    <RadialGradientBrush x:Key="GlowFXPressed" GradientOrigin=".5,1" Center=".5,1">
+        <GradientStop Offset="0" Color="#660000CC"></GradientStop>
+        <GradientStop Offset="1.2" Color="#33FFFFFF"></GradientStop>
+    </RadialGradientBrush>
+    <LinearGradientBrush x:Key="GlowFXRowPressed">
+        <GradientStop Offset="0" Color="#660000FF"></GradientStop>
+        <GradientStop Offset=".7" Color="#660000AA"></GradientStop>
+        <GradientStop Offset="1" Color="#66000000"></GradientStop>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="GlowFXProgress">
+        <GradientStop Offset="0" Color="#660099FF"></GradientStop>
+        <GradientStop Offset=".99" Color="#660022AA"></GradientStop>
+        <GradientStop Offset="1" Color="#00000000"></GradientStop>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="GlowFXProgressAnimated" MappingMode="RelativeToBoundingBox">
+        <GradientStop Offset="0" Color="#00000000"></GradientStop>
+        <GradientStop Offset=".50" Color="#660099FF"></GradientStop>
+        <GradientStop Offset="1" Color="#00000000"></GradientStop>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="GlowFXTabSelected" StartPoint=".5,1" EndPoint=".5,0">
+        <GradientStop Offset="0" Color="#33DDDDDD"></GradientStop>
+        <GradientStop Offset="1" Color="#332222FF"></GradientStop>
+    </LinearGradientBrush>
+
+    <!-- GLOW ANIMATION -->
+    <!-- not my code -->
+    <Storyboard x:Key="GlowOut">
+        <DoubleAnimation x:Name="AnimGlowOut" BeginTime="00:00:00" 
+                   Storyboard.TargetName="GlowRectangle"
+                   Duration="00:00:00.250" 
+                   From="1" To="0"
+                   Storyboard.TargetProperty="Opacity">
+        </DoubleAnimation>
+    </Storyboard>
+    <Storyboard x:Key="GlowIn">
+        <DoubleAnimation x:Name="AnimGlow" 
+                   BeginTime="00:00:00" 
+                   Storyboard.TargetName="GlowRectangle"
+                   Duration="00:00:00.250" 
+                   From="0" To="1" 
+                   Storyboard.TargetProperty="Opacity">
+        </DoubleAnimation>
+    </Storyboard>
 
     <!-- Round Button -->
     <Style x:Key="RndBtn" TargetType="{x:Type Button}">
@@ -16,6 +67,15 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate x:Name="tmpltButton">
+                    <Grid>
+                        <ContentPresenter x:Name="ButtonContent" 
+                                          Opacity=".7" 
+                                          Content="{Binding Path=Content, 
+                                          RelativeSource={RelativeSource TemplatedParent}}" 
+                                          HorizontalAlignment="center" 
+                                          VerticalAlignment="center">
+                        </ContentPresenter>
+                    </Grid>
                     
                 </ControlTemplate>
             </Setter.Value>

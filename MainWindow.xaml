@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Sappi"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
-    <Grid Loaded="Window_Loaded" Background="#282829">
-        <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0.25" Background="{StaticResource DarkBackground}"/>
+    <Grid Loaded="Window_Loaded" Background="{StaticResource DarkBackground}">
+        <!--<Canvas HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0.25" --><!--Background="{StaticResource DarkBackground}"--><!--/>-->
         
         <ContentControl Name="ContentArea"/>
     </Grid>
