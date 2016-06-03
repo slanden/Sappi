@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfStudentData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <StudentData>
-    <willProvideThisInfo>true</willProvideThisInfo>
+    <willProvideThisInfo>false</willProvideThisInfo>
     <initials>
       <char>74</char>
       <char>77</char>
@@ -13,29 +13,29 @@
       <int>9</int>
       <int>12</int>
       <int>14</int>
-      <int>17</int>
-      <int>23</int>
-      <int>26</int>
-      <int>32</int>
-      <int>35</int>
+      <int>18</int>
+      <int>25</int>
+      <int>30</int>
+      <int>34</int>
+      <int>40</int>
     </groupBoxes>
-    <status>2</status>
+    <status>0</status>
     <addresses>
       <string>122 Smaller Hill</string>
       <string>Big Hill, LA 70508</string>
-      <string xsi:nil="true" />
-      <string xsi:nil="true" />
-      <string xsi:nil="true" />
-      <string xsi:nil="true" />
+      <string />
+      <string>Line 1</string>
+      <string>Line 2</string>
+      <string>Line 3</string>
     </addresses>
     <email>j.marston@gmail.com</email>
     <cellPhoneNum>111-112-1122</cellPhoneNum>
     <homePhoneNum>N/A</homePhoneNum>
     <schoolName>DTHS</schoolName>
-    <separateMailAddress>false</separateMailAddress>
-    <gender>true</gender>
-    <supportRequired>false</supportRequired>
-    <newsletterSub>false</newsletterSub>
+    <separateMailAddress>true</separateMailAddress>
+    <gender>false</gender>
+    <supportRequired>true</supportRequired>
+    <newsletterSub>true</newsletterSub>
   </StudentData>
   <StudentData>
     <willProvideThisInfo>true</willProvideThisInfo>
@@ -51,28 +51,28 @@
       <int>12</int>
       <int>14</int>
       <int>19</int>
-      <int>23</int>
+      <int>25</int>
       <int>28</int>
-      <int>32</int>
-      <int>35</int>
+      <int>33</int>
+      <int>38</int>
     </groupBoxes>
-    <status>1</status>
+    <status>0</status>
     <addresses>
       <string>101 NotBooked Ave.</string>
       <string>Seattle, WA 98105</string>
-      <string xsi:nil="true" />
-      <string xsi:nil="true" />
-      <string xsi:nil="true" />
-      <string xsi:nil="true" />
+      <string />
+      <string>Line 1</string>
+      <string>Line 2</string>
+      <string>Line 3</string>
     </addresses>
     <email>jammers_on_my_jimmy@hotmail.com</email>
     <cellPhoneNum>112-122-1222</cellPhoneNum>
     <homePhoneNum>N/A</homePhoneNum>
     <schoolName>DTHS</schoolName>
-    <separateMailAddress>false</separateMailAddress>
+    <separateMailAddress>true</separateMailAddress>
     <gender>true</gender>
     <supportRequired>true</supportRequired>
-    <newsletterSub>false</newsletterSub>
+    <newsletterSub>true</newsletterSub>
   </StudentData>
   <StudentData>
     <willProvideThisInfo>true</willProvideThisInfo>
@@ -153,7 +153,6 @@
     <initials>
       <char>74</char>
       <char>74</char>
-      <char>74</char>
     </initials>
     <name>Jesse Jameson</name>
     <groupBoxes>
@@ -162,11 +161,11 @@
       <int>9</int>
       <int>12</int>
       <int>14</int>
-      <int>17</int>
-      <int>24</int>
-      <int>29</int>
+      <int>20</int>
+      <int>25</int>
+      <int>30</int>
       <int>33</int>
-      <int>35</int>
+      <int>39</int>
     </groupBoxes>
     <status>0</status>
     <addresses>
@@ -183,43 +182,6 @@
     <schoolName>WTHS</schoolName>
     <separateMailAddress>true</separateMailAddress>
     <gender>false</gender>
-    <supportRequired>true</supportRequired>
-    <newsletterSub>true</newsletterSub>
-  </StudentData>
-  <StudentData>
-    <willProvideThisInfo>true</willProvideThisInfo>
-    <initials>
-      <char>90</char>
-      <char>80</char>
-    </initials>
-    <name>Zachary Powers</name>
-    <groupBoxes>
-      <int>2</int>
-      <int>6</int>
-      <int>10</int>
-      <int>12</int>
-      <int>15</int>
-      <int>18</int>
-      <int>24</int>
-      <int>30</int>
-      <int>33</int>
-      <int>39</int>
-    </groupBoxes>
-    <status>5</status>
-    <addresses>
-      <string>150 Shmifty Rd.</string>
-      <string>Abb Villain, LA 70588</string>
-      <string />
-      <string>157 Hans Shmifty Seven Rd.</string>
-      <string>Abb Villain, LA 70588</string>
-      <string />
-    </addresses>
-    <email>i_am_zpowers@youtube-mail.com</email>
-    <cellPhoneNum>223-233-2333</cellPhoneNum>
-    <homePhoneNum>N/A</homePhoneNum>
-    <schoolName>DTHS</schoolName>
-    <separateMailAddress>true</separateMailAddress>
-    <gender>true</gender>
     <supportRequired>true</supportRequired>
     <newsletterSub>true</newsletterSub>
   </StudentData>

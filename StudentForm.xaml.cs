@@ -118,13 +118,7 @@ namespace Sappi
 
         private void Save(object sender, RoutedEventArgs e)
         {
-            StudentData sd;
-            if (App.db.items.Find(s => s.name == nameBox1.Text + " " + nameBox2.Text) != null)
-            {
-                sd = App.db.items.Find(s => s.name == nameBox1.Text + " " + nameBox2.Text);
-            }
-            else
-                sd = new StudentData(App.formData.groups.Count);
+            StudentData sd = new StudentData(App.formData.groups.Count);
 
             //name is used for searching so name fields must be filled in
             if (nameBox1.Text == "" || nameBox2.Text == "" ||
@@ -167,8 +161,20 @@ namespace Sappi
                     sd.groupBoxes[i] = vals.IndexOf(groupBoxes[i].SelectedItem.ToString());
             }
 
+            
+            //check if student exists in database to avoid duplicates
+            bool isExistingStudent = false;
+            for (int i = 0; i < App.db.items.Count; ++i)
+            {
+                if (App.db.items[i].name == sd.name)
+                {
+                    App.db.items[i] = sd;
+                    isExistingStudent = true;
+                }
+            }
+            if(!isExistingStudent)
+                App.db.items.Add(sd);
 
-            App.db.items.Add(sd);
             //serialize data
             XmlSerial.Write(App.db.items, App.pathToDatabase);
             //back to database
