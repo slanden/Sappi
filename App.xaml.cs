@@ -19,6 +19,7 @@ namespace Sappi
 
         public App()
         {
+            InitializeComponent();
             db = new Database();
             formData = new FormData();
             previous = new StartUp();

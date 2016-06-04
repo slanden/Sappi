@@ -8,12 +8,12 @@
              d:DesignHeight="1300" d:DesignWidth="800"
              Background="White">
     <UserControl.Resources>
-        <BitmapImage x:Key="img_aieLogo" UriSource="./bin/aie-logo.png"/>
+        <!--<BitmapImage x:Key="img_aieLogo" UriSource="./bin/aie-logo.png"/>-->
     </UserControl.Resources>
 
     <ScrollViewer HorizontalAlignment="Right">
         <ScrollViewer.Background>
-            <ImageBrush ImageSource="{StaticResource img_aieLogo}" Stretch="None" Opacity="0.15"/>
+            <ImageBrush ImageSource="{StaticResource aieLogo}" Stretch="None" Opacity="0.15"/>
         </ScrollViewer.Background>
 
         <Grid HorizontalAlignment="Right" Margin="10,0">

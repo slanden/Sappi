@@ -2,7 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Sappi">
 
-    
+    <!-- images -->
+    <BitmapImage x:Key="img_aieLogo" UriSource="./bin/aie-logo.png"/>
+
+    <!-- base color used throughout application -->
     <SolidColorBrush x:Key="baseColor" Color="#282829"/>
 
     <!-- Background -->
