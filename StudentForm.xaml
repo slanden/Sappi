@@ -13,7 +13,7 @@
 
     <ScrollViewer HorizontalAlignment="Right">
         <ScrollViewer.Background>
-            <ImageBrush ImageSource="{StaticResource aieLogo}" Stretch="None" Opacity="0.15"/>
+            <ImageBrush ImageSource="{StaticResource img_aieLogo}" Stretch="None" Opacity="0.15"/>
         </ScrollViewer.Background>
 
         <Grid HorizontalAlignment="Right" Margin="10,0">
