@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Sappi
 {
@@ -11,12 +12,16 @@ namespace Sappi
         public static Database db;
         public static FormData formData;
         public static string pathToDatabase = "..\\students.xml";
+        public enum Page { StartUp, StudentForm, DatabaseView , length};
+        //public static int previousPage;
+        public static UserControl previous;
 
 
         public App()
         {
             db = new Database();
             formData = new FormData();
+            previous = new StartUp();
 
             //read in student info from database file
             db.items = XmlSerial.Read<StudentData>(pathToDatabase);

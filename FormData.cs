@@ -18,7 +18,6 @@ namespace Sappi
             //              CurrentDomain.BaseDirectory, "..\\"));
             string path = "..\\strings.txt";
 
-            Console.WriteLine(path);
             //read strings from file and put them
             // into lists and create groups
             int count = 0;
@@ -36,7 +35,7 @@ namespace Sappi
                 }
             }
 
-            //status strings
+            //"status" strings
             status.Add(0, "lost");
             status.Add(1, "offered");
             status.Add(2, "applied");

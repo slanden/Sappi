@@ -1,4 +1,5 @@
-﻿using System.CodeDom;
+﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -48,8 +49,7 @@ namespace Sappi
             }
             else
             {
-                //for compiler
-                string[] name = new string[0];
+                string[] name;
 
                 name = sd.name.Split(' ');
                 nameBox1.Text = name[0];
@@ -108,7 +108,8 @@ namespace Sappi
             return groupBoxes;
         }
 
-        //a duplicate of this function exists elsewhere
+        //a duplicate of this function exists elsewhere.
+        //find a way to re-use the code
         private void Textbox_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox tb = (TextBox)sender;
@@ -180,9 +181,11 @@ namespace Sappi
             //back to database
             MainWindow.Main.ContentArea.Content = new DatabaseView();
         }
-        private void Cancel(object a_Sender, RoutedEventArgs a_E)
+        private void Cancel(object sender, RoutedEventArgs e)
         {
-            MainWindow.Main.ContentArea.Content = new DatabaseView();
+            MainWindow.Main.ContentArea.Content = App.previous;
+            //Console.WriteLine("-- " + GetType().Name);
+            //MainWindow.GoToPreviousPage();
         }
 
         private void DisableMailingAddress(object sender, RoutedEventArgs e)

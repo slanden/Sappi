@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sappi"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
+        Title="Sappi" Height="600" Width="800">
     <Grid Loaded="Window_Loaded" Background="{StaticResource DarkBackground}">
         <!--<Canvas HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0.25" --><!--Background="{StaticResource DarkBackground}"--><!--/>-->
         

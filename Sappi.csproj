@@ -50,6 +50,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>sappi.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -78,6 +81,7 @@
     <Compile Include="DataGridHelper.cs" />
     <Compile Include="FormData.cs" />
     <Compile Include="IntToKeyConverter.cs" />
+    <Compile Include="ObjectHelper.cs" />
     <Compile Include="StartUp.xaml.cs">
       <DependentUpon>StartUp.xaml</DependentUpon>
     </Compile>
@@ -157,6 +161,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="bin\aie-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="sappi.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
