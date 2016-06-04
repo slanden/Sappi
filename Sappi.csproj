@@ -81,7 +81,6 @@
     <Compile Include="DataGridHelper.cs" />
     <Compile Include="FormData.cs" />
     <Compile Include="IntToKeyConverter.cs" />
-    <Compile Include="ObjectHelper.cs" />
     <Compile Include="StartUp.xaml.cs">
       <DependentUpon>StartUp.xaml</DependentUpon>
     </Compile>
