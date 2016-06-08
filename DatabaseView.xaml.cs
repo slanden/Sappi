@@ -147,11 +147,20 @@ namespace Sappi
             //MainWindow.Main.ContentArea.Content = new StudentForm(dg.SelectedItem as StudentData);
             MainWindow.ChangeState(App.Page.StudentForm, dg.SelectedItem);
         }
-        private void GoBack(object a_Sender, RoutedEventArgs a_E)
+        private void GoBack(object sender, RoutedEventArgs e)
         {
             //can't set equal to App.previous because if entered a StudentForm then
             //at this point App.previous is equal to DatabaseView, going no where
             MainWindow.Main.ContentArea.Content = new StartUp();
+        }
+
+        private void DeleteItem(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Delete /*|| ((Keyboard.Modifiers & ModifierKeys.Shift) == ModifierKeys.Shift) && e.Key == Key.Delete*/)
+            {
+                App.db.items.Remove((StudentData)dg.SelectedItem);
+                dg.Items.Refresh();
+            }
         }
     }
 }
