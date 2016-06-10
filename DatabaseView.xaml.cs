@@ -156,7 +156,7 @@ namespace Sappi
 
         private void DeleteItem(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.Delete /*|| ((Keyboard.Modifiers & ModifierKeys.Shift) == ModifierKeys.Shift) && e.Key == Key.Delete*/)
+            if(e.Key == Key.Delete)
             {
                 App.db.items.Remove((StudentData)dg.SelectedItem);
                 dg.Items.Refresh();

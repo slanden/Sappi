@@ -20,6 +20,24 @@ namespace Sappi
             groupBoxes = FillForm(App.formData, sd);
         }
 
+        private void FillNumbers(ComboBox c, int endPt, int startPt = 0)
+        {
+            if (endPt < startPt)
+            {
+                for (int i = startPt; i < Math.Abs(endPt) - Math.Abs(startPt); --i)
+                {
+                    c.Items.Add(i);
+                }
+            }
+            else
+            {
+                for (int i = startPt; i < Math.Abs(endPt) - Math.Abs(startPt); ++i)
+                {
+                    c.Items.Add(i);
+                }
+            }
+        }
+
         List<ComboBox> FillForm(FormData fData, StudentData sd)
         {
             if (sd == null)
@@ -44,7 +62,10 @@ namespace Sappi
                     }
                 }
                 //fill non-custom group combobox items
-
+                //int currentYr = DateTime.Now.Year;
+                //FillNumbers(dobmonthBox, 12);
+                //FillNumbers(dobdayBox, 30);
+                //FillNumbers(dobyearBox,currentYr, )
 
             }
             else
@@ -115,6 +136,24 @@ namespace Sappi
             TextBox tb = (TextBox)sender;
             tb.Text = string.Empty;
             tb.GotFocus -= Textbox_GotFocus;
+        }
+
+        private void Textbox_MoveToNext(object sender, TextChangedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            //don't do anything if the user did not click on the textbox
+            if (!tb.IsFocused)
+                return;
+
+            //only allow 2 characters for MM or DD textboxes
+            if(tb.Text.Length == 2 && tb.Text != string.Empty)
+            {
+                //textboxes are inside a grid element in order to move
+                //from one child to the next without needing their names
+                int currentChild = dobGrid.Children.IndexOf(tb);
+                if(dobGrid.Children[currentChild + 1] != null)
+                    dobGrid.Children[currentChild + 1].Focus();
+            }
         }
 
         private void Save(object sender, RoutedEventArgs e)
@@ -203,5 +242,7 @@ namespace Sappi
             //mailaddressBox2.Visibility = Visibility.Visible;
             //mailaddressBox3.Visibility = Visibility.Visible;
         }
+
+        
     }
 }

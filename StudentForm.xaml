@@ -129,9 +129,15 @@
             <TextBox x:Name="homephoneBox" HorizontalAlignment="Left" Height="23" Margin="307,502,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247"/>
 
             <ComboBox x:Name="contactmethodsBox" HorizontalAlignment="Left" Margin="307,551,0,0" VerticalAlignment="Top" Width="247"/>
-            <ComboBox x:Name="dobmonthBox" HorizontalAlignment="Left" Margin="307,595,0,0" VerticalAlignment="Top" Width="54"/>
-            <ComboBox x:Name="dobdayBox" HorizontalAlignment="Left" Margin="366,595,0,0" VerticalAlignment="Top" Width="54"/>
-            <ComboBox x:Name="dobyearBox" HorizontalAlignment="Left" Margin="425,595,0,0" VerticalAlignment="Top" Width="74"/>
+
+            <Grid x:Name="dobGrid">
+                <TextBox x:Name="dobmonthBox" HorizontalAlignment="Left" Height="23" Margin="307,595,0,0" TextWrapping="Wrap" Text="MM" VerticalAlignment="Top" Width="32" GotFocus="Textbox_GotFocus" TextChanged="Textbox_MoveToNext"/>
+                <TextBox x:Name="dobdayBox" HorizontalAlignment="Left" Height="23" Margin="344,595,0,0" TextWrapping="Wrap" Text="DD" VerticalAlignment="Top" Width="32" GotFocus="Textbox_GotFocus" TextChanged="Textbox_MoveToNext"/>
+                <TextBox x:Name="dobyearBox" HorizontalAlignment="Left" Height="23" Margin="381,595,0,0" TextWrapping="Wrap" Text="YYYY" VerticalAlignment="Top" Width="38" GotFocus="Textbox_GotFocus"/>
+            </Grid>
+            <!--<ComboBox x:Name="s" HorizontalAlignment="Left" Margin="307,595,0,0" VerticalAlignment="Top" Width="54"/>
+            <ComboBox x:Name="ss" HorizontalAlignment="Left" Margin="366,595,0,0" VerticalAlignment="Top" Width="54"/>
+            <ComboBox x:Name="sss" HorizontalAlignment="Left" Margin="425,595,0,0" VerticalAlignment="Top" Width="74"/>-->
             <ComboBox x:Name="educationlevelBox" HorizontalAlignment="Left" Margin="307,639,0,0" VerticalAlignment="Top" Width="247"/>
             <ComboBox x:Name="educationyearBox" HorizontalAlignment="Left" Margin="307,687,0,0" VerticalAlignment="Top" Width="74"/>
 
