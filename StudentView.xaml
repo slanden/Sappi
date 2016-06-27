@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:Sappi"
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="780">
-    <Grid>
+    <Grid Name="container">
+      
         <Label x:Name="studName" Content="Name:" HorizontalAlignment="Left" Margin="56,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="studProgram" Content="Program:" HorizontalAlignment="Left" Margin="56,41,0,0" VerticalAlignment="Top"/>
         <Label x:Name="studCampus" Content="Campus:" HorizontalAlignment="Left" Margin="56,72,0,0" VerticalAlignment="Top"/>
@@ -24,9 +25,10 @@
         <Label x:Name="statusLabel_interviewed" Content="Applied" HorizontalAlignment="Left" Margin="402,150,0,0" VerticalAlignment="Top"/>
         <Label x:Name="statusLabel_accepted" Content="Accepted" HorizontalAlignment="Left" Margin="502,150,0,0" VerticalAlignment="Top"/>
         <Label x:Name="statusLabel_enrolled" Content="Enrolled" HorizontalAlignment="Left" Margin="602,150,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="editButton" Content="Edit" HorizontalAlignment="Center" Margin="262,210,444,0" VerticalAlignment="Top" Width="74" Click="editButton_Click"/>
-        <Button x:Name="printButton" Content="Print Info" HorizontalAlignment="Center" Margin="402,210,323,0" VerticalAlignment="Top"/>
+        <Button x:Name="editButton" Content="Edit" HorizontalAlignment="Center" Margin="260,0,446,15" VerticalAlignment="Bottom" Width="74" Click="editButton_Click"/>
+        <Button x:Name="printButton" Content="Print Info" HorizontalAlignment="Center" Margin="379,0,346,15" VerticalAlignment="Bottom"/>
 
+      <ContentControl Name="studentInfo_contentArea" Margin="0,250,0,0"/>
 
     </Grid>
 </UserControl>

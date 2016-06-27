@@ -17,9 +17,11 @@ namespace Sappi
 
         private void DatabaseView_Loaded(object sender, RoutedEventArgs e)
         {
+            student_contentArea.Content = new StudentView();
             //set the databinding for DataGrid
             dg.ItemsSource = App.db.items;
             PopulateDatagrid(dg);
+
         }
 
         private void PopulateDatagrid(DataGrid grid)

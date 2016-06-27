@@ -27,7 +27,14 @@ namespace Sappi
 
         private void editButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (studentInfo_contentArea.Content == null)
+            {
+                studentInfo_contentArea.Height = 900;
+                studentInfo_contentArea.Content = new StudentForm();
+                
+            }
+            else
+                studentInfo_contentArea.Content = null;
         }
     }
 }
