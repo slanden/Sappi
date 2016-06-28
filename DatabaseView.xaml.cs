@@ -122,17 +122,17 @@ namespace Sappi
                 //get the Name cell in each row
                 DataGridCell cell = DataGridHelper.GetCell(dg, i, 0);
 
-                if (cell != null)
-                {
-                    //get text content
-                    var cellContent = (TextBlock)cell.Content;
-                    string cellVal = cellContent.Text.Substring(0, inputLength);
+                //get text content
+                var cellContent = (TextBlock)cell.Content;
 
-                    //searching is not case-sensitive
-                    if (searchBar.Text == cellVal ||
-                        searchBar.Text == cellVal.ToLower())
-                        dg.SelectedItem = dg.Items[i];
-                }
+                if (cellContent.Text.Length < inputLength)
+                    break;
+
+                string cellVal = cellContent.Text.Substring(0, inputLength);
+                //searching is not case-sensitive
+                if (searchBar.Text == cellVal ||
+                    searchBar.Text == cellVal.ToLower())
+                    dg.SelectedItem = dg.Items[i];
             }
         }
         //empty the text box of default text when clicked
@@ -165,20 +165,20 @@ namespace Sappi
             }
         }
 
-        private void editButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (studentInfo_contentArea.Content == null)
-            {
-                studentInfo_contentArea.Content = new StudentForm();
-                editButton.Content = "Done";
-                //disable datagrid so that studentform doesn't visually overlap
+        //private void editButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (studentInfo_contentArea.Content == null)
+        //    {
+        //        studentInfo_contentArea.Content = new StudentForm();
+        //        editButton.Content = "Done";
+        //        //disable datagrid so that studentform doesn't visually overlap
 
-            }
-            else
-            {
-                studentInfo_contentArea.Content = null;
-                editButton.Content = "Edit";
-            }
-        }
+        //    }
+        //    else
+        //    {
+        //        studentInfo_contentArea.Content = null;
+        //        editButton.Content = "Edit";
+        //    }
+        //}
     }
 }

@@ -10,7 +10,7 @@
 
         <!--<ContentControl Name="student_contentArea" VerticalAlignment="Top"/>-->
         <!-- StudentView -->
-        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+        <!--<ScrollViewer VerticalScrollBarVisibility="Hidden">
             <Grid VerticalAlignment="Top">
                 <Label x:Name="studName" Content="Name:" HorizontalAlignment="Left" Margin="218,10,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="studProgram" Content="Program:" HorizontalAlignment="Left" Margin="218,41,0,0" VerticalAlignment="Top"/>
@@ -35,11 +35,13 @@
 
                 <ContentControl Name="studentInfo_contentArea" VerticalAlignment="Bottom" Margin="0,215,0,490" MaxHeight="400"/>
 
-                <TextBox x:Name="searchBar" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,585,372" Width="200" Height="23" TextWrapping="Wrap" Text="(search)" GotFocus="Textbox_GotFocus"/>
-                <DataGrid x:Name="dg" HorizontalAlignment="right" VerticalAlignment="Bottom" Margin="0,0,21,48" Width="764" Height="319" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="EditStudentData" KeyUp="DeleteItem"/>
+                
 
             </Grid>
-        </ScrollViewer>
+        </ScrollViewer>-->
+
+        <TextBox x:Name="searchBar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,38,0,0" Width="200" Height="23" TextWrapping="Wrap" Text="(search)" GotFocus="Textbox_GotFocus"/>
+        <DataGrid x:Name="dg" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1160" Height="565" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="EditStudentData" KeyUp="DeleteItem" Margin="0,66,0,0"/>
 
 
         <!--<Grid Name="dgContainer" VerticalAlignment="Bottom">
