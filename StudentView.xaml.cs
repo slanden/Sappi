@@ -29,12 +29,17 @@ namespace Sappi
         {
             if (studentInfo_contentArea.Content == null)
             {
-                studentInfo_contentArea.Height = 900;
                 studentInfo_contentArea.Content = new StudentForm();
+                editButton.Content = "Done";
+                //disable datagrid so that studentform doesn't visually overlap
                 
             }
             else
+            {
                 studentInfo_contentArea.Content = null;
+                editButton.Content = "Edit";
+            }
         }
+
     }
 }

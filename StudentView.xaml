@@ -5,30 +5,34 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Sappi"
              mc:Ignorable="d" 
-             d:DesignHeight="250" d:DesignWidth="780">
+             d:DesignHeight="250" d:DesignWidth="1280">
     <Grid Name="container">
-      
-        <Label x:Name="studName" Content="Name:" HorizontalAlignment="Left" Margin="56,10,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="studProgram" Content="Program:" HorizontalAlignment="Left" Margin="56,41,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="studCampus" Content="Campus:" HorizontalAlignment="Left" Margin="56,72,0,0" VerticalAlignment="Top"/>
 
-        <RadioButton x:Name="status_lost" HorizontalAlignment="Left" Margin="112,123,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="status_offered" HorizontalAlignment="Left" Margin="222,123,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="status_applied" HorizontalAlignment="Left" Margin="322,123,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="status_interviewed" HorizontalAlignment="Left" Margin="422,123,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="status_accepted" HorizontalAlignment="Left" Margin="526,123,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="status_enrolled" HorizontalAlignment="Left" Margin="622,123,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="studName" Content="Name:" HorizontalAlignment="Left" Margin="218,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="studProgram" Content="Program:" HorizontalAlignment="Left" Margin="218,41,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="studCampus" Content="Campus:" HorizontalAlignment="Left" Margin="218,72,0,0" VerticalAlignment="Top"/>
 
-        <Label x:Name="statusLabel_lost" Content="Lost" HorizontalAlignment="Left" Margin="102,150,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="statusLabel_offered" Content="Offered" HorizontalAlignment="Left" Margin="202,150,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="statusLabel_applied" Content="Applied" HorizontalAlignment="Left" Margin="302,150,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="statusLabel_interviewed" Content="Applied" HorizontalAlignment="Left" Margin="402,150,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="statusLabel_accepted" Content="Accepted" HorizontalAlignment="Left" Margin="502,150,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="statusLabel_enrolled" Content="Enrolled" HorizontalAlignment="Left" Margin="602,150,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="editButton" Content="Edit" HorizontalAlignment="Center" Margin="260,0,446,15" VerticalAlignment="Bottom" Width="74" Click="editButton_Click"/>
-        <Button x:Name="printButton" Content="Print Info" HorizontalAlignment="Center" Margin="379,0,346,15" VerticalAlignment="Bottom"/>
+        <RadioButton x:Name="status_lost" HorizontalAlignment="Left" Margin="368,123,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="status_offered" HorizontalAlignment="Left" Margin="478,123,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="status_applied" HorizontalAlignment="Left" Margin="578,123,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="status_interviewed" HorizontalAlignment="Left" Margin="678,123,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="status_accepted" HorizontalAlignment="Left" Margin="782,123,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="status_enrolled" HorizontalAlignment="Left" Margin="878,123,0,0" VerticalAlignment="Top"/>
 
-      <ContentControl Name="studentInfo_contentArea" Margin="0,250,0,0"/>
+        <Label x:Name="statusLabel_lost" Content="Lost" HorizontalAlignment="Left" Margin="358,150,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="statusLabel_offered" Content="Offered" HorizontalAlignment="Left" Margin="458,150,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="statusLabel_applied" Content="Applied" HorizontalAlignment="Left" Margin="558,150,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="statusLabel_interviewed" Content="Applied" HorizontalAlignment="Left" Margin="658,150,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="statusLabel_accepted" Content="Accepted" HorizontalAlignment="Left" Margin="758,150,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="statusLabel_enrolled" Content="Enrolled" HorizontalAlignment="Left" Margin="858,150,0,0" VerticalAlignment="Top"/>
+        <ToggleButton x:Name="editButton" Content="Edit" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="70" Margin="0,0,100,5" Click="editButton_Click"/>
+        <Button x:Name="printButton" Content="Print Info" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="100,0,0,5"/>
+
+
+        <!--<Grid VerticalAlignment="Top" Margin="0,215,0,0">
+            <ContentControl Name="studentInfo_contentArea" VerticalAlignment="Bottom"/>
+        </Grid>-->
+        <ContentControl Name="studentInfo_contentArea" VerticalAlignment="Bottom" Margin="0,215,0,35"/>
 
     </Grid>
 </UserControl>

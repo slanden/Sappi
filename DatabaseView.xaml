@@ -5,12 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Sappi"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="800">
-    <Grid Loaded="DatabaseView_Loaded">
-        <ContentControl Name="student_contentArea" Margin="0,0,0,350" />
-        <TextBox x:Name="searchBar" HorizontalAlignment="Left" Height="23" Margin="244,274,0,0" TextWrapping="Wrap" Text="(search)" VerticalAlignment="Top" Width="200" GotFocus="Textbox_GotFocus"/>
-        <DataGrid x:Name="dg" HorizontalAlignment="right" Margin="0,302,10,0" VerticalAlignment="Top" Width="546" Height="263" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="EditStudentData" KeyUp="DeleteItem"/>
-        <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Margin="10,490,0,0" VerticalAlignment="Top" Width="75" Click="GoBack"/>
+             d:DesignHeight="720" d:DesignWidth="1280">
+    <Grid Loaded="DatabaseView_Loaded" >
+
+        <ContentControl Name="student_contentArea" VerticalAlignment="Top"/>        
+        
+        <Grid Name="dgContainer" VerticalAlignment="Bottom">
+            <TextBox x:Name="searchBar" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,584,344" Width="200" Height="23" TextWrapping="Wrap" Text="(search)" GotFocus="Textbox_GotFocus"/>
+            <DataGrid x:Name="dg" HorizontalAlignment="right" VerticalAlignment="Bottom" Margin="0,0,20,20" Width="764" Height="319" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="EditStudentData" KeyUp="DeleteItem"/>
+        </Grid>
+        
+        <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,29" Width="75" Click="GoBack" />
 
     </Grid>
 </UserControl>

@@ -5,18 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Sappi"
              mc:Ignorable="d" 
-             d:DesignHeight="1300" d:DesignWidth="800"
-             Background="White">
+             d:DesignHeight="1300" d:DesignWidth="1280">
     <UserControl.Resources>
         <!--<BitmapImage x:Key="img_aieLogo" UriSource="./bin/aie-logo.png"/>-->
     </UserControl.Resources>
 
-    <ScrollViewer HorizontalAlignment="Right">
+    <ScrollViewer >
         <ScrollViewer.Background>
             <ImageBrush ImageSource="{StaticResource img_aieLogo}" Stretch="None" Opacity="0.15"/>
         </ScrollViewer.Background>
 
-        <Grid HorizontalAlignment="Right" Margin="10,0">
+        <Grid HorizontalAlignment="Center">
             <!-- Left Side -->
             <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                     Name:
@@ -130,14 +129,11 @@
 
             <ComboBox x:Name="contactmethodsBox" HorizontalAlignment="Left" Margin="307,551,0,0" VerticalAlignment="Top" Width="247"/>
 
-            <Grid x:Name="dobGrid">
-                <TextBox x:Name="dobmonthBox" HorizontalAlignment="Left" Height="23" Margin="307,595,0,0" TextWrapping="Wrap" Text="MM" VerticalAlignment="Top" Width="32" GotFocus="Textbox_GotFocus" TextChanged="Textbox_MoveToNext"/>
-                <TextBox x:Name="dobdayBox" HorizontalAlignment="Left" Height="23" Margin="344,595,0,0" TextWrapping="Wrap" Text="DD" VerticalAlignment="Top" Width="32" GotFocus="Textbox_GotFocus" TextChanged="Textbox_MoveToNext"/>
-                <TextBox x:Name="dobyearBox" HorizontalAlignment="Left" Height="23" Margin="381,595,0,0" TextWrapping="Wrap" Text="YYYY" VerticalAlignment="Top" Width="38" GotFocus="Textbox_GotFocus"/>
+            <Grid x:Name="dobGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="307,595,0,0">
+                <TextBox x:Name="dobmonthBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="MM" VerticalAlignment="Top" Width="32" GotFocus="Textbox_GotFocus" TextChanged="Textbox_MoveToNext"/>
+                <TextBox x:Name="dobdayBox" HorizontalAlignment="Left" Height="23" Margin="37,0,0,0" TextWrapping="Wrap" Text="DD" VerticalAlignment="Top" Width="32" GotFocus="Textbox_GotFocus" TextChanged="Textbox_MoveToNext"/>
+                <TextBox x:Name="dobyearBox" HorizontalAlignment="Left" Height="23" Margin="74,0,0,0" TextWrapping="Wrap" Text="YYYY" VerticalAlignment="Top" Width="38" GotFocus="Textbox_GotFocus"/>
             </Grid>
-            <!--<ComboBox x:Name="s" HorizontalAlignment="Left" Margin="307,595,0,0" VerticalAlignment="Top" Width="54"/>
-            <ComboBox x:Name="ss" HorizontalAlignment="Left" Margin="366,595,0,0" VerticalAlignment="Top" Width="54"/>
-            <ComboBox x:Name="sss" HorizontalAlignment="Left" Margin="425,595,0,0" VerticalAlignment="Top" Width="74"/>-->
             <ComboBox x:Name="educationlevelBox" HorizontalAlignment="Left" Margin="307,639,0,0" VerticalAlignment="Top" Width="247"/>
             <ComboBox x:Name="educationyearBox" HorizontalAlignment="Left" Margin="307,687,0,0" VerticalAlignment="Top" Width="74"/>
 
