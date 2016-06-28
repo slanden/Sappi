@@ -17,7 +17,7 @@ namespace Sappi
 
         private void DatabaseView_Loaded(object sender, RoutedEventArgs e)
         {
-            student_contentArea.Content = new StudentView();
+            //student_contentArea.Content = new StudentView();
             //set the databinding for DataGrid
             dg.ItemsSource = App.db.items;
             PopulateDatagrid(dg);
@@ -162,6 +162,22 @@ namespace Sappi
             {
                 App.db.items.Remove((StudentData)dg.SelectedItem);
                 dg.Items.Refresh();
+            }
+        }
+
+        private void editButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (studentInfo_contentArea.Content == null)
+            {
+                studentInfo_contentArea.Content = new StudentForm();
+                editButton.Content = "Done";
+                //disable datagrid so that studentform doesn't visually overlap
+
+            }
+            else
+            {
+                studentInfo_contentArea.Content = null;
+                editButton.Content = "Edit";
             }
         }
     }

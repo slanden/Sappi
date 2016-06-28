@@ -6,16 +6,49 @@
              xmlns:local="clr-namespace:Sappi"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
-    <Grid Loaded="DatabaseView_Loaded" >
+    <Grid Loaded="DatabaseView_Loaded">
 
-        <ContentControl Name="student_contentArea" VerticalAlignment="Top"/>        
-        
-        <Grid Name="dgContainer" VerticalAlignment="Bottom">
+        <!--<ContentControl Name="student_contentArea" VerticalAlignment="Top"/>-->
+        <!-- StudentView -->
+        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+            <Grid VerticalAlignment="Top">
+                <Label x:Name="studName" Content="Name:" HorizontalAlignment="Left" Margin="218,10,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="studProgram" Content="Program:" HorizontalAlignment="Left" Margin="218,41,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="studCampus" Content="Campus:" HorizontalAlignment="Left" Margin="218,72,0,0" VerticalAlignment="Top"/>
+
+                <RadioButton x:Name="status_lost" HorizontalAlignment="Left" Margin="368,123,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="status_offered" HorizontalAlignment="Left" Margin="478,123,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="status_applied" HorizontalAlignment="Left" Margin="578,123,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="status_interviewed" HorizontalAlignment="Left" Margin="678,123,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="status_accepted" HorizontalAlignment="Left" Margin="782,123,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="status_enrolled" HorizontalAlignment="Left" Margin="878,123,0,0" VerticalAlignment="Top"/>
+
+                <Label x:Name="statusLabel_lost" Content="Lost" HorizontalAlignment="Left" Margin="358,150,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="statusLabel_offered" Content="Offered" HorizontalAlignment="Left" Margin="458,150,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="statusLabel_applied" Content="Applied" HorizontalAlignment="Left" Margin="558,150,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="statusLabel_interviewed" Content="Applied" HorizontalAlignment="Left" Margin="658,150,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="statusLabel_accepted" Content="Accepted" HorizontalAlignment="Left" Margin="758,150,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="statusLabel_enrolled" Content="Enrolled" HorizontalAlignment="Left" Margin="858,150,0,0" VerticalAlignment="Top"/>
+
+                <ToggleButton x:Name="editButton" Content="Edit" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="70" Click="editButton_Click" Margin="0,0,100,460" />
+                <Button x:Name="printButton" Content="Print Info" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="100,0,0,460" />
+
+                <ContentControl Name="studentInfo_contentArea" VerticalAlignment="Bottom" Margin="0,215,0,490" MaxHeight="400"/>
+
+                <TextBox x:Name="searchBar" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,585,372" Width="200" Height="23" TextWrapping="Wrap" Text="(search)" GotFocus="Textbox_GotFocus"/>
+                <DataGrid x:Name="dg" HorizontalAlignment="right" VerticalAlignment="Bottom" Margin="0,0,21,48" Width="764" Height="319" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="EditStudentData" KeyUp="DeleteItem"/>
+
+            </Grid>
+        </ScrollViewer>
+
+
+        <!--<Grid Name="dgContainer" VerticalAlignment="Bottom">
             <TextBox x:Name="searchBar" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,584,344" Width="200" Height="23" TextWrapping="Wrap" Text="(search)" GotFocus="Textbox_GotFocus"/>
             <DataGrid x:Name="dg" HorizontalAlignment="right" VerticalAlignment="Bottom" Margin="0,0,20,20" Width="764" Height="319" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="EditStudentData" KeyUp="DeleteItem"/>
-        </Grid>
-        
-        <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,29" Width="75" Click="GoBack" />
+        </Grid>-->
+
+        <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10" Width="75" Click="GoBack" />
+
 
     </Grid>
 </UserControl>
