@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
@@ -13,6 +15,7 @@ namespace Sappi
         public DatabaseView()
         {
             InitializeComponent();
+            dg.MouseRightButtonUp += Context_MouseRightButtonUp;
         }
 
         private void DatabaseView_Loaded(object sender, RoutedEventArgs e)
@@ -180,5 +183,20 @@ namespace Sappi
         //        editButton.Content = "Edit";
         //    }
         //}
+
+        private void Context_MouseRightButtonUp(object sender, MouseEventArgs e)
+        {
+            //DependencyObject dep = (DependencyObject)e.OriginalSource;
+            //if (dep != null)
+            //{
+            //    if (dep is DataGridCell)
+            //    {
+            //        DataGridCell cell = dep as DataGridCell;
+            //        cell.Focus();
+            //        cell.co
+            //    }
+            //}
+            Console.WriteLine(dg.SelectedIndex);
+        }
     }
 }

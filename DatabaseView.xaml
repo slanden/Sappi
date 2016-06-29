@@ -41,7 +41,11 @@
         </ScrollViewer>-->
 
         <TextBox x:Name="searchBar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,38,0,0" Width="200" Height="23" TextWrapping="Wrap" Text="(search)" GotFocus="Textbox_GotFocus"/>
-        <DataGrid x:Name="dg" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1160" Height="565" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="EditStudentData" KeyUp="DeleteItem" Margin="0,66,0,0"/>
+        <DataGrid x:Name="dg" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1160" Height="565" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="EditStudentData" KeyUp="DeleteItem" Margin="0,66,0,0" CanUserDeleteRows="False">
+            <DataGrid.ContextMenu>
+                <ContextMenu/>
+            </DataGrid.ContextMenu>
+        </DataGrid>
 
 
         <!--<Grid Name="dgContainer" VerticalAlignment="Bottom">
