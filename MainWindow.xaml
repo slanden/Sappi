@@ -7,8 +7,6 @@
         mc:Ignorable="d"
         Title="Sappi" Height="720" Width="1280">
     <Grid Loaded="Window_Loaded" Background="{StaticResource DarkBackground}">
-        <!--<Canvas HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0.25" --><!--Background="{StaticResource DarkBackground}"--><!--/>-->
-        
         <ContentControl Name="ContentArea"/>
     </Grid>
 </Window>

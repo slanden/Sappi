@@ -220,8 +220,11 @@ namespace Sappi
             //back to database
             MainWindow.Main.ContentArea.Content = new DatabaseView();
         }
+
         private void Cancel(object sender, RoutedEventArgs e)
         {
+            //foreach control-> if content changed,
+            //ask, "are you sure you want to cancel?"
             MainWindow.Main.ContentArea.Content = App.previous;
             //Console.WriteLine("-- " + GetType().Name);
             //MainWindow.GoToPreviousPage();

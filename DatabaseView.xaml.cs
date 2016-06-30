@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace Sappi
 {
@@ -15,7 +16,7 @@ namespace Sappi
         public DatabaseView()
         {
             InitializeComponent();
-            dg.MouseRightButtonUp += Context_MouseRightButtonUp;
+            //dg.MouseRightButtonUp += Context_MouseRightButtonUp;
         }
 
         private void DatabaseView_Loaded(object sender, RoutedEventArgs e)
@@ -25,6 +26,27 @@ namespace Sappi
             dg.ItemsSource = App.db.items;
             PopulateDatagrid(dg);
 
+        }
+
+        /// <summary>
+        /// Commands for context menu
+        /// </summary>
+        private void RowEditCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Edit();
+        }
+        private void RowEditCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = (dg.SelectedItems.Count == 1);
+        }
+        private void RowDeleteCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            //are you sure you want to delete?
+            Delete();
+        }
+        private void RowDeleteCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = (dg.SelectedItems != null);
         }
 
         private void PopulateDatagrid(DataGrid grid)
@@ -110,6 +132,21 @@ namespace Sappi
             //}
         }
 
+        private void Edit()
+        {
+            MainWindow.ChangeState(App.Page.StudentForm, dg.SelectedItem);
+        }
+
+        private void Delete()
+        {
+            for (int i = 0; i < dg.SelectedItems.Count; ++i)
+            {
+                App.db.items.Remove((StudentData) dg.SelectedItems[i]);
+            }
+            App.db.items.Remove((StudentData)dg.SelectedItem);
+            dg.Items.Refresh();
+        }
+
         private void Search(object sender, TextChangedEventArgs e)
         {
             if (searchBar.Text == "" || searchBar.Text == "(search)")
@@ -150,7 +187,8 @@ namespace Sappi
         private void EditStudentData(object sender, MouseButtonEventArgs e)
         {
             //MainWindow.Main.ContentArea.Content = new StudentForm(dg.SelectedItem as StudentData);
-            MainWindow.ChangeState(App.Page.StudentForm, dg.SelectedItem);
+            if(e.ChangedButton == MouseButton.Left)
+                Edit();
         }
         private void GoBack(object sender, RoutedEventArgs e)
         {
@@ -159,12 +197,11 @@ namespace Sappi
             MainWindow.Main.ContentArea.Content = new StartUp();
         }
 
-        private void DeleteItem(object sender, KeyEventArgs e)
+        private void Datagrid_KeyUp(object sender, KeyEventArgs e)
         {
             if(e.Key == Key.Delete)
             {
-                App.db.items.Remove((StudentData)dg.SelectedItem);
-                dg.Items.Refresh();
+                Delete();
             }
         }
 
@@ -196,7 +233,23 @@ namespace Sappi
             //        cell.co
             //    }
             //}
-            Console.WriteLine(dg.SelectedIndex);
+
+            //MouseButtonEventArgs arg = new MouseButtonEventArgs(Mouse.PrimaryDevice, 0, MouseButton.Left);
+            //arg.RoutedEvent = MouseLeftButtonDownEvent;
+            //dg.RaiseEvent(arg);
+
+            //HitTestResult htr = dg.InputHitTest(e.GetPosition(dg));// .HitTest(dg, e.GetPosition(dg));
+            //DataGridRow row = htr.VisualHit.DependencyObjectType<DataGridRow>();
+            //if (e.OriginalSource != null)
+            //{
+            //    StudentData s = ((e.OriginalSource as TextBlock).DataContext) as StudentData;
+            //}
+            StudentData ss = (StudentData)dg.CurrentItem;
+
+
+            var row = (DataGridRow)sender;
+            dg.SelectedItem = row;
+            //Console.WriteLine(ss.name);
         }
     }
 }

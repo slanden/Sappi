@@ -6,6 +6,11 @@
              xmlns:local="clr-namespace:Sappi"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
+    <UserControl.CommandBindings>
+        <CommandBinding Command="local:ContextCommands.Edit"  Executed="RowEditCommand_Executed"  CanExecute="RowEditCommand_CanExecute"/>
+        <CommandBinding Command="local:ContextCommands.Delete"  Executed="RowDeleteCommand_Executed"  CanExecute="RowDeleteCommand_CanExecute"/>
+    </UserControl.CommandBindings>
+
     <Grid Loaded="DatabaseView_Loaded">
 
         <!--<ContentControl Name="student_contentArea" VerticalAlignment="Top"/>-->
@@ -41,10 +46,20 @@
         </ScrollViewer>-->
 
         <TextBox x:Name="searchBar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,38,0,0" Width="200" Height="23" TextWrapping="Wrap" Text="(search)" GotFocus="Textbox_GotFocus"/>
-        <DataGrid x:Name="dg" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1160" Height="565" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="EditStudentData" KeyUp="DeleteItem" Margin="0,66,0,0" CanUserDeleteRows="False">
-            <DataGrid.ContextMenu>
-                <ContextMenu/>
-            </DataGrid.ContextMenu>
+        <DataGrid x:Name="dg" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1160" Height="565" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="EditStudentData" KeyUp="Datagrid_KeyUp" Margin="0,66,0,0" CanUserDeleteRows="False">
+            <DataGrid.Resources>
+                <ContextMenu x:Key="RowMenu" DataContext="{Binding PlacementTarget, RelativeSource={RelativeSource Self}}">
+                    <MenuItem Header="Edit" Command="local:ContextCommands.Edit"/>
+                    <MenuItem Header="Delete" Command="local:ContextCommands.Delete"/>
+                </ContextMenu>
+            </DataGrid.Resources>
+            
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <!--<EventSetter Event="MouseRightButtonUp" Handler="Context_MouseRightButtonUp"/>-->
+                    <Setter Property="ContextMenu" Value="{StaticResource RowMenu}"/>
+                </Style>
+            </DataGrid.RowStyle>
         </DataGrid>
 
 
