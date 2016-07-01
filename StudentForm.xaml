@@ -6,9 +6,6 @@
              xmlns:local="clr-namespace:Sappi"
              mc:Ignorable="d" 
              d:DesignHeight="1300" d:DesignWidth="1280">
-    <UserControl.Resources>
-        <!--<BitmapImage x:Key="img_aieLogo" UriSource="./bin/aie-logo.png"/>-->
-    </UserControl.Resources>
     <Grid>
 
         <ScrollViewer >
@@ -171,9 +168,11 @@
 
             </Grid>
         </ScrollViewer>
-        
-        <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Margin="68,37,0,0" VerticalAlignment="Top" Width="75" Click="Cancel"/>
-        
-        </Grid>
-    
+
+        <Button x:Name="backButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Click="Cancel" ToolTip="Go Back">
+            <Image Source="{StaticResource img_backButton}" Height="64" Width="64"/>
+        </Button>
+
+    </Grid>
+
 </UserControl>

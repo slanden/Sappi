@@ -4,6 +4,9 @@
 
     <!-- images -->
     <BitmapImage x:Key="img_aieLogo" UriSource="./bin/aie-logo.png"/>
+    <BitmapImage x:Key="img_backButton" UriSource="./bin/back.png"/>
+    <BitmapImage x:Key="img_newItem" UriSource="./bin/addStudent.png"/>
+    <BitmapImage x:Key="img_database" UriSource="./bin/database.png"/>
 
     <!-- base color used throughout application -->
     <SolidColorBrush x:Key="baseColor" Color="#282829"/>
@@ -18,53 +21,48 @@
     <!-- GLOW EFFECT -->
     <!-- not my code -->
     <RadialGradientBrush x:Key="GlowFX" GradientOrigin=".5,1" Center=".5,1">
-        <GradientStop Offset="0" Color="#990000FF"></GradientStop>
-        <GradientStop Offset=".5" Color="#660000DD"></GradientStop>
-        <GradientStop Offset="1" Color="#33000000"></GradientStop>
+        <GradientStop Offset="0" Color="#990000FF"/>
+        <GradientStop Offset=".5" Color="#660000DD"/>
+        <GradientStop Offset="1" Color="#33000000"/>
     </RadialGradientBrush>
     <RadialGradientBrush x:Key="GlowFXPressed" GradientOrigin=".5,1" Center=".5,1">
-        <GradientStop Offset="0" Color="#660000CC"></GradientStop>
-        <GradientStop Offset="1.2" Color="#33FFFFFF"></GradientStop>
+        <GradientStop Offset="0" Color="#660000CC"/>
+        <GradientStop Offset="1.2" Color="#33FFFFFF"/>
     </RadialGradientBrush>
     <LinearGradientBrush x:Key="GlowFXRowPressed">
-        <GradientStop Offset="0" Color="#660000FF"></GradientStop>
-        <GradientStop Offset=".7" Color="#660000AA"></GradientStop>
-        <GradientStop Offset="1" Color="#66000000"></GradientStop>
+        <GradientStop Offset="0" Color="#660000FF"/>
+        <GradientStop Offset=".7" Color="#660000AA"/>
+        <GradientStop Offset="1" Color="#66000000"/>
     </LinearGradientBrush>
     <LinearGradientBrush x:Key="GlowFXProgress">
-        <GradientStop Offset="0" Color="#660099FF"></GradientStop>
-        <GradientStop Offset=".99" Color="#660022AA"></GradientStop>
-        <GradientStop Offset="1" Color="#00000000"></GradientStop>
+        <GradientStop Offset="0" Color="#660099FF"/>
+        <GradientStop Offset=".99" Color="#660022AA"/>
+        <GradientStop Offset="1" Color="#00000000"/>
     </LinearGradientBrush>
     <LinearGradientBrush x:Key="GlowFXProgressAnimated" MappingMode="RelativeToBoundingBox">
-        <GradientStop Offset="0" Color="#00000000"></GradientStop>
-        <GradientStop Offset=".50" Color="#660099FF"></GradientStop>
-        <GradientStop Offset="1" Color="#00000000"></GradientStop>
+        <GradientStop Offset="0" Color="#00000000"/>
+        <GradientStop Offset=".50" Color="#660099FF"/>
+        <GradientStop Offset="1" Color="#00000000"/>
     </LinearGradientBrush>
     <LinearGradientBrush x:Key="GlowFXTabSelected" StartPoint=".5,1" EndPoint=".5,0">
-        <GradientStop Offset="0" Color="#33DDDDDD"></GradientStop>
-        <GradientStop Offset="1" Color="#332222FF"></GradientStop>
+        <GradientStop Offset="0" Color="#33DDDDDD"/>
+        <GradientStop Offset="1" Color="#332222FF"/>
     </LinearGradientBrush>
 
     <!-- GLOW ANIMATION -->
     <!-- not my code -->
-    <!--<Storyboard x:Key="GlowOut">
+    <Storyboard x:Key="GlowOut">
         <DoubleAnimation x:Name="AnimGlowOut" BeginTime="00:00:00" 
-                   Storyboard.TargetName="GlowRectangle"
-                   Duration="00:00:00.250" 
-                   From="1" To="0"
-                   Storyboard.TargetProperty="Opacity">
-        </DoubleAnimation>
+                         Storyboard.TargetName="GlowRectangle" 
+                         Duration="00:00:00.250" From="1" To="0" 
+                         Storyboard.TargetProperty="Opacity"/>
     </Storyboard>
     <Storyboard x:Key="GlowIn">
-        <DoubleAnimation x:Name="AnimGlow" 
-                   BeginTime="00:00:00" 
-                   Storyboard.TargetName="Pressed"
-                   Duration="00:00:00.250" 
-                   From="0" To="1" 
-                   Storyboard.TargetProperty="Opacity">
-        </DoubleAnimation>
-    </Storyboard>-->
+        <DoubleAnimation x:Name="AnimGlow" BeginTime="00:00:00" 
+                         Storyboard.TargetName="GlowRectangle" 
+                         Duration="00:00:00.250" From="0" To="1" 
+                         Storyboard.TargetProperty="Opacity"/>
+    </Storyboard>
 
     <!-- GLASS EFFECT -->
     <!-- not my code -->
@@ -79,7 +77,7 @@
     
 
     <!-- Round Button -->
-    <Style x:Key="RndBtn" TargetType="{x:Type Button}">
+    <Style x:Key="imgButton" TargetType="{x:Type Button}">
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Foreground" Value="White" />
@@ -87,6 +85,25 @@
             <Setter.Value>
                 <ControlTemplate x:Name="tmpltButton">
                     <Grid>
+                        <Border x:Name="BaseRectangle" 
+                            Background="{StaticResource baseColor}" 
+                            CornerRadius="10,0,10,0">
+                        </Border>
+                        <Border x:Name="GlassRectangle" 
+                            Background="{StaticResource GlassFX}" 
+                            CornerRadius="10,0,10,0">
+                        </Border>
+                        <Border x:Name="GlowRectangle" 
+                            Background="{StaticResource GlowFX}" 
+                            CornerRadius="10,0,10,0" 
+                            Opacity="0">
+                        </Border>
+                        <Border x:Name="ButtonBorder" 
+                            CornerRadius="10,0,10,0" 
+                            BorderBrush="Black" 
+                            Opacity="1" 
+                            BorderThickness="1">
+                        </Border>
                         <ContentPresenter x:Name="ButtonContent" 
                                           Opacity=".7" 
                                           Content="{Binding Path=Content, 
@@ -95,32 +112,39 @@
                                           VerticalAlignment="center">
                         </ContentPresenter>
                     </Grid>
-                    <!--<ControlTemplate.Triggers>
+                    
+                    <ControlTemplate.Triggers>
                         <EventTrigger RoutedEvent="Button.MouseLeave">
                             <EventTrigger.Actions>
-                                <BeginStoryboard Storyboard="{StaticResource GlowOut}">
-                                </BeginStoryboard>
+                                <BeginStoryboard Storyboard="{StaticResource GlowOut}"/>
                             </EventTrigger.Actions>
                         </EventTrigger>
                         <EventTrigger RoutedEvent="Button.MouseEnter">
                             <EventTrigger.Actions>
-                                <BeginStoryboard Storyboard="{StaticResource GlowIn}">
-                                </BeginStoryboard>
+                                <BeginStoryboard Storyboard="{StaticResource GlowIn}"/>
                             </EventTrigger.Actions>
                         </EventTrigger>
                         <EventTrigger RoutedEvent="Button.LostFocus">
                             <EventTrigger.Actions>
-                                <BeginStoryboard Storyboard="{StaticResource GlowOut}">
-                                </BeginStoryboard>
+                                <BeginStoryboard Storyboard="{StaticResource GlowOut}"/>
                             </EventTrigger.Actions>
                         </EventTrigger>
                         <EventTrigger RoutedEvent="Button.GotFocus">
                             <EventTrigger.Actions>
-                                <BeginStoryboard Storyboard="{StaticResource GlowIn}">
-                                </BeginStoryboard>
+                                <BeginStoryboard Storyboard="{StaticResource GlowIn}"/>
                             </EventTrigger.Actions>
                         </EventTrigger>
-                    </ControlTemplate.Triggers>-->
+                        
+                        <Trigger Property="Button.IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="GlowRectangle" Value="{StaticResource GlowFXPressed}"/>
+                            <Setter Property="Opacity" TargetName="ButtonContent" Value="1"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" TargetName="ButtonContent" Value=".3"/>
+                            <Setter Property="Opacity" TargetName="ButtonBorder" Value=".5"/>
+                            <Setter Property="Background" TargetName="GlassRectangle" Value="{StaticResource GlassFXDisabled}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

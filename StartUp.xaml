@@ -6,26 +6,17 @@
              xmlns:local="clr-namespace:Sappi"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
-    <UserControl.Resources>
-        <BitmapImage x:Key="img_newItem" UriSource="./bin/addStudent.png"/>
-        <BitmapImage x:Key="img_database" UriSource="./bin/database.png"/>
-    </UserControl.Resources>
     <Grid >
         <Image Source="{StaticResource img_aieLogo}" Width="380" Height="380" />
         <!--New App button-->
         <Button Name="newAppButton" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Click="newAppButton_Click"  HorizontalAlignment="Center" Margin="0,0,300,0" VerticalAlignment="Bottom" ToolTip="New Application">
             <Image Source="{StaticResource img_newItem}" Height="100" Width="100"/>
         </Button>
-        
+
         <!--View database button-->
-        <Button Name="dbButton" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Click="DatabaseButton_Click" HorizontalAlignment="Center" Margin="300,0,0,0" VerticalAlignment="Bottom" ToolTip="View Database">
+        <Button Name="dbButton" Style="{StaticResource imgButton}" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Click="DatabaseButton_Click" HorizontalAlignment="Center" Margin="300,0,0,0" VerticalAlignment="Bottom" ToolTip="View Database">
             <Image Source="{StaticResource img_database}" Height="100" Width="100"/>
         </Button>
-        <!--<Button x:Name="button2" Style="{StaticResource RndBtn}" HorizontalAlignment="Left" Margin="469,166,0,0" VerticalAlignment="Top" Width="75">
-            <Image Source="{StaticResource img_fileCabinet}" Height="64" Width="64"/>
-        </Button>-->
-
-
 
     </Grid>
 </UserControl>
