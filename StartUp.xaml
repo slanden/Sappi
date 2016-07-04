@@ -9,7 +9,7 @@
     <Grid >
         <Image Source="{StaticResource img_aieLogo}" Width="380" Height="380" />
         <!--New App button-->
-        <Button Name="newAppButton" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Click="newAppButton_Click"  HorizontalAlignment="Center" Margin="0,0,300,0" VerticalAlignment="Bottom" ToolTip="New Application">
+        <Button Name="newAppButton" Style="{StaticResource imgButton}" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Click="newAppButton_Click"  HorizontalAlignment="Center" Margin="0,0,300,0" VerticalAlignment="Bottom" ToolTip="New Application">
             <Image Source="{StaticResource img_newItem}" Height="100" Width="100"/>
         </Button>
 

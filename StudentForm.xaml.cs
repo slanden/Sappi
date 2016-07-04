@@ -96,7 +96,8 @@ namespace Sappi
                 supportrequiredBox.SelectedIndex = sd.supportRequired ? 1 : 0;
                 newsletterBox.SelectedIndex = sd.newsletterSub ? 1 : 0;
                 willprovideinfoBox.SelectedIndex = sd.willProvideThisInfo ? 1 : 0;
-                initialsBox.Text = sd.initials[0].ToString() + sd.initials[1];
+                //initialsBox.Text = sd.initials[0].ToString() + sd.initials[1];
+                initialsBox.Text = (sd.initials.Length == 2) ? sd.initials[0].ToString() + sd.initials[1] : null;
 
                 for (int i = 0; i < fData.groups.Count; ++i)
                 {
@@ -120,7 +121,9 @@ namespace Sappi
                     #endregion
 
                     //select values to represent the StudentData
-                    groupBoxes[i].SelectedItem = fData.masterList[sd.groupBoxes[i]];
+                    if(sd.groupBoxes[i] != -1)
+                        groupBoxes[i].SelectedItem = fData.masterList[sd.groupBoxes[i]];
+
                 }
 
 

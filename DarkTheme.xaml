@@ -8,6 +8,19 @@
     <BitmapImage x:Key="img_newItem" UriSource="./bin/addStudent.png"/>
     <BitmapImage x:Key="img_database" UriSource="./bin/database.png"/>
 
+    <!--<Style x:Key="animImage" TargetType="{x:Type Image}">
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <ScaleTransform 
+                    x:Name="imgScale" 
+                    CenterX="50" 
+                    CenterY="50" 
+                    ScaleX="1" 
+                    ScaleY="1"/>
+            </Setter.Value>
+        </Setter>
+    </Style>-->
+
     <!-- base color used throughout application -->
     <SolidColorBrush x:Key="baseColor" Color="#282829"/>
 
@@ -51,7 +64,7 @@
 
     <!-- GLOW ANIMATION -->
     <!-- not my code -->
-    <Storyboard x:Key="GlowOut">
+    <!--<Storyboard x:Key="GlowOut">
         <DoubleAnimation x:Name="AnimGlowOut" BeginTime="00:00:00" 
                          Storyboard.TargetName="GlowRectangle" 
                          Duration="00:00:00.250" From="1" To="0" 
@@ -62,6 +75,31 @@
                          Storyboard.TargetName="GlowRectangle" 
                          Duration="00:00:00.250" From="0" To="1" 
                          Storyboard.TargetProperty="Opacity"/>
+    </Storyboard>-->
+
+    <Storyboard x:Key="HoverOut" Duration="00:00:00.250">
+        <DoubleAnimation 
+            BeginTime="00:00:00"
+            To="1" 
+            Storyboard.TargetName="imgScale"
+            Storyboard.TargetProperty="ScaleX"/>
+        <DoubleAnimation 
+            BeginTime="00:00:00"
+            To="1" 
+            Storyboard.TargetName="imgScale" 
+            Storyboard.TargetProperty="ScaleY"/>
+    </Storyboard>
+    <Storyboard x:Key="HoverIn" Duration="00:00:00.250">
+        <DoubleAnimation 
+            BeginTime="00:00:00" 
+            To="1.5" 
+            Storyboard.TargetName="imgScale" 
+            Storyboard.TargetProperty="ScaleX"/>
+        <DoubleAnimation 
+            BeginTime="00:00:00" 
+            To="1.5" 
+            Storyboard.TargetName="imgScale" 
+            Storyboard.TargetProperty="ScaleY"/>
     </Storyboard>
 
     <!-- GLASS EFFECT -->
@@ -76,8 +114,24 @@
     </LinearGradientBrush>
     
 
-    <!-- Round Button -->
+    <!-- Image Button -->
     <Style x:Key="imgButton" TargetType="{x:Type Button}">
+        <!--start of image child style-->
+        <Style.Resources>
+            <Style TargetType="{x:Type Image}">
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform 
+                            x:Name="imgScale" 
+                            CenterX="50" 
+                            CenterY="50" 
+                            ScaleX="1" 
+                            ScaleY="1"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Style.Resources>
+        <!--end of image child style-->
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Foreground" Value="White" />
@@ -116,22 +170,22 @@
                     <ControlTemplate.Triggers>
                         <EventTrigger RoutedEvent="Button.MouseLeave">
                             <EventTrigger.Actions>
-                                <BeginStoryboard Storyboard="{StaticResource GlowOut}"/>
+                                <BeginStoryboard Storyboard="{StaticResource HoverOut}"/>
                             </EventTrigger.Actions>
                         </EventTrigger>
                         <EventTrigger RoutedEvent="Button.MouseEnter">
                             <EventTrigger.Actions>
-                                <BeginStoryboard Storyboard="{StaticResource GlowIn}"/>
+                                <BeginStoryboard Storyboard="{StaticResource HoverIn}"/>
                             </EventTrigger.Actions>
                         </EventTrigger>
                         <EventTrigger RoutedEvent="Button.LostFocus">
                             <EventTrigger.Actions>
-                                <BeginStoryboard Storyboard="{StaticResource GlowOut}"/>
+                                <BeginStoryboard Storyboard="{StaticResource HoverOut}"/>
                             </EventTrigger.Actions>
                         </EventTrigger>
                         <EventTrigger RoutedEvent="Button.GotFocus">
                             <EventTrigger.Actions>
-                                <BeginStoryboard Storyboard="{StaticResource GlowIn}"/>
+                                <BeginStoryboard Storyboard="{StaticResource HoverIn}"/>
                             </EventTrigger.Actions>
                         </EventTrigger>
                         
