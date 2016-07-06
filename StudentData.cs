@@ -5,7 +5,9 @@ namespace Sappi
     {
         public string name { get; set; }
         public int[] groupBoxes { get; set; }
+        public int[] DOB;
         public int status { get; set; }
+        public int educationYear;
         public string[] addresses { get; set; }
         public string email { get; set; }
         public string cellPhoneNum { get; set; }
@@ -24,6 +26,7 @@ namespace Sappi
         {
             groupBoxes = new int[numGroups];
             addresses = new string[6];
+            DOB = new int[3];
         }
     }
 }

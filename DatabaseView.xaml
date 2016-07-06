@@ -45,21 +45,28 @@
             </Grid>
         </ScrollViewer>-->
 
-        <TextBox x:Name="searchBar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,38,0,0" Width="200" Height="23" TextWrapping="Wrap" Text="(search)" GotFocus="Textbox_GotFocus"/>
-        <DataGrid x:Name="dg" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1160" Height="565" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="EditStudentData" KeyUp="Datagrid_KeyUp" Margin="0,66,0,0" CanUserDeleteRows="False">
+        <TextBox x:Name="searchBar"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,136,0,0" Width="256" Height="23" TextWrapping="Wrap" Text="(search)" GotFocus="Textbox_GotFocus"/>
+        <DataGrid x:Name="dg" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1160" Height="500" AutoGenerateColumns="False" IsReadOnly="True" KeyUp="Datagrid_KeyUp" Margin="40,164,40,0" CanUserDeleteRows="False">
             <DataGrid.Resources>
                 <ContextMenu x:Key="RowMenu" DataContext="{Binding PlacementTarget, RelativeSource={RelativeSource Self}}">
                     <MenuItem Header="Edit" Command="local:ContextCommands.Edit"/>
                     <MenuItem Header="Delete" Command="local:ContextCommands.Delete"/>
                 </ContextMenu>
             </DataGrid.Resources>
-            
+
             <DataGrid.RowStyle>
                 <Style TargetType="{x:Type DataGridRow}">
                     <!--<EventSetter Event="MouseRightButtonUp" Handler="Context_MouseRightButtonUp"/>-->
                     <Setter Property="ContextMenu" Value="{StaticResource RowMenu}"/>
+                    <EventSetter Event="MouseDoubleClick" Handler="EditStudentData"/>
                 </Style>
             </DataGrid.RowStyle>
+            <!--<DataGrid.Background>
+                <LinearGradientBrush StartPoint="0.5,1" EndPoint="0.5,0">
+                    <GradientStop Color="#33282829" Offset="0.5"/>
+                    <GradientStop Color="#FFB8B8B8" Offset="2.65"/>
+                </LinearGradientBrush>
+            </DataGrid.Background>-->
         </DataGrid>
 
 
@@ -67,9 +74,10 @@
             <TextBox x:Name="searchBar" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,584,344" Width="200" Height="23" TextWrapping="Wrap" Text="(search)" GotFocus="Textbox_GotFocus"/>
             <DataGrid x:Name="dg" HorizontalAlignment="right" VerticalAlignment="Bottom" Margin="0,0,20,20" Width="764" Height="319" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="EditStudentData" KeyUp="DeleteItem"/>
         </Grid>-->
-
-        <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10" Width="75" Click="GoBack" />
-
+        
+        <Button x:Name="backButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Click="GoBack" ToolTip="Go Back">
+            <Image Source="{StaticResource img_backButton}" Height="64" Width="64"/>
+        </Button>
 
     </Grid>
 </UserControl>

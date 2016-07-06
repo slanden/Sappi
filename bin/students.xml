@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfStudentData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <StudentData>
-    <willProvideThisInfo>false</willProvideThisInfo>
+    <DOB>
+      <int>12</int>
+      <int>12</int>
+      <int>1840</int>
+    </DOB>
+    <educationYear>1916</educationYear>
+    <willProvideThisInfo>true</willProvideThisInfo>
     <initials>
       <char>74</char>
       <char>77</char>
@@ -24,20 +30,26 @@
       <string>122 Smaller Hill</string>
       <string>Big Hill, LA 70508</string>
       <string />
-      <string>Line 1</string>
-      <string>Line 2</string>
-      <string>Line 3</string>
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
     </addresses>
     <email>j.marston@gmail.com</email>
     <cellPhoneNum>111-112-1122</cellPhoneNum>
     <homePhoneNum>N/A</homePhoneNum>
     <schoolName>DTHS</schoolName>
-    <separateMailAddress>true</separateMailAddress>
-    <gender>false</gender>
-    <supportRequired>true</supportRequired>
-    <newsletterSub>true</newsletterSub>
+    <separateMailAddress>false</separateMailAddress>
+    <gender>true</gender>
+    <supportRequired>false</supportRequired>
+    <newsletterSub>false</newsletterSub>
   </StudentData>
   <StudentData>
+    <DOB>
+      <int>12</int>
+      <int>12</int>
+      <int>2111</int>
+    </DOB>
+    <educationYear>0</educationYear>
     <willProvideThisInfo>true</willProvideThisInfo>
     <initials>
       <char>74</char>
@@ -75,6 +87,7 @@
     <newsletterSub>true</newsletterSub>
   </StudentData>
   <StudentData>
+    <educationYear>0</educationYear>
     <willProvideThisInfo>true</willProvideThisInfo>
     <initials>
       <char>68</char>
@@ -112,6 +125,7 @@
     <newsletterSub>true</newsletterSub>
   </StudentData>
   <StudentData>
+    <educationYear>0</educationYear>
     <willProvideThisInfo>true</willProvideThisInfo>
     <initials>
       <char>90</char>
@@ -130,7 +144,7 @@
       <int>33</int>
       <int>39</int>
     </groupBoxes>
-    <status>5</status>
+    <status>0</status>
     <addresses>
       <string>150 Shmifty Rd.</string>
       <string>Abb Villain, LA 70588</string>
@@ -149,6 +163,7 @@
     <newsletterSub>true</newsletterSub>
   </StudentData>
   <StudentData>
+    <educationYear>0</educationYear>
     <willProvideThisInfo>false</willProvideThisInfo>
     <initials>
       <char>74</char>
@@ -186,6 +201,7 @@
     <newsletterSub>true</newsletterSub>
   </StudentData>
   <StudentData>
+    <educationYear>0</educationYear>
     <willProvideThisInfo>false</willProvideThisInfo>
     <initials />
     <name>a d</name>
@@ -220,6 +236,7 @@
     <newsletterSub>false</newsletterSub>
   </StudentData>
   <StudentData>
+    <educationYear>0</educationYear>
     <willProvideThisInfo>false</willProvideThisInfo>
     <initials />
     <name>dsa dasdsa</name>
@@ -254,6 +271,7 @@
     <newsletterSub>false</newsletterSub>
   </StudentData>
   <StudentData>
+    <educationYear>0</educationYear>
     <willProvideThisInfo>false</willProvideThisInfo>
     <initials />
     <name>ererw rtreeee</name>
@@ -288,6 +306,7 @@
     <newsletterSub>false</newsletterSub>
   </StudentData>
   <StudentData>
+    <educationYear>0</educationYear>
     <willProvideThisInfo>false</willProvideThisInfo>
     <initials />
     <name>assadhh dwwqq</name>
@@ -320,5 +339,43 @@
     <gender>false</gender>
     <supportRequired>false</supportRequired>
     <newsletterSub>false</newsletterSub>
+  </StudentData>
+  <StudentData>
+    <educationYear>1995</educationYear>
+    <willProvideThisInfo>false</willProvideThisInfo>
+    <initials>
+      <char>66</char>
+      <char>70</char>
+    </initials>
+    <name>Bill Frankloin</name>
+    <groupBoxes>
+      <int>2</int>
+      <int>4</int>
+      <int>9</int>
+      <int>12</int>
+      <int>14</int>
+      <int>19</int>
+      <int>24</int>
+      <int>28</int>
+      <int>33</int>
+      <int>39</int>
+    </groupBoxes>
+    <status>0</status>
+    <addresses>
+      <string>Line 1</string>
+      <string>Line 2</string>
+      <string>Line 3</string>
+      <string>Line 1</string>
+      <string>Line 2</string>
+      <string>Line 3</string>
+    </addresses>
+    <email>dsads@dadadad.hotmail.com</email>
+    <cellPhoneNum>111-111-1111</cellPhoneNum>
+    <homePhoneNum />
+    <schoolName>DOHS</schoolName>
+    <separateMailAddress>true</separateMailAddress>
+    <gender>false</gender>
+    <supportRequired>true</supportRequired>
+    <newsletterSub>true</newsletterSub>
   </StudentData>
 </ArrayOfStudentData>

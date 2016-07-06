@@ -15,86 +15,86 @@
 
             <Grid HorizontalAlignment="Center">
                 <!-- Left Side -->
-                <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White">
+                <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         Name:
                 </TextBlock>
-                <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="10,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White">
+                <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="10,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         I would like to study at the:
                 </TextBlock>
-                <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="10,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MaxWidth="250" Foreground="White">
+                <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="10,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MaxWidth="250">
                         The program I'd like to apply for is the one specializing in:
                 </TextBlock>
-                <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="10,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White">
+                <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="10,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         I have a separate mailing address:
                 </TextBlock>
-                <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Margin="10,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White">
+                <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Margin="10,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         Residential Address:
                 </TextBlock>
-                <TextBlock x:Name="mailAddressTextBlock" HorizontalAlignment="Left" Margin="10,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White">
+                <TextBlock x:Name="mailAddressTextBlock" HorizontalAlignment="Left" Margin="10,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         Mailing address:
                 </TextBlock>
-                <TextBlock x:Name="textBlock7" HorizontalAlignment="Left" Margin="10,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFFFFFA">
+                <TextBlock x:Name="textBlock7" HorizontalAlignment="Left" Margin="10,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         I am a permanent resident of:
                 </TextBlock>
-                <TextBlock x:Name="textBlock8" HorizontalAlignment="Left" Margin="10,382,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFFFFFA">
+                <TextBlock x:Name="textBlock8" HorizontalAlignment="Left" Margin="10,382,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         I am a citizen of:
                 </TextBlock>
-                <TextBlock x:Name="textBlock9" HorizontalAlignment="Left" Margin="10,433,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFFFFFA">
+                <TextBlock x:Name="textBlock9" HorizontalAlignment="Left" Margin="10,433,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         E-mail:
                 </TextBlock>
-                <TextBlock x:Name="textBlock10" HorizontalAlignment="Left" Margin="10,468,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFFFFFA">
+                <TextBlock x:Name="textBlock10" HorizontalAlignment="Left" Margin="10,468,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         Cell Phone:
                 </TextBlock>
-                <TextBlock x:Name="textBlock11" HorizontalAlignment="Left" Margin="10,502,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFFFFFA">
+                <TextBlock x:Name="textBlock11" HorizontalAlignment="Left" Margin="10,502,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         Home Phone:
                 </TextBlock>
-                <TextBlock x:Name="textBlock12" HorizontalAlignment="Left" Margin="10,551,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFFFFFA">
+                <TextBlock x:Name="textBlock12" HorizontalAlignment="Left" Margin="10,551,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         Preferred Method of Contact:
                 </TextBlock>
-                <TextBlock x:Name="textBlock13" HorizontalAlignment="Left" Margin="10,595,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFFFFFA">
+                <TextBlock x:Name="textBlock13" HorizontalAlignment="Left" Margin="10,595,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         Date of Birth:
                 </TextBlock>
-                <TextBlock x:Name="textBlock14" HorizontalAlignment="Left" Margin="10,639,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MaxWidth="250" Foreground="#FFFFFFFA">
+                <TextBlock x:Name="textBlock14" HorizontalAlignment="Left" Margin="10,639,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MaxWidth="250">
                         What is the highest level of education you will have completed by the end of this year?
                 </TextBlock>
-                <TextBlock x:Name="textBlock15" HorizontalAlignment="Left" Margin="10,687,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFFFFFA">
+                <TextBlock x:Name="textBlock15" HorizontalAlignment="Left" Margin="10,687,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         What year did you complete this level?
                 </TextBlock>
-                <TextBlock x:Name="textBlock16" HorizontalAlignment="Left" Margin="10,727,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFFFFFA">
+                <TextBlock x:Name="textBlock16" HorizontalAlignment="Left" Margin="10,727,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         Name of school / institution:
                 </TextBlock>
-                <TextBlock x:Name="textBlock17" HorizontalAlignment="Left" Margin="10,766,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFFFFFA">
+                <TextBlock x:Name="textBlock17" HorizontalAlignment="Left" Margin="10,766,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         I will provide this information:
                 </TextBlock>
-                <TextBlock x:Name="textBlock18" HorizontalAlignment="Left" Margin="10,803,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFFFFFA">
+                <TextBlock x:Name="textBlock18" HorizontalAlignment="Left" Margin="10,803,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         Gender:
                 </TextBlock>
-                <TextBlock x:Name="textBlock19" HorizontalAlignment="Left" Margin="10,840,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFFFFFA">
+                <TextBlock x:Name="textBlock19" HorizontalAlignment="Left" Margin="10,840,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         Ethnicity:
                 </TextBlock>
-                <TextBlock x:Name="textBlock20" HorizontalAlignment="Left" Margin="10,878,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFFFFFA">
+                <TextBlock x:Name="textBlock20" HorizontalAlignment="Left" Margin="10,878,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         Race:
                 </TextBlock>
-                <TextBlock x:Name="textBlock21" HorizontalAlignment="Left" Margin="10,916,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MaxWidth="250" Foreground="#FFFFFFFA">
+                <TextBlock x:Name="textBlock21" HorizontalAlignment="Left" Margin="10,916,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MaxWidth="250">
                         Do you require any support to complete this course?
                 </TextBlock>
-                <TextBlock x:Name="textBlock22" HorizontalAlignment="Left" Margin="10,966,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFFFFFA">
+                <TextBlock x:Name="textBlock22" HorizontalAlignment="Left" Margin="10,966,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         How did you hear about AIE?
                 </TextBlock>
-                <TextBlock x:Name="textBlock23" HorizontalAlignment="Left" Margin="10,1002,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFFFFFA">
+                <TextBlock x:Name="textBlock23" HorizontalAlignment="Left" Margin="10,1002,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         AIE Newsletter:
                 </TextBlock>
-                <TextBlock x:Name="textBlock24" HorizontalAlignment="Left" Margin="10,1042,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFFFFFA">
+                <TextBlock x:Name="textBlock24" HorizontalAlignment="Left" Margin="10,1042,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         How will you be providing this information?
                 </TextBlock>
-                <TextBlock x:Name="textBlock25" HorizontalAlignment="Left" Margin="10,1088,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White">
+                <TextBlock x:Name="textBlock25" HorizontalAlignment="Left" Margin="10,1088,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         Declaration:
                 </TextBlock>
-                <TextBlock x:Name="textBlock26" HorizontalAlignment="Left" Margin="307,1088,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MaxWidth="250" Foreground="White">
+                <TextBlock x:Name="textBlock26" HorizontalAlignment="Left" Margin="307,1088,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MaxWidth="250">
                         By entering my initials below, I declare that the information 
                         I have supplied in this application form is correct and complete.
                 </TextBlock>
-                <TextBlock x:Name="textBlock27" HorizontalAlignment="Left" Margin="10,1143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.543" Foreground="White">
+                <TextBlock x:Name="textBlock27" HorizontalAlignment="Left" Margin="10,1143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.543">
                         My initials are:
                 </TextBlock>
 
@@ -104,8 +104,7 @@
 
                 <ComboBox x:Name="campusesBox" HorizontalAlignment="Left" Margin="307,46,0,0" VerticalAlignment="Top" Width="247"/>
                 <ComboBox x:Name="programsBox" HorizontalAlignment="Left" Margin="307,82,0,0" VerticalAlignment="Top" Width="247"/>
-                <ComboBox x:Name="separatemailingaddressBox" HorizontalAlignment="Left" Margin="307,128,0,0" VerticalAlignment="Top" Width="74" SelectedIndex="0">
-                    <ComboBoxItem Selected="DisableMailingAddress">(Select)</ComboBoxItem>
+                <ComboBox x:Name="separatemailingaddressBox" HorizontalAlignment="Left" Margin="307,128,0,0" VerticalAlignment="Top" Width="74" >
                     <ComboBoxItem Selected="DisableMailingAddress">No</ComboBoxItem>
                     <ComboBoxItem Selected="EnableMailingAddress">Yes</ComboBoxItem>
                 </ComboBox>
@@ -128,41 +127,37 @@
                 <ComboBox x:Name="contactmethodsBox" HorizontalAlignment="Left" Margin="307,551,0,0" VerticalAlignment="Top" Width="247"/>
 
                 <Grid x:Name="dobGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="307,595,0,0">
-                    <TextBox x:Name="dobmonthBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="MM" VerticalAlignment="Top" Width="32" GotFocus="Textbox_GotFocus" TextChanged="Textbox_MoveToNext"/>
-                    <TextBox x:Name="dobdayBox" HorizontalAlignment="Left" Height="23" Margin="37,0,0,0" TextWrapping="Wrap" Text="DD" VerticalAlignment="Top" Width="32" GotFocus="Textbox_GotFocus" TextChanged="Textbox_MoveToNext"/>
-                    <TextBox x:Name="dobyearBox" HorizontalAlignment="Left" Height="23" Margin="74,0,0,0" TextWrapping="Wrap" Text="YYYY" VerticalAlignment="Top" Width="38" GotFocus="Textbox_GotFocus"/>
+                    <TextBox x:Name="dobMonthBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="MM" VerticalAlignment="Top" Width="32" GotFocus="Textbox_GotFocus" TextChanged="Textbox_MoveToNext"/>
+                    <TextBox x:Name="dobDayBox" HorizontalAlignment="Left" Height="23" Margin="37,0,0,0" TextWrapping="Wrap" Text="DD" VerticalAlignment="Top" Width="32" GotFocus="Textbox_GotFocus" TextChanged="Textbox_MoveToNext"/>
+                    <TextBox x:Name="dobYearBox" HorizontalAlignment="Left" Height="23" Margin="74,0,0,0" TextWrapping="Wrap" Text="YYYY" VerticalAlignment="Top" Width="38" GotFocus="Textbox_GotFocus"/>
                 </Grid>
                 <ComboBox x:Name="educationlevelBox" HorizontalAlignment="Left" Margin="307,639,0,0" VerticalAlignment="Top" Width="247"/>
-                <ComboBox x:Name="educationyearBox" HorizontalAlignment="Left" Margin="307,687,0,0" VerticalAlignment="Top" Width="74"/>
+                <ComboBox x:Name="educationyearBox" HorizontalAlignment="Left" Margin="307,687,0,0" VerticalAlignment="Top" Width="74" />
 
                 <TextBox x:Name="schoolnameBox" HorizontalAlignment="Left" Height="23" Margin="307,727,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247"/>
 
-                <ComboBox x:Name="willprovideinfoBox" HorizontalAlignment="Left" Margin="307,766,0,0" VerticalAlignment="Top" Width="74" SelectedIndex="0">
-                    <ComboBoxItem>(Select)</ComboBoxItem>
+                <ComboBox x:Name="willprovideinfoBox" HorizontalAlignment="Left" Margin="307,766,0,0" VerticalAlignment="Top" Width="74" >
                     <ComboBoxItem>No</ComboBoxItem>
                     <ComboBoxItem>Yes</ComboBoxItem>
                 </ComboBox>
-                <ComboBox x:Name="genderBox" HorizontalAlignment="Left" Margin="307,803,0,0" VerticalAlignment="Top" Width="74" SelectedIndex="0">
-                    <ComboBoxItem>(Select)</ComboBoxItem>
+                <ComboBox x:Name="genderBox" HorizontalAlignment="Left" Margin="307,803,0,0" VerticalAlignment="Top" Width="74" >
                     <ComboBoxItem>Female</ComboBoxItem>
                     <ComboBoxItem>Male</ComboBoxItem>
                 </ComboBox>
                 <ComboBox x:Name="ethnicitiesBox" HorizontalAlignment="Left" Margin="307,840,0,0" VerticalAlignment="Top" Width="247"/>
                 <ComboBox x:Name="racesBox" HorizontalAlignment="Left" Margin="307,878,0,0" VerticalAlignment="Top" Width="247"/>
-                <ComboBox x:Name="supportrequiredBox" HorizontalAlignment="Left" Margin="307,916,0,0" VerticalAlignment="Top" Width="74" SelectedIndex="0">
-                    <ComboBoxItem>(Select)</ComboBoxItem>
+                <ComboBox x:Name="supportrequiredBox" HorizontalAlignment="Left" Margin="307,916,0,0" VerticalAlignment="Top" Width="74">
                     <ComboBoxItem>No</ComboBoxItem>
                     <ComboBoxItem>Yes</ComboBoxItem>
                 </ComboBox>
                 <ComboBox x:Name="referencesBox" HorizontalAlignment="Left" Margin="307,966,0,0" VerticalAlignment="Top" Width="247"/>
-                <ComboBox x:Name="newsletterBox" HorizontalAlignment="Left" Margin="307,1002,0,0" VerticalAlignment="Top" Width="74" SelectedIndex="0">
-                    <ComboBoxItem>(Select)</ComboBoxItem>
+                <ComboBox x:Name="newsletterBox" HorizontalAlignment="Left" Margin="307,1002,0,0" VerticalAlignment="Top" Width="74">
                     <ComboBoxItem>No</ComboBoxItem>
                     <ComboBoxItem>Yes</ComboBoxItem>
                 </ComboBox>
                 <ComboBox x:Name="provideinfobyBox" HorizontalAlignment="Left" Margin="307,1042,0,0" VerticalAlignment="Top" Width="247"/>
 
-                <TextBox x:Name="initialsBox" HorizontalAlignment="Left" Margin="307,1143,0,0" TextWrapping="Wrap" Width="33" Height="23" VerticalAlignment="Top"/>
+                <TextBox x:Name="initialsBox" HorizontalAlignment="Left" Margin="307,1143,0,0" TextWrapping="Wrap" Width="33" Height="23" VerticalAlignment="Top" TextChanged="Textbox_LimitCharacters"/>
                 <Button x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="120,1241,0,10" VerticalAlignment="Top" Width="75" Click="Cancel"/>
                 <Button x:Name="saveButton" Content="Save" HorizontalAlignment="Left" Margin="405,1241,0,10" VerticalAlignment="Top" Width="75" Click="Save"/>
 

@@ -21,15 +21,15 @@
         </Setter>
     </Style>-->
 
-    <!-- base color used throughout application -->
+    <!-- colors -->
     <SolidColorBrush x:Key="baseColor" Color="#282829"/>
+    <SolidColorBrush x:Key="darkColor" Color="#212122"/>
 
     <!-- Background -->
     <LinearGradientBrush x:Key="DarkBackground" StartPoint="0.5,0" EndPoint="0.5,1">
-        <GradientStop Color="#282829" Offset="0.65"/>
+        <GradientStop Color="#323233" Offset="0.65"/>
         <GradientStop Color="#FFB8B8B8" Offset="4.65"/>
     </LinearGradientBrush>
-    
 
     <!-- GLOW EFFECT -->
     <!-- not my code -->
@@ -64,20 +64,20 @@
 
     <!-- GLOW ANIMATION -->
     <!-- not my code -->
-    <!--<Storyboard x:Key="GlowOut">
+    <Storyboard x:Key="HoverOut">
         <DoubleAnimation x:Name="AnimGlowOut" BeginTime="00:00:00" 
                          Storyboard.TargetName="GlowRectangle" 
                          Duration="00:00:00.250" From="1" To="0" 
                          Storyboard.TargetProperty="Opacity"/>
     </Storyboard>
-    <Storyboard x:Key="GlowIn">
+    <Storyboard x:Key="HoverIn">
         <DoubleAnimation x:Name="AnimGlow" BeginTime="00:00:00" 
                          Storyboard.TargetName="GlowRectangle" 
                          Duration="00:00:00.250" From="0" To="1" 
                          Storyboard.TargetProperty="Opacity"/>
-    </Storyboard>-->
+    </Storyboard>
 
-    <Storyboard x:Key="HoverOut" Duration="00:00:00.250">
+    <!--<Storyboard x:Key="HoverOut" Duration="00:00:00.250">
         <DoubleAnimation 
             BeginTime="00:00:00"
             To="1" 
@@ -100,19 +100,17 @@
             To="1.5" 
             Storyboard.TargetName="imgScale" 
             Storyboard.TargetProperty="ScaleY"/>
-    </Storyboard>
+    </Storyboard>-->
 
     <!-- GLASS EFFECT -->
-    <!-- not my code -->
-    <LinearGradientBrush x:Key="GlassFX" StartPoint=".5,0" EndPoint=".5,.5">
-        <GradientStop Offset="1" Color="#33DDDDDD"></GradientStop>
-        <GradientStop Offset="1" Color="#33000000"></GradientStop>
+    <LinearGradientBrush x:Key="GlassFX" StartPoint="0.5,1" EndPoint="0.5,0">
+        <GradientStop Color="#33303031" Offset="0.5"/>
+        <GradientStop Color="#FFB8B8B8" Offset="2.65"/>
     </LinearGradientBrush>
-    <LinearGradientBrush x:Key="GlassFXDisabled" StartPoint=".5,0" EndPoint=".5,.5">
-        <GradientStop Offset="1" Color="#33BBBBBB"></GradientStop>
-        <GradientStop Offset="1" Color="#11000000"></GradientStop>
+    <LinearGradientBrush x:Key="GlassFXDisabled" StartPoint="0.5,1" EndPoint="0.5,0">
+        <GradientStop Color="#19303031" Offset="0.5"/>
+        <GradientStop Color="#FFB8B8B8" Offset="2.65"/>
     </LinearGradientBrush>
-    
 
     <!-- Image Button -->
     <Style x:Key="imgButton" TargetType="{x:Type Button}">
@@ -140,23 +138,23 @@
                 <ControlTemplate x:Name="tmpltButton">
                     <Grid>
                         <Border x:Name="BaseRectangle" 
-                            Background="{StaticResource baseColor}" 
-                            CornerRadius="10,0,10,0">
+                                Background="{StaticResource baseColor}" 
+                                CornerRadius="10,0,10,0">
                         </Border>
                         <Border x:Name="GlassRectangle" 
-                            Background="{StaticResource GlassFX}" 
-                            CornerRadius="10,0,10,0">
+                                Background="{StaticResource GlassFX}" 
+                                CornerRadius="10,0,10,0">
                         </Border>
                         <Border x:Name="GlowRectangle" 
-                            Background="{StaticResource GlowFX}" 
-                            CornerRadius="10,0,10,0" 
-                            Opacity="0">
+                                Background="{StaticResource GlowFX}" 
+                                CornerRadius="10,0,10,0" 
+                                Opacity="0">
                         </Border>
                         <Border x:Name="ButtonBorder" 
-                            CornerRadius="10,0,10,0" 
-                            BorderBrush="Black" 
-                            Opacity="1" 
-                            BorderThickness="1">
+                                CornerRadius="10,0,10,0" 
+                                BorderBrush="Black" 
+                                Opacity="1" 
+                                BorderThickness="1">
                         </Border>
                         <ContentPresenter x:Name="ButtonContent" 
                                           Opacity=".7" 
@@ -166,7 +164,7 @@
                                           VerticalAlignment="center">
                         </ContentPresenter>
                     </Grid>
-                    
+
                     <ControlTemplate.Triggers>
                         <EventTrigger RoutedEvent="Button.MouseLeave">
                             <EventTrigger.Actions>
@@ -188,15 +186,107 @@
                                 <BeginStoryboard Storyboard="{StaticResource HoverIn}"/>
                             </EventTrigger.Actions>
                         </EventTrigger>
-                        
+
                         <Trigger Property="Button.IsPressed" Value="True">
-                            <Setter Property="Background" TargetName="GlowRectangle" Value="{StaticResource GlowFXPressed}"/>
+                            <Setter Property="Background" 
+                                    TargetName="GlowRectangle" 
+                                    Value="{StaticResource GlowFXPressed}"/>
                             <Setter Property="Opacity" TargetName="ButtonContent" Value="1"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Opacity" TargetName="ButtonContent" Value=".3"/>
                             <Setter Property="Opacity" TargetName="ButtonBorder" Value=".5"/>
-                            <Setter Property="Background" TargetName="GlassRectangle" Value="{StaticResource GlassFXDisabled}"/>
+                            <Setter Property="Background" 
+                                    TargetName="GlassRectangle" 
+                                    Value="{StaticResource GlassFXDisabled}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ComboBox -->
+    <ControlTemplate x:Key="cmbToggleButton" TargetType="ToggleButton">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Rectangle x:Name="BaseRectangle" Fill="{StaticResource darkColor}" RadiusX="3" RadiusY="3" Grid.ColumnSpan="2"></Rectangle>
+            <Border  x:Name="Border" Grid.ColumnSpan="2" Background="{StaticResource GlassFX}" BorderBrush="Black" BorderThickness="1" CornerRadius="3" />
+            <Border Grid.Column="0" CornerRadius="3,0,0,3" Margin="1" Background="{StaticResource GlassFX}" BorderBrush="Black"  BorderThickness="0,0,1,0" />
+            <Path x:Name="Arrow" Grid.Column="1" Opacity=".7" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 0 0 L 4 4 L 8 0 Z"/>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <!--<Trigger Property="ToggleButton.IsChecked" Value="true">
+                <Setter TargetName="Border" Property="Background" Value="{StaticResource GlowFXPressed}" />
+            </Trigger>-->
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" TargetName="Border" Value=".3"></Setter>
+                <Setter Property="Opacity" TargetName="Arrow" Value=".5"></Setter>
+                <!--<Setter Property="Background" TargetName="Border" Value="{StaticResource GlassFXDisabled}"/>-->
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <ControlTemplate x:Key="ComboBoxTextBox" TargetType="TextBox">
+        <Border x:Name="PART_ContentHost" Focusable="False" Background="Transparent" />
+    </ControlTemplate>
+    <Style TargetType="{x:Type ComboBox}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+        <Setter Property="Foreground" Value="#B2FFFFFF" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate x:Name="tmplTextBox" TargetType="ComboBox">
+                    <Grid>                        
+                        <ToggleButton Name="ToggleButton" Template="{StaticResource cmbToggleButton}" Grid.Column="2" Focusable="false" IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}" ClickMode="Press"/>
+                        <ContentPresenter
+                            Name="ContentSite"
+                            IsHitTestVisible="False" 
+                            Content="{TemplateBinding SelectionBoxItem}"
+                            ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                            ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                            Margin="3,3,23,3"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left" />
+
+                        <TextBox x:Name="PART_EditableTextBox" HorizontalAlignment="Stretch" Foreground="White" VerticalAlignment="Stretch" Margin="1,1,23,1" Focusable="True" Visibility="Hidden" IsReadOnly="{TemplateBinding ComboBox.IsReadOnly}"/>
+                        <Popup Name="Popup" Placement="Bottom" IsOpen="{TemplateBinding ComboBox.IsDropDownOpen}" AllowsTransparency="True" Focusable="False" PopupAnimation="Slide">
+                            <Grid Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding ComboBox.MaxDropDownHeight}">
+                                <Rectangle x:Name="BaseRectangle" Fill="{StaticResource darkColor}" RadiusX="3" RadiusY="3" Grid.ColumnSpan="2"></Rectangle>
+                                <Border x:Name="DropDownBorder" Background="{StaticResource GlassFX}" BorderThickness="1" BorderBrush="Black" CornerRadius="3"/>
+                                <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
+                                    <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                                </ScrollViewer>
+                            </Grid>
+                        </Popup>
+                        <TextBlock x:Name="defaultText" Text="(Select)" Margin="1,1,23,1" HorizontalAlignment="Center" IsHitTestVisible="False" Visibility="Hidden"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="HasItems" Value="false">
+                            <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{StaticResource GlassFXDisabled}"/>
+                        </Trigger>
+                        <Trigger Property="IsGrouping" Value="true">
+                            <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                        </Trigger>
+                        <Trigger SourceName="Popup" Property="Popup.AllowsTransparency" Value="true">
+                            <Setter TargetName="DropDownBorder" Property="CornerRadius" Value="4"/>
+                            <Setter TargetName="DropDownBorder" Property="Margin" Value="0,2,0,0"/>
+                        </Trigger>
+                        <Trigger Property="IsEditable" Value="true">
+                            <Setter Property="IsTabStop" Value="false"/>
+                            <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="ContentSite" Property="Visibility" Value="Hidden"/>
+                        </Trigger>
+                        <Trigger Property="SelectedItem" Value="{x:Null}">
+                            <Setter TargetName="defaultText" Property="Visibility" Value="Visible"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -204,14 +294,219 @@
         </Setter>
     </Style>
     
+    <!-- TextBlock -->
+    <Style TargetType="{x:Type TextBlock}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Foreground" Value="#B2FFFFFF"/>
+    </Style>
+
+    <!-- ToolTip -->
+    <!--<Style x:Key="{x:Type ToolTip}" TargetType="{x:Type TextBlock}" >
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Foreground" Value="#B2FFFFFF"/>
+    </Style>-->
+    <Style TargetType="{x:Type ToolTip}" BasedOn="{StaticResource {x:Type ToolTip}}">
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="HasDropShadow" Value="True" />
+        <Setter Property="Foreground" Value="Red"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToolTip">
+                    <Grid>
+                        <Border Name="Border"
+                                Width="{TemplateBinding Width}"
+                                Height="{TemplateBinding Height}"
+                                MinWidth="100"
+                                MinHeight="30"
+                                Margin="0,0,0,50"
+                                Background="Beige" 
+                                BorderBrush="Black"
+                                BorderThickness="1" 
+                                CornerRadius="10,10,10,10"/>
+                        <TextBlock Foreground="Red"/>
+                        <ContentPresenter Margin="4"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Top" 
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--TOOLTIP-->
+    <!--<Style TargetType="{x:Type ToolTip}">
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="HasDropShadow" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToolTip">
+                    <Border Name="Border"
+          Background="Orange"
+          BorderBrush="Green"
+          BorderThickness="1"
+          Width="{TemplateBinding Width}"
+          Height="{TemplateBinding Height}">
+                        <ContentPresenter
+            Margin="4" 
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="HasDropShadow" Value="true">
+                            <Setter TargetName="Border" Property="CornerRadius" Value="4"/>
+                            <Setter TargetName="Border" Property="SnapsToDevicePixels" Value="true"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>-->
+
+    <!-- TextBox -->
+    <Style  TargetType="{x:Type TextBox}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Foreground" Value="#B2FFFFFF" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate x:Name="tmpltTextBox">
+                    <Grid>
+                        <Rectangle x:Name="BaseRectangle" Fill="{StaticResource baseColor}" RadiusX="3" RadiusY="3"></Rectangle>
+                        <Rectangle x:Name="GlassRectangle" RadiusX="5" RadiusY="5" Fill="{StaticResource GlassFX}"></Rectangle>
+                        <Rectangle x:Name="GlowRectangle" RadiusX="5" RadiusY="5" Opacity="0" Fill="{StaticResource GlowFX}"></Rectangle>
+                        <Border x:Name="BorderIntern" Opacity="1" BorderBrush="Black" BorderThickness="2" CornerRadius="3" Margin="1,1,-1,-1"></Border>
+                        <Border x:Name="BorderExtern" Opacity="1" BorderBrush="#FF333333" BorderThickness="1" CornerRadius="3"></Border>
+                        <ScrollViewer x:Name="PART_ContentHost" Margin="5,2,1,1" Opacity=".7" Content="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="{Binding Path=HorizontalAlignment, RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=VerticalAlignment, RelativeSource={RelativeSource TemplatedParent}}" Width="{Binding Path=Width, RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=Height, RelativeSource={RelativeSource TemplatedParent}}"></ScrollViewer>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" TargetName="PART_ContentHost" Value=".3"></Setter>
+                            <Setter Property="Opacity" TargetName="BorderExtern" Value=".5"></Setter>
+                            <Setter Property="Fill" TargetName="GlassRectangle" Value="{StaticResource GlassFXDisabled}"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <!-- Datagrid -->
-    <Style TargetType="DataGrid">
+    <Style TargetType="{x:Type DataGrid}">
         <Setter Property="Background" Value="{StaticResource baseColor}"/>
         <Setter Property="RowBackground" Value="{StaticResource GlassFX}"/>
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Foreground" Value="#FFC4C4C4" />
+        <Setter Property="RowHeight" Value="45"/>
+        <Setter Property="RowHeaderWidth" Value="0"/>
+        <Setter Property="ColumnWidth" Value="4*"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderThickness" Value="0.5"/>
     </Style>
 
-    
+    <!--DatagridColumnHeader-->
+    <Style TargetType="{x:Type DataGridColumnHeader}">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="MinHeight" Value="28" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                    <Grid Height="50">
+                        <Border x:Name="BaseRectangle" 
+                                Background="{StaticResource darkColor}" 
+                                CornerRadius="0,15,0,0">
+                        </Border>
+                        <Border x:Name="GlassRectangle" 
+                                Background="{StaticResource GlassFX}" 
+                                CornerRadius="0,15,0,0">
+                        </Border>
+                        <Border x:Name="GlowRectangle" 
+                                Background="{StaticResource GlowFX}" 
+                                CornerRadius="0,15,0,0" Opacity="0">
+                        </Border>
+                        <Border x:Name="headerBorder" 
+                                CornerRadius="0,15,0,0" 
+                                BorderBrush="Black" 
+                                Opacity="1" 
+                                BorderThickness="1">
+                        </Border>
+                        <ContentPresenter x:Name="headerContent" 
+                                          Margin="6" 
+                                          Opacity=".7" 
+                                          HorizontalAlignment="Center" 
+                                          VerticalAlignment="Center" />
+                        <Path Name="UpArrow" 
+                              Fill="White" 
+                              HorizontalAlignment="Right" 
+                              VerticalAlignment="Center" 
+                              Margin="0,2,7,0" 
+                              Visibility="Hidden" 
+                              Opacity=".6">
+                            <Path.Data>
+                                <PathGeometry>
+                                    <PathFigure StartPoint="0,0">
+                                        <LineSegment Point="7,0"/>
+                                        <LineSegment Point="3.5,6"/>
+                                        <LineSegment Point="0,0"/>
+                                    </PathFigure>
+                                </PathGeometry>
+                            </Path.Data>
+                        </Path>
+                        <Path Name="DownArrow" 
+                              Fill="White" 
+                              HorizontalAlignment="Right" 
+                              VerticalAlignment="Center" 
+                              Margin="0,2,7,0" 
+                              Visibility="Hidden" 
+                              Opacity=".6">
+                            <Path.Data>
+                                <PathGeometry>
+                                    <PathFigure StartPoint="0,6">
+                                        <LineSegment Point="7,6"/>
+                                        <LineSegment Point="3.5,0"/>
+                                        <LineSegment Point="0,6"/>
+                                    </PathFigure>
+                                </PathGeometry>
+                            </Path.Data>
+                        </Path>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="SortDirection" Value="Descending">
+                            <Setter TargetName="UpArrow" Property="Visibility" Value="Hidden"/>
+                            <Setter TargetName="DownArrow" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="SortDirection" Value="Ascending">
+                            <Setter TargetName="DownArrow" Property="Visibility" Value="Hidden"/>
+                            <Setter TargetName="UpArrow" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        <!--<EventTrigger RoutedEvent="MouseLeave">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard Storyboard="{StaticResource HoverOut}"/>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard Storyboard="{StaticResource HoverIn}"/>
+                            </EventTrigger.Actions>
+                        </EventTrigger>-->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" TargetName="headerContent" Value=".3"/>
+                            <Setter Property="Opacity" TargetName="headerBorder" Value=".5"/>
+                            <Setter Property="Background" 
+                                    TargetName="GlassRectangle" 
+                                    Value="{StaticResource GlassFXDisabled}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 
 </ResourceDictionary>

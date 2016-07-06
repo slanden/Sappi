@@ -22,20 +22,31 @@ namespace Sappi
 
         private void FillNumbers(ComboBox c, int endPt, int startPt = 0)
         {
+            int length = Math.Abs(endPt - startPt);
             if (endPt < startPt)
             {
-                for (int i = startPt; i < Math.Abs(endPt) - Math.Abs(startPt); --i)
+                for (int i = 0; i < length +1; ++i)
                 {
-                    c.Items.Add(i);
+                    //ComboBoxItem item = new ComboBoxItem();
+                    //item.Content = startPt - i;
+                    //c.Items.Add(item);
+                    c.Items.Add((startPt - i).ToString());
                 }
             }
             else
             {
-                for (int i = startPt; i < Math.Abs(endPt) - Math.Abs(startPt); ++i)
+                for (int i = 0; i < length +1; ++i)
                 {
-                    c.Items.Add(i);
+                    //ComboBoxItem item = new ComboBoxItem();
+                    //item.Content = startPt + i;
+                    //c.Items.Add(item);
+                    c.Items.Add((startPt + i).ToString());
                 }
             }
+        }
+        private void FillNumbers(ComboBox c, int startPt, int range, bool countForward = true)
+        {
+
         }
 
         List<ComboBox> FillForm(FormData fData, StudentData sd)
@@ -62,10 +73,8 @@ namespace Sappi
                     }
                 }
                 //fill non-custom group combobox items
-                //int currentYr = DateTime.Now.Year;
-                //FillNumbers(dobmonthBox, 12);
-                //FillNumbers(dobdayBox, 30);
-                //FillNumbers(dobyearBox,currentYr, )
+                int currentYr = DateTime.Now.Year;
+                FillNumbers(educationyearBox, currentYr - 100, currentYr);
 
             }
             else
@@ -99,6 +108,19 @@ namespace Sappi
                 //initialsBox.Text = sd.initials[0].ToString() + sd.initials[1];
                 initialsBox.Text = (sd.initials.Length == 2) ? sd.initials[0].ToString() + sd.initials[1] : null;
 
+                //set Date of Birth text
+                if(sd.DOB != null)
+                {
+                    dobDayBox.Text = sd.DOB[0].ToString();
+                    dobMonthBox.Text = sd.DOB[1].ToString();
+                    dobYearBox.Text = sd.DOB[2].ToString();
+                }
+                
+                //fill non-custom group combobox items
+                int currentYr = DateTime.Now.Year;
+                FillNumbers(educationyearBox, currentYr - 100, currentYr);
+                educationyearBox.SelectedItem = sd.educationYear.ToString();
+
                 for (int i = 0; i < fData.groups.Count; ++i)
                 {
                     #region same as null version
@@ -125,7 +147,6 @@ namespace Sappi
                         groupBoxes[i].SelectedItem = fData.masterList[sd.groupBoxes[i]];
 
                 }
-
 
             }
 
@@ -158,6 +179,21 @@ namespace Sappi
                     dobGrid.Children[currentChild + 1].Focus();
             }
         }
+        private void Textbox_LimitCharacters(object sender, TextChangedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+
+            if (!tb.IsFocused)
+                return;
+
+            if (tb.Text.Length > 2 && tb.Text != string.Empty)
+            {
+                //textboxes are inside a grid element in order to move
+                //from one child to the next without needing their names                
+                tb.Text = tb.Text.Remove(2);
+                tb.CaretIndex = tb.Text.Length;
+            }
+        }
 
         private void Save(object sender, RoutedEventArgs e)
         {
@@ -186,11 +222,19 @@ namespace Sappi
             sd.cellPhoneNum = cellphoneBox.Text;
             sd.homePhoneNum = homephoneBox.Text;
             sd.schoolName = schoolnameBox.Text;
+            sd.educationYear = (educationyearBox.SelectedItem == null) ? 0 : Convert.ToInt32(educationyearBox.SelectedItem);
             sd.gender = (genderBox.SelectedIndex == 1) ? true : false;
             sd.supportRequired = (supportrequiredBox.SelectedIndex == 1) ? true : false;
             sd.newsletterSub = (newsletterBox.SelectedIndex == 1) ? true : false;
             sd.willProvideThisInfo = (willprovideinfoBox.SelectedIndex == 1) ? true : false;            
             sd.initials = initialsBox.Text.ToCharArray();
+            //Date of Birth int array in the format: DOB[0]dd / DOB[1]mm / DOB[2]yyyy
+            if(dobDayBox.Text != "DD" && dobMonthBox.Text != "MM" && dobYearBox.Text != "YYYY")
+            {
+                sd.DOB[0] = Convert.ToInt32(dobDayBox.Text);
+                sd.DOB[1] = Convert.ToInt32(dobMonthBox.Text);
+                sd.DOB[2] = Convert.ToInt32(dobYearBox.Text);
+            }            
 
             //convert masterList(dictionary) to a list to access the string's index
             List<string> vals = App.formData.masterList.Values.ToList();
