@@ -9,14 +9,15 @@
     <Grid >
         <Image Source="{StaticResource img_aieLogo}" Width="380" Height="380" />
         <!--New App button-->
-        <Button Name="newAppButton" Style="{StaticResource imgButton}" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Click="newAppButton_Click"  HorizontalAlignment="Center" Margin="0,0,300,0" VerticalAlignment="Bottom" ToolTip="New Application">
-            <Image Source="{StaticResource img_newItem}" Height="100" Width="100"/>
+        <Button Name="newAppButton" Style="{StaticResource imgButton}" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Click="newAppButton_Click"  HorizontalAlignment="Center" Margin="0,0,300,20" VerticalAlignment="Bottom" ToolTip="New Application">
+            <Image Source="{StaticResource img_newItem}" Height="90" Width="90"/>
         </Button>
 
         <!--View database button-->
-        <Button Name="dbButton" Style="{StaticResource imgButton}" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Click="DatabaseButton_Click" HorizontalAlignment="Center" Margin="300,0,0,0" VerticalAlignment="Bottom" ToolTip="View Database">
-            <Image Source="{StaticResource img_database}" Height="100" Width="100"/>
+        <Button Name="dbButton" Style="{StaticResource imgButton}" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Click="DatabaseButton_Click" HorizontalAlignment="Center" Margin="300,0,0,20" VerticalAlignment="Bottom" ToolTip="View Database">
+            <Image Source="{StaticResource img_database}" Height="90" Width="90"/>
         </Button>
+        <Button x:Name="button" Content="Scale Up" HorizontalAlignment="Left" Margin="148,622,0,0" VerticalAlignment="Top" Width="75" Click="Scale" />
 
     </Grid>
 </UserControl>

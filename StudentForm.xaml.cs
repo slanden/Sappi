@@ -292,7 +292,5 @@ namespace Sappi
             //mailaddressBox2.Visibility = Visibility.Visible;
             //mailaddressBox3.Visibility = Visibility.Visible;
         }
-
-        
     }
 }

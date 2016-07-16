@@ -74,6 +74,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ContentToImageConverter.cs" />
     <Compile Include="ContextCommands.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="DatabaseView.xaml.cs">
@@ -180,6 +181,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="bin\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\imgPlaceholder.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -13,19 +13,31 @@ namespace Sappi
     /// </summary>
     public partial class DatabaseView : UserControl
     {
+        //public static readonly DependencyProperty CurrentColumnProperty = DependencyProperty.Register(
+        //"CurrentColumn", typeof(string), typeof(DatabaseView), new PropertyMetadata("Item 1"));
+        ComboBox statusBox = new ComboBox();
+
+        public string CurrentColumn { get; set; }
+        
         public DatabaseView()
         {
             InitializeComponent();
-            //dg.MouseRightButtonUp += Context_MouseRightButtonUp;
+            //root.DataContext = this;
+            dg.MouseRightButtonUp += Context_MouseRightButtonUp;
+            statusBox.SelectionChanged += SetStatus;
+            CurrentColumn = " ";
+            //NameScope.SetNameScope(ContextMenu, NameScope.GetNameScope(this));
         }
+        
 
         private void DatabaseView_Loaded(object sender, RoutedEventArgs e)
         {
             //student_contentArea.Content = new StudentView();
             //set the databinding for DataGrid
             dg.ItemsSource = App.db.items;
+            statusBox.ItemsSource = App.formData.status.Keys;
+            statusBox.IsEnabled = false;
             PopulateDatagrid(dg);
-
         }
 
         /// <summary>
@@ -38,6 +50,18 @@ namespace Sappi
         private void RowEditCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = (dg.SelectedItems.Count == 1);
+        }
+        private void CellEditCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            DataGridCell cell = (DataGridCell)e.OriginalSource;
+
+            //edit status only
+            (cell.DataContext as StudentData).status = (int)e.Parameter;
+            dg.Items.Refresh();
+        }
+        private void CellEditCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = (CurrentColumn == "Status");
         }
         private void RowDeleteCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
@@ -147,6 +171,11 @@ namespace Sappi
             dg.Items.Refresh();
         }
 
+        private void SetStatus(object sender, SelectionChangedEventArgs e)
+        {
+            //(dg.SelectedItem as StudentData).status = e.OriginalSource;
+        }
+
         private void Search(object sender, TextChangedEventArgs e)
         {
             if (searchBar.Text == "" || searchBar.Text == "(search)")
@@ -223,16 +252,19 @@ namespace Sappi
 
         private void Context_MouseRightButtonUp(object sender, MouseEventArgs e)
         {
-            //DependencyObject dep = (DependencyObject)e.OriginalSource;
-            //if (dep != null)
-            //{
-            //    if (dep is DataGridCell)
-            //    {
-            //        DataGridCell cell = dep as DataGridCell;
-            //        cell.Focus();
-            //        cell.co
-            //    }
-            //}
+            DependencyObject dep = (DependencyObject)e.OriginalSource;
+            if (dep != null)
+            {
+                //if (dep is DataGridCell)
+                //{
+                //    DataGridCell cell = dep as DataGridCell;
+                //    cell.Focus();
+                //    Console.WriteLine(cell.Name);
+                //}
+                DataGridCell cell = (DataGridCell)(dep as TextBlock).Parent;
+                if(cell != null)
+                    CurrentColumn = cell.Column.Header.ToString();
+            }
 
             //MouseButtonEventArgs arg = new MouseButtonEventArgs(Mouse.PrimaryDevice, 0, MouseButton.Left);
             //arg.RoutedEvent = MouseLeftButtonDownEvent;
@@ -247,9 +279,38 @@ namespace Sappi
             StudentData ss = (StudentData)dg.CurrentItem;
 
 
-            var row = (DataGridRow)sender;
-            dg.SelectedItem = row;
+            var row = (sender as DataGrid).SelectedItem;
+            //dg.SelectedItem = row;
             //Console.WriteLine(ss.name);
+        }
+
+        private void contextMenu_Opened(object sender, RoutedEventArgs e)
+        {
+            ContextMenu menu = (ContextMenu)e.OriginalSource;
+            
+            MenuItem item1_lvl1 = (MenuItem)menu.Items[0];
+            item1_lvl1.Header = "Edit " + CurrentColumn;
+
+            if(item1_lvl1.Items.Count == 0)
+            {
+                for (int i = 0; i < App.formData.status.Count; ++i)
+                {
+                    MenuItem item_lvl2 = new MenuItem();                    
+                    item_lvl2.Header = App.formData.status[i];
+                    item_lvl2.Command = ContextCommands.EditCell;
+                    item_lvl2.CommandParameter = i;
+
+                    item1_lvl1.Items.Add(item_lvl2);
+                }
+            }
+            
+        }
+        private void contextMenu_Closed(object sender, RoutedEventArgs e)
+        {
+            ContextMenu menu = (ContextMenu)e.OriginalSource;
+            MenuItem item1_lvl1 = (MenuItem)menu.Items[0];
+
+            item1_lvl1.Items.Clear();
         }
     }
 }

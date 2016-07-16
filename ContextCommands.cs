@@ -10,6 +10,12 @@ namespace Sappi
             "Edit",
             typeof(ContextCommands)
             );
+        public static readonly RoutedUICommand EditCell = new RoutedUICommand
+            (
+            "EditCell",
+            "EditCell",
+            typeof(ContextCommands)
+            );
         public static readonly RoutedUICommand Delete = new RoutedUICommand
             (
             "Delete",

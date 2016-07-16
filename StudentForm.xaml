@@ -165,7 +165,7 @@
         </ScrollViewer>
 
         <Button x:Name="backButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Click="Cancel" ToolTip="Go Back">
-            <Image Source="{StaticResource img_backButton}" Height="64" Width="64"/>
+            <Image Source="{StaticResource img_backButton}" Height="40" Width="40"/>
         </Button>
 
     </Grid>

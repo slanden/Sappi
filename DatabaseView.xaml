@@ -8,10 +8,15 @@
              d:DesignHeight="720" d:DesignWidth="1280">
     <UserControl.CommandBindings>
         <CommandBinding Command="local:ContextCommands.Edit"  Executed="RowEditCommand_Executed"  CanExecute="RowEditCommand_CanExecute"/>
+        <CommandBinding Command="local:ContextCommands.EditCell" Executed="CellEditCommand_Executed" CanExecute="CellEditCommand_CanExecute"/>
         <CommandBinding Command="local:ContextCommands.Delete"  Executed="RowDeleteCommand_Executed"  CanExecute="RowDeleteCommand_CanExecute"/>
     </UserControl.CommandBindings>
-
-    <Grid Loaded="DatabaseView_Loaded">
+    
+    <UserControl.Resources>
+        <local:ContentToImageConverter x:Key="ContentToImageConverter"/>
+    </UserControl.Resources>
+    
+    <Grid x:Name="root" Loaded="DatabaseView_Loaded">
 
         <!--<ContentControl Name="student_contentArea" VerticalAlignment="Top"/>-->
         <!-- StudentView -->
@@ -48,10 +53,17 @@
         <TextBox x:Name="searchBar"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,136,0,0" Width="256" Height="23" TextWrapping="Wrap" Text="(search)" GotFocus="Textbox_GotFocus"/>
         <DataGrid x:Name="dg" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1160" Height="500" AutoGenerateColumns="False" IsReadOnly="True" KeyUp="Datagrid_KeyUp" Margin="40,164,40,0" CanUserDeleteRows="False">
             <DataGrid.Resources>
-                <ContextMenu x:Key="RowMenu" DataContext="{Binding PlacementTarget, RelativeSource={RelativeSource Self}}">
+                <ContextMenu x:Name="contextMenu" x:Key="RowMenu" DataContext="{Binding PlacementTarget, RelativeSource={RelativeSource Self}}" Opened="contextMenu_Opened" Closed="contextMenu_Closed">
+                    <MenuItem Header="Edit Cell" IsEnabled="True" Visibility="Visible"/>
+                    <Separator/>
                     <MenuItem Header="Edit" Command="local:ContextCommands.Edit"/>
                     <MenuItem Header="Delete" Command="local:ContextCommands.Delete"/>
                 </ContextMenu>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true"></Trigger>
+                    </Style.Triggers>
+                </Style>
             </DataGrid.Resources>
 
             <DataGrid.RowStyle>
@@ -78,6 +90,9 @@
         <Button x:Name="backButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Click="GoBack" ToolTip="Go Back">
             <Image Source="{StaticResource img_backButton}" Height="64" Width="64"/>
         </Button>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="502,103,0,0" TextWrapping="Wrap" Text="{Binding currentColumn}" VerticalAlignment="Top"/>
+        
+        <!--<ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="120"/>-->
 
     </Grid>
 </UserControl>
