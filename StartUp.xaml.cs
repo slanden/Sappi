@@ -1,6 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace Sappi
 {
@@ -54,6 +56,51 @@ namespace Sappi
                 newAppButton.RenderTransform = st;
                 scaleButtonPressed = false;
             }
+        }
+
+        private void Image_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            //if(((sender as Image).RenderTransform as ScaleTransform).ScaleX != 1 &&
+            //   ((sender as Image).RenderTransform as ScaleTransform).ScaleY != 1)
+            //{
+
+            //}
+
+            ////
+            //Image img = (Image)sender;
+
+            ////x
+            //DoubleAnimation fadeInX = new DoubleAnimation( 5, new Duration(TimeSpan.FromSeconds(2)));
+            //Storyboard.SetTarget(fadeInX, img);
+            //Storyboard.SetTargetProperty(fadeInX, new PropertyPath(RenderTransformProperty.(ScaleTransform.ScaleXProperty));
+            ////y
+            //DoubleAnimation fadeInY = new DoubleAnimation( 5, new Duration(TimeSpan.FromSeconds(2)));
+            //Storyboard.SetTarget(fadeInY, img);
+            //Storyboard.SetTargetProperty(fadeInY, new PropertyPath(ScaleTransform.ScaleYProperty));
+
+            //Storyboard sb = new Storyboard();
+            //sb.Children.Add(fadeInX);
+            //sb.Children.Add(fadeInY);
+            //sb.Begin();
+        }
+
+        private void Image_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            //Image img = (Image)sender;
+
+            ////x
+            //DoubleAnimation fadeOutX = new DoubleAnimation( 1, new Duration(TimeSpan.FromSeconds(2)));
+            //Storyboard.SetTarget(fadeOutX, img);
+            //Storyboard.SetTargetProperty(fadeOutX, new PropertyPath(ScaleTransform.ScaleXProperty));
+            ////y
+            //DoubleAnimation fadeOutY = new DoubleAnimation( 1, new Duration(TimeSpan.FromSeconds(2)));
+            //Storyboard.SetTarget(fadeOutY, img);
+            //Storyboard.SetTargetProperty(fadeOutY, new PropertyPath(ScaleTransform.ScaleYProperty));
+
+            //Storyboard sb = new Storyboard();
+            //sb.Children.Add(fadeOutX);
+            //sb.Children.Add(fadeOutY);
+            //sb.Begin();
         }
     }
 }

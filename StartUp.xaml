@@ -15,9 +15,9 @@
 
         <!--View database button-->
         <Button Name="dbButton" Style="{StaticResource imgButton}" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Click="DatabaseButton_Click" HorizontalAlignment="Center" Margin="300,0,0,20" VerticalAlignment="Bottom" ToolTip="View Database">
-            <Image Source="{StaticResource img_database}" Height="90" Width="90"/>
+            <Image Source="{StaticResource img_database}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="90" Width="90" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" />
         </Button>
-        <Button x:Name="button" Content="Scale Up" HorizontalAlignment="Left" Margin="148,622,0,0" VerticalAlignment="Top" Width="75" Click="Scale" />
+        <Button x:Name="button" Content="Scale Up" HorizontalAlignment="Left" Margin="148,622,0,0" VerticalAlignment="Top" Width="75" Click="Scale"/>
 
     </Grid>
 </UserControl>

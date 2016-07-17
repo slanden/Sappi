@@ -12,19 +12,6 @@
     <BitmapImage x:Key="img_newItem" UriSource="./bin/addStudent.png"/>
     <BitmapImage x:Key="img_database" UriSource="./bin/database.png"/>
 
-    <!--<Style x:Key="animImage" TargetType="{x:Type Image}">
-        <Setter Property="RenderTransform">
-            <Setter.Value>
-                <ScaleTransform 
-                    x:Name="imgScale" 
-                    CenterX="50" 
-                    CenterY="50" 
-                    ScaleX="1" 
-                    ScaleY="1"/>
-            </Setter.Value>
-        </Setter>
-    </Style>-->
-
     <!-- colors -->
     <SolidColorBrush x:Key="baseColor" Color="#282829"/>
     <SolidColorBrush x:Key="darkColor" Color="#212122"/>
@@ -67,68 +54,25 @@
         <GradientStop Offset="1" Color="#332222FF"/>
     </LinearGradientBrush>
 
-    <!-- GLOW ANIMATION -->
-    <!-- not my code -->
-    <!--<Storyboard x:Key="HoverOut">
-        <DoubleAnimation x:Name="AnimGlowOut" BeginTime="00:00:00" 
-                         Storyboard.TargetName="GlowRectangle" 
-                         Duration="00:00:00.250" From="1" To="0" 
-                         Storyboard.TargetProperty="Opacity"/>
-    </Storyboard>
-    <Storyboard x:Key="HoverIn">
-        <DoubleAnimation x:Name="AnimGlow" BeginTime="00:00:00" 
-                         Storyboard.TargetName="GlowRectangle" 
-                         Duration="00:00:00.250" From="0" To="1" 
-                         Storyboard.TargetProperty="Opacity"/>
-    </Storyboard>-->
-
-    <Storyboard x:Key="HoverOut" Duration="00:00:00.250">
+    <!-- Hover Animation -->
+    <Storyboard x:Key="HoverOut">
         <DoubleAnimation 
-            BeginTime="00:00:00"
+            Duration="00:00:00.2"
             To="1" 
-            Storyboard.TargetName="scale"
-            Storyboard.TargetProperty="(ScaleTransform.ScaleX)"/>
-        <DoubleAnimation 
-            BeginTime="00:00:00"
-            To="1" 
-            Storyboard.TargetName="scale"
-            Storyboard.TargetProperty="(ScaleTransform.ScaleY)"/>
-    </Storyboard>
-    <Storyboard x:Key="HoverIn" Duration="00:00:00.250">
-        <DoubleAnimation 
-            BeginTime="00:00:00"
-            To="5" 
-            Storyboard.TargetName="scale"
-            Storyboard.TargetProperty="(ScaleTransform.ScaleX)"/>
-        <DoubleAnimation 
-            BeginTime="00:00:00"
-            To="5" 
-            Storyboard.TargetName="scale"
-            Storyboard.TargetProperty="(ScaleTransform.ScaleY)"/>
-    </Storyboard>
-
-    <Storyboard x:Key="imgHoverOut" Duration="00:00:00.250">
-        <DoubleAnimation 
-            BeginTime="00:00:00"
-            To="1" 
-            Storyboard.TargetName="img"
             Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"/>
         <DoubleAnimation 
-            BeginTime="00:00:00"
+            Duration="00:00:00.2"
             To="1" 
-            Storyboard.TargetName="img"
             Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"/>
     </Storyboard>
-    <Storyboard x:Key="imgHoverIn" Duration="00:00:00.250">
+    <Storyboard x:Key="HoverIn">
         <DoubleAnimation 
-            BeginTime="00:00:00" 
-            To="1.5" 
-            Storyboard.TargetName="img"
+            Duration="00:00:00.2"
+            To="2" 
             Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"/>
         <DoubleAnimation 
-            BeginTime="00:00:00" 
-            To="1.5" 
-            Storyboard.TargetName="img"
+            Duration="00:00:00.2"
+            To="2" 
             Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"/>
     </Storyboard>
 
@@ -143,25 +87,30 @@
     </LinearGradientBrush>
 
     <!-- Image Button -->
-    <Style x:Key="imgButton" TargetType="{x:Type Button}">
-        <!--start of image child style-->
-        <!--<Style.Resources>
+    <Style x:Key="imgButton" TargetType="{x:Type Button}">        
+        <Style.Resources>
+            <!--start of image child style-->
             <Style TargetType="{x:Type Image}">
-                <Setter Property="RenderTransform">
-                    <Setter.Value>
-                        <ScaleTransform 
-                            x:Name="scale" 
-                            CenterX=".5" 
-                            CenterY=".5" 
-                            ScaleX="1" 
-                            ScaleY="1"/>
-                    </Setter.Value>
-                </Setter>
+                <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
                 <Setter Property="OverridesDefaultStyle" Value="True" />
                 <Setter Property="SnapsToDevicePixels" Value="True" />
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform x:Name="scale" ScaleX="1" ScaleY="1"/>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <EventTrigger RoutedEvent="Image.MouseEnter">
+                        <BeginStoryboard Storyboard="{StaticResource HoverIn}" />
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="Image.MouseLeave">
+                        <BeginStoryboard Storyboard="{StaticResource HoverOut}" />
+                    </EventTrigger>
+                </Style.Triggers>
             </Style>
-        </Style.Resources>-->
-        <!--end of image child style-->
+            <!--end of image child style-->
+        </Style.Resources>
+        
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Foreground" Value="White" />
@@ -169,6 +118,7 @@
             <Setter.Value>
                 <ControlTemplate x:Name="tmpltButton">
                     <Grid>
+                        <!--shadow effect-->
                         <Grid Width="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}"
                               Height="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}"
                               Margin="0,30,0,0">
@@ -189,79 +139,20 @@
                                      Opacity=".3">
                                 <Ellipse.Effect>
                                     <BlurEffect Radius="15">
-                                        
+
                                     </BlurEffect>
                                 </Ellipse.Effect>
                             </Ellipse>
                         </Grid>
-
-                        <Grid x:Name="scaler" RenderTransformOrigin="0.5,0.5">
-                            <Grid.RenderTransform>
-                                <ScaleTransform x:Name="scale"
-                                                ScaleX="1"
-                                                ScaleY="1">
-                                </ScaleTransform>
-                            </Grid.RenderTransform>
-                            
-                            <Grid.Triggers>
-                                <!--<EventTrigger RoutedEvent="Rendertransform.Scaletransform.ScaleX">
-                                    
-                                </EventTrigger>-->
-                            </Grid.Triggers>
-                            
-                            <!--<Border x:Name="BaseRectangle" 
-                                Background="{StaticResource baseColor}" 
-                                CornerRadius="10,0,10,0">
-                        </Border>-->
-                            <!--<Border x:Name="GlassRectangle" 
-                                Background="{StaticResource GlassFX}" 
-                                CornerRadius="10,0,10,0">
-                        </Border>-->
-                            <!--<Border x:Name="GlowRectangle" 
-                                Background="{StaticResource GlowFX}" 
-                                CornerRadius="10,0,10,0" 
-                                Opacity="1">
-                        </Border>-->
-                            <!--<Border x:Name="ButtonBorder" 
-                                CornerRadius="10,0,10,0" 
-                                BorderBrush="Black" 
-                                Opacity="1" 
-                                BorderThickness="1">
-                        </Border>-->
-                            <!--<Image x:Name="img"
-                               Source="{Binding Content, RelativeSource={RelativeSource TemplatedParent}, 
-                                        Converter={StaticResource ContentToImageConverter}}"
-                               Height="64"
-                               Width="64">
-                            <Image.RenderTransform>
-                                <ScaleTransform x:Name="scales" 
-                                                CenterX="50" 
-                                                CenterY="50" 
-                                                ScaleX="1" 
-                                                ScaleY="1">
-                                </ScaleTransform>
-                            </Image.RenderTransform>
-                        </Image>-->
-                            <Grid.Effect>
-                                <DropShadowEffect>
-
-                                </DropShadowEffect>
-                            </Grid.Effect>
-                            <Label Content="{Binding ElementName=scale,Path=ScaleX}" 
-                                   Background="Transparent"
-                                   Foreground="Black"
-                                   Height="30"/>
-
-                            <ContentPresenter x:Name="ButtonContent" 
+                        
+                        <ContentPresenter x:Name="ButtonContent" 
                                           Opacity=".7" 
                                           HorizontalAlignment="center" 
                                           VerticalAlignment="center"
                                           Content="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}">
-                            </ContentPresenter>
-                        </Grid>
+                        </ContentPresenter>
                     </Grid>
-
-                    <ControlTemplate.Triggers>
+                    <!--<ControlTemplate.Triggers>
                         <EventTrigger RoutedEvent="Button.MouseLeave">
                             <EventTrigger.Actions>
                                 <BeginStoryboard Storyboard="{StaticResource HoverOut}"/>
@@ -283,7 +174,7 @@
                             </EventTrigger.Actions>
                         </EventTrigger>
 
-                        <!--<Trigger Property="Button.IsPressed" Value="True">
+                        <Trigger Property="Button.IsPressed" Value="True">
                             <Setter Property="Background" 
                                     TargetName="GlowRectangle" 
                                     Value="{StaticResource GlowFXPressed}"/>
@@ -295,8 +186,8 @@
                             <Setter Property="Background" 
                                     TargetName="GlassRectangle" 
                                     Value="{StaticResource GlassFXDisabled}"/>
-                        </Trigger>-->
-                    </ControlTemplate.Triggers>
+                        </Trigger>
+                    </ControlTemplate.Triggers>-->
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -321,7 +212,6 @@
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Opacity" TargetName="Border" Value=".3"></Setter>
                 <Setter Property="Opacity" TargetName="Arrow" Value=".5"></Setter>
-                <!--<Setter Property="Background" TargetName="Border" Value="{StaticResource GlassFXDisabled}"/>-->
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>

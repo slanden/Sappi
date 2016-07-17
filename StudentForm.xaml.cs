@@ -26,34 +26,20 @@ namespace Sappi
             if (endPt < startPt)
             {
                 for (int i = 0; i < length +1; ++i)
-                {
-                    //ComboBoxItem item = new ComboBoxItem();
-                    //item.Content = startPt - i;
-                    //c.Items.Add(item);
                     c.Items.Add((startPt - i).ToString());
-                }
             }
             else
             {
                 for (int i = 0; i < length +1; ++i)
-                {
-                    //ComboBoxItem item = new ComboBoxItem();
-                    //item.Content = startPt + i;
-                    //c.Items.Add(item);
                     c.Items.Add((startPt + i).ToString());
-                }
             }
-        }
-        private void FillNumbers(ComboBox c, int startPt, int range, bool countForward = true)
-        {
-
         }
 
         List<ComboBox> FillForm(FormData fData, StudentData sd)
         {
             if (sd == null)
             {
-                //fill custom-group combobox items
+                //fill non-hardcoded group combobox items
                 for (int i = 0; i < fData.groups.Count; ++i)
                 {
                     groupBoxes.Add(FindName(fData.groups.ElementAt(i).Key + "Box") as ComboBox);
@@ -72,7 +58,7 @@ namespace Sappi
                         groupBoxes[i].Items.Add(fData.masterList[num]);
                     }
                 }
-                //fill non-custom group combobox items
+                //fill hardcoded group combobox items
                 int currentYr = DateTime.Now.Year;
                 FillNumbers(educationyearBox, currentYr - 100, currentYr);
 
@@ -84,7 +70,6 @@ namespace Sappi
                 name = sd.name.Split(' ');
                 nameBox1.Text = name[0];
                 nameBox2.Text = name[1];
-                //status.selected = sd.status;
                 //possibly redundant check. Research optimization
                 separatemailingaddressBox.SelectedIndex = 
                     sd.separateMailAddress ? 1 : 0;
@@ -105,7 +90,6 @@ namespace Sappi
                 supportrequiredBox.SelectedIndex = sd.supportRequired ? 1 : 0;
                 newsletterBox.SelectedIndex = sd.newsletterSub ? 1 : 0;
                 willprovideinfoBox.SelectedIndex = sd.willProvideThisInfo ? 1 : 0;
-                //initialsBox.Text = sd.initials[0].ToString() + sd.initials[1];
                 initialsBox.Text = (sd.initials.Length == 2) ? sd.initials[0].ToString() + sd.initials[1] : null;
 
                 //set Date of Birth text
@@ -129,7 +113,6 @@ namespace Sappi
                     int groupStart = fData.groups.ElementAt(i).Value + 1;
                     int nextGroup = 0;
 
-
                     if (i == fData.groups.Count - 1)
                         nextGroup = fData.masterList.Count;
                     else
@@ -147,7 +130,6 @@ namespace Sappi
                         groupBoxes[i].SelectedItem = fData.masterList[sd.groupBoxes[i]];
 
                 }
-
             }
 
             return groupBoxes;
@@ -187,9 +169,7 @@ namespace Sappi
                 return;
 
             if (tb.Text.Length > 2 && tb.Text != string.Empty)
-            {
-                //textboxes are inside a grid element in order to move
-                //from one child to the next without needing their names                
+            {            
                 tb.Text = tb.Text.Remove(2);
                 tb.CaretIndex = tb.Text.Length;
             }
@@ -228,6 +208,7 @@ namespace Sappi
             sd.newsletterSub = (newsletterBox.SelectedIndex == 1) ? true : false;
             sd.willProvideThisInfo = (willprovideinfoBox.SelectedIndex == 1) ? true : false;            
             sd.initials = initialsBox.Text.ToCharArray();
+
             //Date of Birth int array in the format: DOB[0]dd / DOB[1]mm / DOB[2]yyyy
             if(dobDayBox.Text != "DD" && dobMonthBox.Text != "MM" && dobYearBox.Text != "YYYY")
             {
@@ -241,13 +222,10 @@ namespace Sappi
             for (int i = 0; i < groupBoxes.Count; ++i)
             {
                 if (groupBoxes[i].SelectedItem == null)
-                {
                     sd.groupBoxes[i] = -1;
-                }
                 else
                     sd.groupBoxes[i] = vals.IndexOf(groupBoxes[i].SelectedItem.ToString());
             }
-
             
             //check if student exists in database to avoid duplicates
             bool isExistingStudent = false;
