@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 
 namespace Sappi
@@ -18,8 +17,8 @@ namespace Sappi
             //              CurrentDomain.BaseDirectory, "..\\"));
             string path = "..\\strings.txt";
 
-            //read strings from file and put them
-            // into lists and create groups
+            //    read strings from file, put them
+            // into lists, and create groups
             int count = 0;
             foreach (string s in File.ReadLines(path))
             {
