@@ -67,5 +67,10 @@ namespace Sappi
             }
         }
 
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //serialize data
+            XmlSerial.Write(App.db.items, App.pathToDatabase);
+        }
     }
 }

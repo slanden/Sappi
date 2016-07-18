@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sappi"
         mc:Ignorable="d"
-        Title="Sappi" Height="720" Width="1280" MinHeight="628" MinWidth="450">
+        Title="Sappi" Height="720" Width="1280" MinHeight="628" MinWidth="450"
+        Closing="Window_Closing">
     <Grid Loaded="Window_Loaded" Background="{StaticResource DarkBackground}">
         <ContentControl Name="ContentArea"/>
     </Grid>
