@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Sappi"
              mc:Ignorable="d" 
              d:DesignHeight="1300" d:DesignWidth="1280">
-    <Grid>
+    <Grid >
 
         <ScrollViewer >
             <ScrollViewer.Background>

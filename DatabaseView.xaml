@@ -12,10 +12,10 @@
         <CommandBinding Command="local:ContextCommands.Delete"  Executed="RowDeleteCommand_Executed"  CanExecute="RowDeleteCommand_CanExecute"/>
     </UserControl.CommandBindings>
 
-    <Grid x:Name="root" Loaded="DatabaseView_Loaded">
+    <Grid x:Name="root" Loaded="DatabaseView_Loaded" HorizontalAlignment="Center">
 
-        <TextBox x:Name="searchBar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,136,0,0" Width="256" Height="23" TextWrapping="Wrap" Text="(search)" GotFocus="Textbox_GotFocus"/>
-        <DataGrid x:Name="dg" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1160" Height="500" AutoGenerateColumns="False" IsReadOnly="True" KeyUp="Datagrid_KeyUp" Margin="40,164,40,0" CanUserDeleteRows="False">
+        <TextBox x:Name="searchBar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,136,0,0" Width="256" Height="23" TextWrapping="Wrap" Text="(search)" GotFocus="Textbox_GotFocus"/>
+        <DataGrid x:Name="dg" HorizontalAlignment="Center" VerticalAlignment="Top" MinWidth="1160" MinHeight="500" AutoGenerateColumns="False" IsReadOnly="True" KeyUp="Datagrid_KeyUp" Margin="40,164,40,0" CanUserDeleteRows="False">
             <DataGrid.Resources>
                 <ContextMenu x:Name="contextMenu" x:Key="RowMenu" DataContext="{Binding PlacementTarget, RelativeSource={RelativeSource Self}}" Opened="contextMenu_Opened" Closed="contextMenu_Closed">
                     <MenuItem Header="Edit Cell" IsEnabled="True" Visibility="Visible"/>
