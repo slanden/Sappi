@@ -74,7 +74,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ContentToImageConverter.cs" />
+    <Compile Include="DebugConverter.cs" />
     <Compile Include="ContextCommands.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="DatabaseView.xaml.cs">

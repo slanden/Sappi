@@ -3,7 +3,7 @@
                     xmlns:local="clr-namespace:Sappi">
     
     <!-- Converters -->
-    <local:ContentToImageConverter x:Key="ContentToImageConverter"/>
+    <local:DebugConverter x:Key="DebugConverter"/>
 
     <!-- images -->
     <BitmapImage x:Key="img_placeholder" UriSource="./bin/imgPlaceholder.jpg"/>
@@ -68,11 +68,11 @@
     <Storyboard x:Key="HoverIn">
         <DoubleAnimation 
             Duration="00:00:00.2"
-            To="2" 
+            To="1.5" 
             Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"/>
         <DoubleAnimation 
             Duration="00:00:00.2"
-            To="2" 
+            To="1.5" 
             Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"/>
     </Storyboard>
 

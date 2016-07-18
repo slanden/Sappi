@@ -11,46 +11,10 @@
         <CommandBinding Command="local:ContextCommands.EditCell" Executed="CellEditCommand_Executed" CanExecute="CellEditCommand_CanExecute"/>
         <CommandBinding Command="local:ContextCommands.Delete"  Executed="RowDeleteCommand_Executed"  CanExecute="RowDeleteCommand_CanExecute"/>
     </UserControl.CommandBindings>
-    
-    <UserControl.Resources>
-        <local:ContentToImageConverter x:Key="ContentToImageConverter"/>
-    </UserControl.Resources>
-    
+
     <Grid x:Name="root" Loaded="DatabaseView_Loaded">
 
-        <!--<ContentControl Name="student_contentArea" VerticalAlignment="Top"/>-->
-        <!-- StudentView -->
-        <!--<ScrollViewer VerticalScrollBarVisibility="Hidden">
-            <Grid VerticalAlignment="Top">
-                <Label x:Name="studName" Content="Name:" HorizontalAlignment="Left" Margin="218,10,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="studProgram" Content="Program:" HorizontalAlignment="Left" Margin="218,41,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="studCampus" Content="Campus:" HorizontalAlignment="Left" Margin="218,72,0,0" VerticalAlignment="Top"/>
-
-                <RadioButton x:Name="status_lost" HorizontalAlignment="Left" Margin="368,123,0,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="status_offered" HorizontalAlignment="Left" Margin="478,123,0,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="status_applied" HorizontalAlignment="Left" Margin="578,123,0,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="status_interviewed" HorizontalAlignment="Left" Margin="678,123,0,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="status_accepted" HorizontalAlignment="Left" Margin="782,123,0,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="status_enrolled" HorizontalAlignment="Left" Margin="878,123,0,0" VerticalAlignment="Top"/>
-
-                <Label x:Name="statusLabel_lost" Content="Lost" HorizontalAlignment="Left" Margin="358,150,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="statusLabel_offered" Content="Offered" HorizontalAlignment="Left" Margin="458,150,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="statusLabel_applied" Content="Applied" HorizontalAlignment="Left" Margin="558,150,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="statusLabel_interviewed" Content="Applied" HorizontalAlignment="Left" Margin="658,150,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="statusLabel_accepted" Content="Accepted" HorizontalAlignment="Left" Margin="758,150,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="statusLabel_enrolled" Content="Enrolled" HorizontalAlignment="Left" Margin="858,150,0,0" VerticalAlignment="Top"/>
-
-                <ToggleButton x:Name="editButton" Content="Edit" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="70" Click="editButton_Click" Margin="0,0,100,460" />
-                <Button x:Name="printButton" Content="Print Info" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="100,0,0,460" />
-
-                <ContentControl Name="studentInfo_contentArea" VerticalAlignment="Bottom" Margin="0,215,0,490" MaxHeight="400"/>
-
-                
-
-            </Grid>
-        </ScrollViewer>-->
-
-        <TextBox x:Name="searchBar"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,136,0,0" Width="256" Height="23" TextWrapping="Wrap" Text="(search)" GotFocus="Textbox_GotFocus"/>
+        <TextBox x:Name="searchBar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,136,0,0" Width="256" Height="23" TextWrapping="Wrap" Text="(search)" GotFocus="Textbox_GotFocus"/>
         <DataGrid x:Name="dg" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1160" Height="500" AutoGenerateColumns="False" IsReadOnly="True" KeyUp="Datagrid_KeyUp" Margin="40,164,40,0" CanUserDeleteRows="False">
             <DataGrid.Resources>
                 <ContextMenu x:Name="contextMenu" x:Key="RowMenu" DataContext="{Binding PlacementTarget, RelativeSource={RelativeSource Self}}" Opened="contextMenu_Opened" Closed="contextMenu_Closed">
@@ -65,34 +29,21 @@
                     </Style.Triggers>
                 </Style>
             </DataGrid.Resources>
-
             <DataGrid.RowStyle>
                 <Style TargetType="{x:Type DataGridRow}">
-                    <!--<EventSetter Event="MouseRightButtonUp" Handler="Context_MouseRightButtonUp"/>-->
                     <Setter Property="ContextMenu" Value="{StaticResource RowMenu}"/>
                     <EventSetter Event="MouseDoubleClick" Handler="EditStudentData"/>
                 </Style>
             </DataGrid.RowStyle>
-            <!--<DataGrid.Background>
-                <LinearGradientBrush StartPoint="0.5,1" EndPoint="0.5,0">
-                    <GradientStop Color="#33282829" Offset="0.5"/>
-                    <GradientStop Color="#FFB8B8B8" Offset="2.65"/>
-                </LinearGradientBrush>
-            </DataGrid.Background>-->
         </DataGrid>
 
-
-        <!--<Grid Name="dgContainer" VerticalAlignment="Bottom">
-            <TextBox x:Name="searchBar" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,584,344" Width="200" Height="23" TextWrapping="Wrap" Text="(search)" GotFocus="Textbox_GotFocus"/>
-            <DataGrid x:Name="dg" HorizontalAlignment="right" VerticalAlignment="Bottom" Margin="0,0,20,20" Width="764" Height="319" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="EditStudentData" KeyUp="DeleteItem"/>
-        </Grid>-->
-        
-        <Button x:Name="backButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Click="GoBack" ToolTip="Go Back">
-            <Image Source="{StaticResource img_backButton}" Height="64" Width="64"/>
+        <Button x:Name="backButton" Style="{StaticResource imgButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,10,0,0" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Click="backButton_Click" ToolTip="Go Back">
+            <Image Source="{StaticResource img_backButton}" Height="40" Width="40"/>
         </Button>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="502,103,0,0" TextWrapping="Wrap" Text="{Binding currentColumn}" VerticalAlignment="Top"/>
-        
-        <!--<ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="120"/>-->
+
+        <Button Name="newAppButton" Style="{StaticResource imgButton}" Click="newAppButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="125,10,0,0" ToolTip="New Application">
+            <Image Source="{StaticResource img_newItem}" Height="40" Width="40"/>
+        </Button>
 
     </Grid>
 </UserControl>

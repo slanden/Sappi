@@ -13,9 +13,7 @@ namespace Sappi
         public static FormData formData;
         public static string pathToDatabase = "..\\students.xml";
         public enum Page { StartUp, StudentForm, DatabaseView , length};
-        //public static int previousPage;
         public static UserControl previous;
-
 
         public App()
         {
@@ -24,7 +22,7 @@ namespace Sappi
             formData = new FormData();
             previous = new StartUp();
 
-            //read in student info from database file
+            //read in student info from file
             db.items = XmlSerial.Read<StudentData>(pathToDatabase);
         }
 

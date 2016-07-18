@@ -16,7 +16,7 @@ namespace Sappi
             if (parameter == App.formData.status)
                 return App.formData.status[(int)value];
 
-            //in
+            //in StudentForm, values that weren't filled in were given -1
             if ((int) value == -1)
                 return "(Not Provided)";
 

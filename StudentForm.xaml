@@ -30,7 +30,7 @@
                 <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Margin="10,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         Residential Address:
                 </TextBlock>
-                <TextBlock x:Name="mailAddressTextBlock" HorizontalAlignment="Left" Margin="10,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+                <TextBlock x:Name="mailAddressTextBlock" HorizontalAlignment="Left" Margin="10,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Visibility="Hidden">
                         Mailing address:
                 </TextBlock>
                 <TextBlock x:Name="textBlock7" HorizontalAlignment="Left" Margin="10,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
@@ -99,68 +99,70 @@
                 </TextBlock>
 
                 <!-- Right Side -->
-                <TextBox x:Name="nameBox1" HorizontalAlignment="Left" Height="23" Margin="307,10,0,0" TextWrapping="Wrap" Text="(First)" VerticalAlignment="Top" Width="120" GotFocus="Textbox_GotFocus"/>
-                <TextBox x:Name="nameBox2" HorizontalAlignment="Left" Height="23" Margin="434,10,0,0" TextWrapping="Wrap" Text="(Last)" VerticalAlignment="Top" Width="120" GotFocus="Textbox_GotFocus"/>
+                <Grid x:Name="container_right">
+                    <TextBox x:Name="nameBox1" HorizontalAlignment="Left" Height="23" Margin="307,10,0,0" TextWrapping="Wrap" Text="(First)" VerticalAlignment="Top" Width="120" GotFocus="Textbox_GotFocus"/>
+                    <TextBox x:Name="nameBox2" HorizontalAlignment="Left" Height="23" Margin="434,10,0,0" TextWrapping="Wrap" Text="(Last)" VerticalAlignment="Top" Width="120" GotFocus="Textbox_GotFocus"/>
 
-                <ComboBox x:Name="campusesBox" HorizontalAlignment="Left" Margin="307,46,0,0" VerticalAlignment="Top" Width="247"/>
-                <ComboBox x:Name="programsBox" HorizontalAlignment="Left" Margin="307,82,0,0" VerticalAlignment="Top" Width="247"/>
-                <ComboBox x:Name="separatemailingaddressBox" HorizontalAlignment="Left" Margin="307,128,0,0" VerticalAlignment="Top" Width="74" >
-                    <ComboBoxItem Selected="DisableMailingAddress">No</ComboBoxItem>
-                    <ComboBoxItem Selected="EnableMailingAddress">Yes</ComboBoxItem>
-                </ComboBox>
+                    <ComboBox x:Name="campusesBox" HorizontalAlignment="Left" Margin="307,46,0,0" VerticalAlignment="Top" Width="247"/>
+                    <ComboBox x:Name="programsBox" HorizontalAlignment="Left" Margin="307,82,0,0" VerticalAlignment="Top" Width="247"/>
+                    <ComboBox x:Name="separatemailingaddressBox" HorizontalAlignment="Left" Margin="307,128,0,0" VerticalAlignment="Top" Width="74" >
+                        <ComboBoxItem Selected="DisableMailingAddress">No</ComboBoxItem>
+                        <ComboBoxItem Selected="EnableMailingAddress">Yes</ComboBoxItem>
+                    </ComboBox>
 
-                <TextBox x:Name="resaddressBox1" HorizontalAlignment="Left" Height="23" Margin="307,164,0,0" TextWrapping="Wrap" Text="Line 1" VerticalAlignment="Top" Width="247" GotFocus="Textbox_GotFocus"/>
-                <TextBox x:Name="resaddressBox2" HorizontalAlignment="Left" Height="23" Margin="307,187,0,0" TextWrapping="Wrap" Text="Line 2" VerticalAlignment="Top" Width="247" GotFocus="Textbox_GotFocus"/>
-                <TextBox x:Name="resaddressBox3" HorizontalAlignment="Left" Height="23" Margin="307,210,0,0" TextWrapping="Wrap" Text="Line 3" VerticalAlignment="Top" Width="247" GotFocus="Textbox_GotFocus"/>
+                    <TextBox x:Name="resaddressBox1" HorizontalAlignment="Left" Height="23" Margin="307,164,0,0" TextWrapping="Wrap" Text="Line 1" VerticalAlignment="Top" Width="247" GotFocus="Textbox_GotFocus"/>
+                    <TextBox x:Name="resaddressBox2" HorizontalAlignment="Left" Height="23" Margin="307,187,0,0" TextWrapping="Wrap" Text="Line 2" VerticalAlignment="Top" Width="247" GotFocus="Textbox_GotFocus"/>
+                    <TextBox x:Name="resaddressBox3" HorizontalAlignment="Left" Height="23" Margin="307,210,0,0" TextWrapping="Wrap" Text="Line 3" VerticalAlignment="Top" Width="247" GotFocus="Textbox_GotFocus"/>
 
-                <TextBox x:Name="mailaddressBox1" HorizontalAlignment="Left" Height="23" Margin="307,250,0,0" TextWrapping="Wrap" Text="Line 1" VerticalAlignment="Top" Width="247" GotFocus="Textbox_GotFocus"/>
-                <TextBox x:Name="mailaddressBox2" HorizontalAlignment="Left" Height="23" Margin="307,273,0,0" TextWrapping="Wrap" Text="Line 2" VerticalAlignment="Top" Width="247" GotFocus="Textbox_GotFocus"/>
-                <TextBox x:Name="mailaddressBox3" HorizontalAlignment="Left" Height="23" Margin="307,296,0,0" TextWrapping="Wrap" Text="Line 3" VerticalAlignment="Top" Width="247" GotFocus="Textbox_GotFocus"/>
+                    <TextBox x:Name="mailaddressBox1" HorizontalAlignment="Left" Height="23" Margin="307,250,0,0" TextWrapping="Wrap" Text="Line 1" VerticalAlignment="Top" Width="247" Visibility="Hidden" GotFocus="Textbox_GotFocus"/>
+                    <TextBox x:Name="mailaddressBox2" HorizontalAlignment="Left" Height="23" Margin="307,273,0,0" TextWrapping="Wrap" Text="Line 2" VerticalAlignment="Top" Width="247" Visibility="Hidden" GotFocus="Textbox_GotFocus"/>
+                    <TextBox x:Name="mailaddressBox3" HorizontalAlignment="Left" Height="23" Margin="307,296,0,0" TextWrapping="Wrap" Text="Line 3" VerticalAlignment="Top" Width="247" Visibility="Hidden" GotFocus="Textbox_GotFocus"/>
 
-                <ComboBox x:Name="statesBox" HorizontalAlignment="Left" Margin="307,349,0,0" VerticalAlignment="Top" Width="247"/>
-                <ComboBox x:Name="countriesBox" HorizontalAlignment="Left" Margin="307,382,0,0" VerticalAlignment="Top" Width="247"/>
+                    <ComboBox x:Name="statesBox" HorizontalAlignment="Left" Margin="307,349,0,0" VerticalAlignment="Top" Width="247"/>
+                    <ComboBox x:Name="countriesBox" HorizontalAlignment="Left" Margin="307,382,0,0" VerticalAlignment="Top" Width="247"/>
 
-                <TextBox x:Name="emailBox" HorizontalAlignment="Left" Height="23" Margin="307,433,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247"/>
-                <TextBox x:Name="cellphoneBox" HorizontalAlignment="Left" Height="23" Margin="307,468,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247"/>
-                <TextBox x:Name="homephoneBox" HorizontalAlignment="Left" Height="23" Margin="307,502,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247"/>
+                    <TextBox x:Name="emailBox" HorizontalAlignment="Left" Height="23" Margin="307,433,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247"/>
+                    <TextBox x:Name="cellphoneBox" HorizontalAlignment="Left" Height="23" Margin="307,468,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247"/>
+                    <TextBox x:Name="homephoneBox" HorizontalAlignment="Left" Height="23" Margin="307,502,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247"/>
 
-                <ComboBox x:Name="contactmethodsBox" HorizontalAlignment="Left" Margin="307,551,0,0" VerticalAlignment="Top" Width="247"/>
+                    <ComboBox x:Name="contactmethodsBox" HorizontalAlignment="Left" Margin="307,551,0,0" VerticalAlignment="Top" Width="247"/>
 
-                <Grid x:Name="dobGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="307,595,0,0">
-                    <TextBox x:Name="dobMonthBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="MM" VerticalAlignment="Top" Width="32" GotFocus="Textbox_GotFocus" TextChanged="Textbox_MoveToNext"/>
-                    <TextBox x:Name="dobDayBox" HorizontalAlignment="Left" Height="23" Margin="37,0,0,0" TextWrapping="Wrap" Text="DD" VerticalAlignment="Top" Width="32" GotFocus="Textbox_GotFocus" TextChanged="Textbox_MoveToNext"/>
-                    <TextBox x:Name="dobYearBox" HorizontalAlignment="Left" Height="23" Margin="74,0,0,0" TextWrapping="Wrap" Text="YYYY" VerticalAlignment="Top" Width="38" GotFocus="Textbox_GotFocus"/>
+                    <Grid x:Name="dobGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="307,595,0,0">
+                        <TextBox x:Name="dobMonthBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="MM" VerticalAlignment="Top" Width="32" GotFocus="Textbox_GotFocus" TextChanged="Textbox_MoveToNext"/>
+                        <TextBox x:Name="dobDayBox" HorizontalAlignment="Left" Height="23" Margin="37,0,0,0" TextWrapping="Wrap" Text="DD" VerticalAlignment="Top" Width="32" GotFocus="Textbox_GotFocus" TextChanged="Textbox_MoveToNext"/>
+                        <TextBox x:Name="dobYearBox" HorizontalAlignment="Left" Height="23" Margin="74,0,0,0" TextWrapping="Wrap" Text="YYYY" VerticalAlignment="Top" Width="38" GotFocus="Textbox_GotFocus"/>
+                    </Grid>
+                    <ComboBox x:Name="educationlevelBox" HorizontalAlignment="Left" Margin="307,639,0,0" VerticalAlignment="Top" Width="247"/>
+                    <ComboBox x:Name="educationyearBox" HorizontalAlignment="Left" Margin="307,687,0,0" VerticalAlignment="Top" Width="74" />
+
+                    <TextBox x:Name="schoolnameBox" HorizontalAlignment="Left" Height="23" Margin="307,727,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247"/>
+
+                    <ComboBox x:Name="willprovideinfoBox" HorizontalAlignment="Left" Margin="307,766,0,0" VerticalAlignment="Top" Width="74" >
+                        <ComboBoxItem>No</ComboBoxItem>
+                        <ComboBoxItem>Yes</ComboBoxItem>
+                    </ComboBox>
+                    <ComboBox x:Name="genderBox" HorizontalAlignment="Left" Margin="307,803,0,0" VerticalAlignment="Top" Width="74" >
+                        <ComboBoxItem>Female</ComboBoxItem>
+                        <ComboBoxItem>Male</ComboBoxItem>
+                    </ComboBox>
+                    <ComboBox x:Name="ethnicitiesBox" HorizontalAlignment="Left" Margin="307,840,0,0" VerticalAlignment="Top" Width="247"/>
+                    <ComboBox x:Name="racesBox" HorizontalAlignment="Left" Margin="307,878,0,0" VerticalAlignment="Top" Width="247"/>
+                    <ComboBox x:Name="supportrequiredBox" HorizontalAlignment="Left" Margin="307,916,0,0" VerticalAlignment="Top" Width="74">
+                        <ComboBoxItem>No</ComboBoxItem>
+                        <ComboBoxItem>Yes</ComboBoxItem>
+                    </ComboBox>
+                    <ComboBox x:Name="referencesBox" HorizontalAlignment="Left" Margin="307,966,0,0" VerticalAlignment="Top" Width="247"/>
+                    <ComboBox x:Name="newsletterBox" HorizontalAlignment="Left" Margin="307,1002,0,0" VerticalAlignment="Top" Width="74">
+                        <ComboBoxItem>No</ComboBoxItem>
+                        <ComboBoxItem>Yes</ComboBoxItem>
+                    </ComboBox>
+                    <ComboBox x:Name="provideinfobyBox" HorizontalAlignment="Left" Margin="307,1042,0,0" VerticalAlignment="Top" Width="247"/>
+
+                    <TextBox x:Name="initialsBox" HorizontalAlignment="Left" Margin="307,1143,0,0" TextWrapping="Wrap" Width="33" Height="23" VerticalAlignment="Top" TextChanged="Textbox_LimitCharacters" />
+                    
                 </Grid>
-                <ComboBox x:Name="educationlevelBox" HorizontalAlignment="Left" Margin="307,639,0,0" VerticalAlignment="Top" Width="247"/>
-                <ComboBox x:Name="educationyearBox" HorizontalAlignment="Left" Margin="307,687,0,0" VerticalAlignment="Top" Width="74" />
-
-                <TextBox x:Name="schoolnameBox" HorizontalAlignment="Left" Height="23" Margin="307,727,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247"/>
-
-                <ComboBox x:Name="willprovideinfoBox" HorizontalAlignment="Left" Margin="307,766,0,0" VerticalAlignment="Top" Width="74" >
-                    <ComboBoxItem>No</ComboBoxItem>
-                    <ComboBoxItem>Yes</ComboBoxItem>
-                </ComboBox>
-                <ComboBox x:Name="genderBox" HorizontalAlignment="Left" Margin="307,803,0,0" VerticalAlignment="Top" Width="74" >
-                    <ComboBoxItem>Female</ComboBoxItem>
-                    <ComboBoxItem>Male</ComboBoxItem>
-                </ComboBox>
-                <ComboBox x:Name="ethnicitiesBox" HorizontalAlignment="Left" Margin="307,840,0,0" VerticalAlignment="Top" Width="247"/>
-                <ComboBox x:Name="racesBox" HorizontalAlignment="Left" Margin="307,878,0,0" VerticalAlignment="Top" Width="247"/>
-                <ComboBox x:Name="supportrequiredBox" HorizontalAlignment="Left" Margin="307,916,0,0" VerticalAlignment="Top" Width="74">
-                    <ComboBoxItem>No</ComboBoxItem>
-                    <ComboBoxItem>Yes</ComboBoxItem>
-                </ComboBox>
-                <ComboBox x:Name="referencesBox" HorizontalAlignment="Left" Margin="307,966,0,0" VerticalAlignment="Top" Width="247"/>
-                <ComboBox x:Name="newsletterBox" HorizontalAlignment="Left" Margin="307,1002,0,0" VerticalAlignment="Top" Width="74">
-                    <ComboBoxItem>No</ComboBoxItem>
-                    <ComboBoxItem>Yes</ComboBoxItem>
-                </ComboBox>
-                <ComboBox x:Name="provideinfobyBox" HorizontalAlignment="Left" Margin="307,1042,0,0" VerticalAlignment="Top" Width="247"/>
-
-                <TextBox x:Name="initialsBox" HorizontalAlignment="Left" Margin="307,1143,0,0" TextWrapping="Wrap" Width="33" Height="23" VerticalAlignment="Top" TextChanged="Textbox_LimitCharacters"/>
                 <Button x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="120,1241,0,10" VerticalAlignment="Top" Width="75" Click="Cancel"/>
-                <Button x:Name="saveButton" Content="Save" HorizontalAlignment="Left" Margin="405,1241,0,10" VerticalAlignment="Top" Width="75" Click="Save"/>
-
+                <Button x:Name="saveButton" Content="Save" HorizontalAlignment="Left" Margin="405,1241,0,10" VerticalAlignment="Top" Width="75" Click="Save" />
             </Grid>
         </ScrollViewer>
 

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -61,7 +60,6 @@ namespace Sappi
                 //fill hardcoded group combobox items
                 int currentYr = DateTime.Now.Year;
                 FillNumbers(educationyearBox, currentYr - 100, currentYr);
-
             }
             else
             {
@@ -128,7 +126,6 @@ namespace Sappi
                     //select values to represent the StudentData
                     if(sd.groupBoxes[i] != -1)
                         groupBoxes[i].SelectedItem = fData.masterList[sd.groupBoxes[i]];
-
                 }
             }
 
@@ -143,7 +140,6 @@ namespace Sappi
             tb.Text = string.Empty;
             tb.GotFocus -= Textbox_GotFocus;
         }
-
         private void Textbox_MoveToNext(object sender, TextChangedEventArgs e)
         {
             TextBox tb = (TextBox)sender;
@@ -164,7 +160,7 @@ namespace Sappi
         private void Textbox_LimitCharacters(object sender, TextChangedEventArgs e)
         {
             TextBox tb = (TextBox)sender;
-
+            //don't do anything if the user did not click on the textbox
             if (!tb.IsFocused)
                 return;
 
@@ -247,28 +243,28 @@ namespace Sappi
         }
 
         private void Cancel(object sender, RoutedEventArgs e)
-        {
-            //foreach control-> if content changed,
-            //ask, "are you sure you want to cancel?"
-            MainWindow.Main.ContentArea.Content = App.previous;
-            //Console.WriteLine("-- " + GetType().Name);
+        {            
+            MessageBoxResult messageBoxResult = MessageBox.Show("Any unsaved changes will be lost. Are you sure you wish to go back?", 
+                                                "Action Confirmation", MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+                MainWindow.Main.ContentArea.Content = App.previous;
             //MainWindow.GoToPreviousPage();
         }
 
         private void DisableMailingAddress(object sender, RoutedEventArgs e)
         {
             mailAddressTextBlock.Visibility = Visibility.Hidden;
-            //mailaddressBox1.Visibility = Visibility.Hidden;
-            //mailaddressBox2.Visibility = Visibility.Hidden;
-            //mailaddressBox3.Visibility = Visibility.Hidden;
+            mailaddressBox1.Visibility = Visibility.Hidden;
+            mailaddressBox2.Visibility = Visibility.Hidden;
+            mailaddressBox3.Visibility = Visibility.Hidden;
         }
 
         private void EnableMailingAddress(object sender, RoutedEventArgs e)
         {
             mailAddressTextBlock.Visibility = Visibility.Visible;
-            //mailaddressBox1.Visibility = Visibility.Visible;
-            //mailaddressBox2.Visibility = Visibility.Visible;
-            //mailaddressBox3.Visibility = Visibility.Visible;
+            mailaddressBox1.Visibility = Visibility.Visible;
+            mailaddressBox2.Visibility = Visibility.Visible;
+            mailaddressBox3.Visibility = Visibility.Visible;
         }
     }
 }
