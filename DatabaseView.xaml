@@ -15,17 +15,17 @@
     <Grid x:Name="root" Loaded="DatabaseView_Loaded" HorizontalAlignment="Center">
 
         <TextBox x:Name="searchBar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,136,0,0" Width="256" Height="23" TextWrapping="Wrap" Text="(search)" GotFocus="Textbox_GotFocus"/>
-        <DataGrid x:Name="dg" HorizontalAlignment="Center" VerticalAlignment="Top" MinWidth="1160" MinHeight="500" AutoGenerateColumns="False" IsReadOnly="True" KeyUp="Datagrid_KeyUp" Margin="40,164,40,0" CanUserDeleteRows="False">
+        <DataGrid x:Name="dg" HorizontalAlignment="Center" VerticalAlignment="Top" MinWidth="1160" MinHeight="500" AutoGenerateColumns="False" IsReadOnly="True" KeyUp="Datagrid_KeyUp" Margin="40,164,40,0" CanUserDeleteRows="False" ContextMenuOpening="contextMenu_Opening">
             <DataGrid.Resources>
-                <ContextMenu x:Name="contextMenu" x:Key="RowMenu" DataContext="{Binding PlacementTarget, RelativeSource={RelativeSource Self}}" Opened="contextMenu_Opened" Closed="contextMenu_Closed">
-                    <MenuItem Header="Edit Cell" IsEnabled="True" Visibility="Visible"/>
+                <ContextMenu x:Name="contextMenu" x:Key="RowMenu" DataContext="{Binding PlacementTarget, RelativeSource={RelativeSource Self}}">
+                    <MenuItem Header="Edit Cell" IsEnabled="False"/>
                     <Separator/>
                     <MenuItem Header="Edit" Command="local:ContextCommands.Edit"/>
                     <MenuItem Header="Delete" Command="local:ContextCommands.Delete"/>
                 </ContextMenu>
                 <Style TargetType="{x:Type DataGridCell}">
                     <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="true"></Trigger>
+                        <Trigger Property="IsMouseOver" Value="true"/>
                     </Style.Triggers>
                 </Style>
             </DataGrid.Resources>

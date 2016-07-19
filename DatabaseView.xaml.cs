@@ -209,39 +209,7 @@ namespace Sappi
                     CurrentColumn = cell.Column.Header.ToString();
             }
         }
-
-        private void contextMenu_Opened(object sender, RoutedEventArgs e)
-        {
-            // |item_lvl1|
-            // |item_lvl1| -> |item_lvl2|
-            //                |item_lvl2|
-
-            ContextMenu menu = (ContextMenu)e.OriginalSource;
-            
-            MenuItem item1_lvl1 = (MenuItem)menu.Items[0];
-            item1_lvl1.Header = "Edit " + CurrentColumn;
-
-            if(item1_lvl1.Items.Count == 0)
-            {
-                for (int i = 0; i < App.formData.status.Count; ++i)
-                {
-                    MenuItem item_lvl2 = new MenuItem();                    
-                    item_lvl2.Header = App.formData.status[i];
-                    item_lvl2.Command = ContextCommands.EditCell;
-                    item_lvl2.CommandParameter = i;
-
-                    item1_lvl1.Items.Add(item_lvl2);
-                }
-            }            
-        }
-        private void contextMenu_Closed(object sender, RoutedEventArgs e)
-        {
-            ContextMenu menu = (ContextMenu)e.OriginalSource;
-            MenuItem item1_lvl1 = (MenuItem)menu.Items[0];
-
-            item1_lvl1.Items.Clear();
-        }
-
+        
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
             //     Can't set equal to App.previous because if user entered a StudentForm,
@@ -254,6 +222,44 @@ namespace Sappi
         private void newAppButton_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.ChangeState(App.Page.StudentForm);
+        }
+
+        private void contextMenu_Opening(object sender, ContextMenuEventArgs e)
+        {
+            DataGridRow row;
+            if(dg.SelectedItem != null)
+            {
+                row = DataGridHelper.GetRow(dg, dg.SelectedIndex);
+
+                // |item_lvl1|
+                // |item_lvl1| -> |item_lvl2|
+                //                |item_lvl2|
+                MenuItem item1_lvl1 = (MenuItem)row.ContextMenu.Items[0];
+                item1_lvl1.Header = "Edit " + CurrentColumn;
+
+                if (CurrentColumn == "Status")
+                {
+                    item1_lvl1.IsEnabled = true;
+                    //add submenu items
+                    if (item1_lvl1.Items.Count == 0)
+                    {
+                        for (int i = 0; i < App.formData.status.Count; ++i)
+                        {
+                            MenuItem item_lvl2 = new MenuItem();
+                            item_lvl2.Header = App.formData.status[i];
+                            item_lvl2.Command = ContextCommands.EditCell;
+                            item_lvl2.CommandParameter = i;
+
+                            item1_lvl1.Items.Add(item_lvl2);
+                        }
+                    }
+                }
+                else
+                {
+                    item1_lvl1.IsEnabled = false;
+                    item1_lvl1.Items.Clear();
+                }
+            }
         }
     }
 
