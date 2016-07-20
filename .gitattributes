@@ -18,4 +18,5 @@
 
 # ClickOnce Deployment
 *.manifest binary
+*.application binary
 *.deploy binary
