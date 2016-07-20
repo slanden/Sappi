@@ -26,11 +26,11 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>https://raw.githubusercontent.com/slanden/Sappi/master/deploy/</InstallUrl>
-    <UpdateUrl>https://raw.githubusercontent.com/slanden/Sappi/master/deploy/</UpdateUrl>
+    <InstallUrl>http://www.shelbylanden.com/Portfolio/_deploy/Sappi/</InstallUrl>
+    <UpdateUrl>http://www.shelbylanden.com/Portfolio/_deploy/Sappi/</UpdateUrl>
     <ProductName>Sappi</ProductName>
     <PublisherName>Sappi</PublisherName>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
