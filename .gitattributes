@@ -17,6 +17,6 @@
 *.RTF	 diff=astextplain
 
 # ClickOnce Deployment
-*.manifest binary
-*.application binary
-*.deploy binary
+#*.manifest binary
+#*.application binary
+#*.deploy binary

@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("Sappi")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Academy of Interactive Entertainment")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Sappi")]
-[assembly: AssemblyCopyright("Copyright © Academy of Interactive Entertainment 2016")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
