@@ -53,7 +53,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>bin\sappi.ico</ApplicationIcon>
+    <ApplicationIcon>bin\resources\sappi.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
@@ -76,6 +76,7 @@
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
@@ -184,22 +185,22 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\aie-logo.png" />
+    <Resource Include="bin\resources\aie-logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\addStudent.png" />
+    <Resource Include="bin\resources\addStudent.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\database.png" />
+    <Resource Include="bin\resources\database.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\back.png" />
+    <Resource Include="bin\resources\back.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\imgPlaceholder.jpg" />
+    <Resource Include="bin\resources\imgPlaceholder.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\sappi.ico" />
+    <Resource Include="bin\resources\sappi.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
