@@ -11,7 +11,7 @@ namespace Sappi
     {
         public static Database db;
         public static FormData formData;
-        public static string pathToDatabase = "..\\resources/students.xml";
+        public static string pathToDatabase = "./resources/students.xml";// "..\\resources/students.xml";
         public enum Page { StartUp, StudentForm, DatabaseView , length};
         public static UserControl previous;
 
@@ -34,6 +34,12 @@ namespace Sappi
             file.Flush();
             file.Close();
             file.Dispose();
+        }
+
+        private void Application_Exit(object sender, ExitEventArgs e)
+        {
+            //serialize data
+            XmlSerial.Write(db.items, pathToDatabase);
         }
     }
 }

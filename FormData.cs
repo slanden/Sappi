@@ -14,9 +14,9 @@ namespace Sappi
         {
             masterList = new Dictionary<int, string>();
             //path to the bin folder
-            string path = Path.GetFullPath(Path.Combine(AppDomain.
-                          CurrentDomain.BaseDirectory, "..\\"));
-            path += "resources/strings.txt";
+            //string path = Path.GetFullPath(Path.Combine(AppDomain.
+            //              CurrentDomain.BaseDirectory, "..\\"));
+            string path = "./resources/strings.txt";
 
             //    read strings from file, put them
             // into lists, and create groups

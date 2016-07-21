@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Xml.Serialization;
 
 namespace Sappi
 {
@@ -8,6 +9,8 @@ namespace Sappi
     public partial class MainWindow : Window
     {
         internal static MainWindow Main;
+        //public static readonly XmlSerializer serializer = new XmlSerializer(typeof(MainWindow));
+
         public MainWindow()
         {
             InitializeComponent();
@@ -70,7 +73,7 @@ namespace Sappi
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             //serialize data
-            XmlSerial.Write(App.db.items, App.pathToDatabase);
+            //XmlSerial.Write(App.db.items, App.pathToDatabase);
         }
     }
 }
