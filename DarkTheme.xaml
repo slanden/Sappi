@@ -6,11 +6,11 @@
     <local:DebugConverter x:Key="DebugConverter"/>
 
     <!-- images -->
-    <BitmapImage x:Key="img_placeholder" UriSource="./bin/imgPlaceholder.jpg"/>
-    <BitmapImage x:Key="img_aieLogo" UriSource="./bin/aie-logo.png"/>
-    <BitmapImage x:Key="img_backButton" UriSource="./bin/back.png"/>
-    <BitmapImage x:Key="img_newItem" UriSource="./bin/addStudent.png"/>
-    <BitmapImage x:Key="img_database" UriSource="./bin/database.png"/>
+    <BitmapImage x:Key="img_placeholder" UriSource="./bin/resources/imgPlaceholder.jpg"/>
+    <BitmapImage x:Key="img_aieLogo" UriSource="./bin/resources/aie-logo.png"/>
+    <BitmapImage x:Key="img_backButton" UriSource="./bin/resources/back.png"/>
+    <BitmapImage x:Key="img_newItem" UriSource="./bin/resources/addStudent.png"/>
+    <BitmapImage x:Key="img_database" UriSource="./bin/resources/database.png"/>
 
     <!-- colors -->
     <SolidColorBrush x:Key="baseColor" Color="#282829"/>
