@@ -11,7 +11,7 @@ namespace Sappi
     {
         public static Database db;
         public static FormData formData;
-        public static string pathToDatabase = "..\\resources/students.xml";
+        public static string pathToDatabase = "..\\students.xml";
         public enum Page { StartUp, StudentForm, DatabaseView , length};
         public static UserControl previous;
 
